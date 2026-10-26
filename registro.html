@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear cuenta | inspira-T</title>
+
+  <link rel="icon" type="image/x-icon" href="./assiest/images/isotipo_blanco.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assiest/css/styles.css">
+</head>
+<body>
+  <main class="register-page">
+
+    <!-- ================= COLUMNA IZQUIERDA ================= -->
+    <section class="reg-info">
+
+      <!-- 1) LOGO inspira-T -->
+      <div class="slot slot--reg-logo slot--limpio" data-nombre="Logo">
+        <img src="./assiest/images/logo_frase.png" alt="inspira-T">
+      </div>
+
+      <h1 class="reg-titulo">Únete a nuestra <span class="reg-titulo__verde">comunidad</span></h1>
+      <p class="reg-texto">
+        Crea tu cuenta y accede a cursos, videos y transmisiones sobre conocimientos
+        ancestrales y tradiciones culturales.
+      </p>
+
+      <div class="reg-escena">
+
+        <!-- 2) ILUSTRACIÓN (abuela y joven con plantas) -->
+        <div class="slot slot--reg-ilustracion slot--limpio" data-nombre="Ilustración principal">
+          <img src="./assiest/images/abuela_registro.png" alt="Una abuela y un joven cuidan plantas juntos">
+        </div>
+
+        <!-- Tarjeta blanca con los 3 beneficios -->
+        <ul class="beneficios">
+          <li class="beneficio">
+            <!-- 3) ÍCONO APRENDE (birrete azul) -->
+            <div class="slot slot--beneficio slot--limpio" data-nombre="Aprende">
+              <img src="./assiest/images/icono_aprende.png" alt="">
+            </div>
+            <div>
+              <h2>Aprende</h2>
+              <p>Accede a contenido educativo creado por expertos y guardianes del conocimiento.</p>
+            </div>
+          </li>
+
+          <li class="beneficio">
+            <!-- 4) ÍCONO CONECTA (personas, violeta) -->
+            <div class="slot slot--beneficio slot--limpio" data-nombre="Conecta">
+              <img src="./assiest/images/icono_conecta.png" alt="">
+            </div>
+            <div>
+              <h2>Conecta</h2>
+              <p>Interactúa con comunidades y comparte experiencias.</p>
+            </div>
+          </li>
+
+          <li class="beneficio">
+            <!-- 5) ÍCONO PRESERVA (hoja, verde agua) -->
+            <div class="slot slot--beneficio slot--limpio" data-nombre="Preserva">
+              <img src="./assiest/images/icono_preserva.png" alt="">
+            </div>
+            <div>
+              <h2>Preserva</h2>
+              <p>Ayuda a preservar nuestras raíces para futuras generaciones.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= TARJETA DE REGISTRO ================= -->
+    <section class="reg-card" aria-labelledby="reg-h">
+
+      <header class="reg-card__header">
+        <div class="reg-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/>
+          </svg>
+        </div>
+        <h2 id="reg-h">Crear cuenta</h2>
+        <p>Completa el formulario para registrarte</p>
+
+        <div class="reg-divisor">
+          <!-- 6) FLOR pequeña (centro del divisor) -->
+          <div class="slot slot--reg-flor slot--limpio" data-nombre="Flor">
+            <img src="./assiest/images/flor.png" alt="" aria-hidden="true">
+          </div>
+        </div>
+      </header>
+
+      <form class="reg-form" action="#" method="post" novalidate>
+
+        <div class="field">
+          <label for="nombre">Nombre completo</label>
+          <div class="input">
+            <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/>
+            </svg>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" autocomplete="name" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="correo">Correo electronico</label>
+          <div class="input">
+            <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3.5 6.5 8.5 7 8.5-7"/>
+            </svg>
+            <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="usuario">Nombre de usuario</label>
+          <div class="input">
+            <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/>
+            </svg>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingresa un nombre de usuario" autocomplete="username" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <div class="input">
+            <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2.5"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+              <circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" autocomplete="new-password" required>
+            <button type="button" class="input__toggle" data-toggle="password" aria-label="Mostrar contraseña">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password2">Confirmar contraseña</label>
+          <div class="input">
+            <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2.5"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+              <circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/>
+            </svg>
+            <input type="password" id="password2" name="password2" placeholder="Confirma tu contraseña" autocomplete="new-password" required>
+            <button type="button" class="input__toggle" data-toggle="password2" aria-label="Mostrar contraseña">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tipo de usuario -->
+        <fieldset class="tipo">
+          <legend>Tipo de usuario</legend>
+
+          <label class="tipo__op">
+            <input type="radio" name="tipo" value="aprendiente" checked>
+            <span class="tipo__card">
+              <!-- 7) ÍCONO LIBRO (Aprendiente) -->
+              <span class="slot slot--tipo slot--limpio" data-nombre="Libro">
+                <img src="./assiest/images/aprendiente.png" alt="">
+              </span>
+              <strong>Aprendiente</strong>
+              <small>Quiero aprender y explorar saberes ancestrales.</small>
+            </span>
+          </label>
+
+          <label class="tipo__op">
+            <input type="radio" name="tipo" value="instructor">
+            <span class="tipo__card">
+              <!-- 8) ÍCONO INSTRUCTOR -->
+              <span class="slot slot--tipo slot--limpio" data-nombre="Instructor">
+                <img src="./assiest/images/instructor.png" alt="">
+              </span>
+              <strong>Instructor</strong>
+              <small>Quiero compartir mis conocimientos.</small>
+            </span>
+          </label>
+        </fieldset>
+
+        <button type="submit" class="btn-registro">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="9.5" cy="8" r="4"/>
+            <path d="M2 21v-1.5A5.5 5.5 0 0 1 7.5 14h4a5.5 5.5 0 0 1 5.5 5.5V21"/>
+            <path d="M19 8v6M16 11h6"/>
+          </svg>
+          Crear cuenta
+        </button>
+      </form>
+
+      <p class="reg-login">
+        ¿Ya tienes cuenta?
+        <a class="reg-link" href="login_page.html">Iniciar Sesión</a>
+      </p>
+    </section>
+
+  </main>
+
+  <script>
+    // Mostrar / ocultar contraseña (funciona para ambos campos)
+    document.querySelectorAll('[data-toggle]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const campo = document.getElementById(btn.dataset.toggle);
+        const visible = campo.type === 'text';
+        campo.type = visible ? 'password' : 'text';
+        btn.setAttribute('aria-label', visible ? 'Mostrar contraseña' : 'Ocultar contraseña');
+      });
+    });
+  </script>
+</body>
+</html>
