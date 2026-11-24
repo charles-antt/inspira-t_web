@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mis cursos | inspira-T</title>
+    <link rel="icon" href="./assiest/images/isotipo_blanco.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assiest/css/styles.css">
+    <link rel="stylesheet" href="./assiest/css/app.css">
+</head>
+<body class="app" data-page="mis_cursos.html" data-role="aprendiente">
+<aside class="sidebar">
+    <div class="brand">
+        <img src="./assiest/images/isotipo_blanco.png" alt="">inspira-T
+    </div>
+    <nav>
+        <a href="inicio_aprendiente.html" class="">Inicio</a>
+        <a href="explorar.html" class="">Explorar</a>
+        <a href="mi_aprendizaje.html" class="">Mi aprendizaje</a>
+        <a href="mis_cursos.html" class="active">Mis cursos</a>
+    </nav>
+    <div class="cta">Comparte tu conocimiento
+        <a href="subir_contenido.html">Quiero ser instructor</a>
+    </div>
+</aside>
+<main class="main">
+    <div class="topbar">
+        <div>
+            <h1>Mis Cursos</h1>
+        </div>
+        <div class="icons">
+            <span class="bell">🔔</span>
+            <a href="perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
+        </div>
+    </div>
+<div class="chips">
+    <button class="pill on">Todos</button>
+    <button class="pill ">Agricultura</button>
+    <button class="pill ">Medicina</button>
+    <button class="pill ">Artesanías</button>
+    <button class="pill ">Lenguas</button>
+    <button class="pill ">Gastronomía</button>
+    <button class="pill ">Deportes y juegos</button>
+</div>
+<h2>Lecciones</h2>
+<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+    <div class="card-c" data-cat="GASTRONOMÍA">
+        <div class="thumb t1">
+
+        </div>
+        <small style="color:#b45309;font-weight:600">GASTRONOMÍA</small>
+        <b style="font-size:.8rem">Mole tradicional de mi comunidad</b>
+        <small>Juana Pérez</small>
+    </div>
+    <div class="card-c" data-cat="TRADICIONES">
+            <div class="thumb t2"></div>
+            <small style="color:#b45309;font-weight:600">TRADICIONES</small>
+            <b style="font-size:.8rem">Rituales de agradecimiento</b>
+            <small>Consejo de Ancianos</small>
+        </div>
+        <div class="card-c" data-cat="ARTESANÍAS">
+            <div class="thumb t3"></div>
+            <small style="color:#b45309;font-weight:600">ARTESANÍAS</small>
+            <b style="font-size:.8rem">Alfarería ancestral</b>
+            <small>Francisco Díaz</small>
+        </div>
+        <div class="card-c" data-cat="ARTESANÍAS">
+            <div class="thumb t4"></div>
+            <small style="color:#b45309;font-weight:600">ARTESANÍAS</small>
+            <b style="font-size:.8rem">Cestería con palma</b>
+            <small>Rosa Martínez</small>
+        </div>
+        <div class="card-c" data-cat="DEPORTES">
+            <div class="thumb t1"></div>
+            <small style="color:#b45309;font-weight:600">DEPORTES</small>
+            <b style="font-size:.8rem">Juego de pelota prehispánico</b>
+            <small>Carlos Xalotl</small>
+        </div>
+        <div class="card-c" data-cat="AGRICULTURA">
+            <div class="thumb t2"></div>
+            <small style="color:#b45309;font-weight:600">AGRICULTURA</small>
+            <b style="font-size:.8rem">Cultivo de maíz tradicional</b>
+            <small>María López</small>
+        </div>
+    </div>
+</div>
+<div class="card-c" style="display:flex;gap:16px;margin-top:16px">
+    <div class="thumb t4" style="width:200px"></div>
+    <div style="flex:1">
+        <small style="color:#b45309;font-weight:600">GASTRONOMÍA</small>
+        <h2 style="margin:0">Mole tradicional de mi comunidad</h2>
+        <small>Tu progreso <b id="pct">75%</b></small>
+        <div class="progress">
+            <i id="pbar" style="width:75%"></i>
+        </div>
+    </div>
+    <div class="panel" style="font-size:.75rem">
+        12 lecciones · 5 unidades<br>
+        2h 35m de contenido<br>
+        Nivel principiante
+        <a class="btn block" href="reproductor.html">Continuar aprendiendo</a>
+    </div>
+</div>
+<div class="tabs" style="justify-content:flex-start">
+    <button class="on" data-t="l">Lecciones</button>
+    <button data-t="u">Unidades</button>
+</div>
+<div class="box tab-panel on" data-tab="l">
+    <div class="lesson">
+        <input type="checkbox" data-lesson checked>
+        <div class="thumb t1"></div>
+        <div><b>1. Origen e historia del mole</b></div>
+        <span>8-10 min</span>
+        <span class="status " data-status>Completada</span>
+    </div>
+    <div class="lesson">
+        <input type="checkbox" data-lesson checked>
+        <div class="thumb t2"></div>
+        <div><b>2. Ingredientes y su selección</b></div>
+        <span>10-12 min</span>
+        <span class="status " data-status>Completada</span>
+    </div>
+    <div class="lesson">
+        <input type="checkbox" data-lesson >
+        <div class="thumb t3"></div>
+        <div><b>3. Preparación de los ingredientes</b></div>
+        <span>12-15 min</span>
+        <span class="status " data-status>En progreso</span>
+    </div>
+    <div class="lesson">
+        <input type="checkbox" data-lesson >
+        <div class="thumb t4"></div>
+        <div><b>4. Elaboración del mole paso a paso</b></div>
+        <span>15-19 min</span>
+        <span class="status" data-status>Pendiente</span>
+    </div>
+    <div class="lesson">
+        <input type="checkbox" data-lesson>
+        <div class="thumb t1"></div>
+        <div><b>5. Presentación y conservación</b></div>
+        <span>8-12 min</span>
+        <span class="status" data-status>Pendiente</span>
+    </div>
+</div>
+</main>
+<script src="./assets/js/app.js"></script>
+<script>document.querySelectorAll('.tabs').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('[data-tab]').forEach(p=>p.classList.toggle('on',p.dataset.tab===b.dataset.t))}));</script>
+</body></html>
