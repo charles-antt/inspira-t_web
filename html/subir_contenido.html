@@ -1,159 +1,347 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Subir nuevo contenido | inspira-T</title>
-        <link rel="icon" href="../assiest/images/isotipo_blanco.png">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../assiest/css/styles.css">
-        <link rel="stylesheet" href="../assiest/css/app.css">
-    </head>
-    <body class="app" data-page="subir_contenido.html" data-role="instructor">
-        <aside class="sidebar">
-            <div class="brand"><img src="../assiest/images/isotipo_blanco.png" alt="">inspira-T</div>
-            <nav>
-                <a href="../html/inicio_instructor.html" class="active">Inicio</a>
-            </nav>
-        </aside>
-        <main class="main">
-            <div class="topbar">
-                <div>
-                    <h1>Subir nuevo contenido</h1>
-                    <p>Comparte tus conocimientos ancestrales con nuestra comunidad</p>
-                </div>
-                <div class="icons">
-                    <span class="bell">🔔</span>
-                    <a href="../html/perfil_instructor.html" class="avatar" aria-label="Mi perfil"></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Subir nuevo contenido | inspira-T</title>
+    <link rel="icon" href="../assiest/images/isotipo_blanco.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assiest/css/styles.css">
+    <link rel="stylesheet" href="../assiest/css/app.css">
+</head>
+<body class="app" data-page="subir_contenido.html" data-role="instructor">
+
+    <!-- Barra lateral izquierda -->
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="../assiest/images/isotipo_blanco.png" alt="Logo inspira-T">
+            <span>inspira-T</span>
+        </div>
+        <nav>
+            <a href="../html/inicio_instructor.html" class="active" style="display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="home" style="width: 20px; height: 20px;"></i>
+                <span>Inicio</span>
+            </a>
+        </nav>
+        <!-- Ilustración decorativa inferior -->
+        <div class="sidebar-illustration">
+            <img src="../assiest/images/maceta_planta.png" alt="" aria-hidden="true">
+        </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main">
+        <!-- Encabezado superior -->
+        <div class="topbar">
+            <div>
+                <h1>Subir nuevo contenido</h1>
+                <p>Compartir tus conocimientos ancestrales con nuestra comunidad</p>
+                
+                <!-- Selector de tipo de publicación -->
+                <div class="publish-type" style="margin-top: 12px;">
+                    <span style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">Tipo de publicación</span>
+                    <div class="tabs radio-tabs" style="display: flex; gap: 24px;">
+                        <label class="radio-option" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="tipo_publicacion" value="grabado" data-t="g" checked>
+                            <span>Curso grabado</span>
+                        </label>
+                        <label class="radio-option" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="tipo_publicacion" value="vivo" data-t="v">
+                            <span>Transmisión en vivo</span>
+                        </label>
+                    </div>
                 </div>
             </div>
-            <div class="box">
-                <h3>Detalles adicionales</h3>
-                <div class="row2">
-                    <div class="field">
-                        <label>Idioma del video</label>
-                        <select>
-                            <option value="">Selecciona el idioma</option>
-                            <option>Español</option>
-                            <option>Zapoteco</option>
-                            <option>Náhuatl</option>
-                            <option>Maya</option>
-                            <option>Mixteco</option>
-                        </select>
+
+            <div class="icons" style="display: flex; align-items: center; gap: 16px;">
+                <button type="button" class="bell" title="Notificaciones" style="background: none; border: none; cursor: pointer; position: relative; padding: 4px;">
+                    <i data-lucide="bell" style="width: 24px; height: 24px; color: #1e293b;"></i>
+                    <span style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #6366f1; border-radius: 50%;"></span>
+                </button>
+                <a href="../html/perfil_instructor.html" class="avatar" aria-label="Mi perfil" style="display: flex; align-items: center; justify-content: center;">
+                    <i data-lucide="circle-user" style="width: 28px; height: 28px; color: #1e293b;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contenedor de 2 columnas -->
+        <div class="content-grid" style="display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start;">
+            
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="left-column">
+                
+                <!-- PANEL 1: CURSO GRABADO -->
+                <div data-tab="g" class="tab-panel on">
+                    
+                    <!-- Caja 1: Dropzone de video -->
+                    <div class="box upload-dropzone" style="border: 2px dashed #cbd5e1; text-align: center; padding: 32px 20px; margin-bottom: 20px;">
+                        <div class="upload-icon" style="display: flex; justify-content: center; margin-bottom: 10px; color: #475569;">
+                            <i data-lucide="cloud-upload" style="width: 44px; height: 44px; stroke-width: 1.75;"></i>
+                        </div>
+                        <p style="font-weight: 700; margin: 0;">Arrastra y suelta tu vídeo aquí</p>
+                        <p style="margin: 6px 0; font-size: 0.9rem; color: #64748b;">o</p>
+                        <label class="btn-primary" style="display: inline-block; background: #1d70e3; color: #fff; padding: 10px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin: 8px 0;">
+                            Seleccionar archivo
+                            <input type="file" accept="video/mp4,video/quicktime,video/x-msvideo" hidden>
+                        </label>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">
+                            Formatos: MP4, MOV, AVI &nbsp;&nbsp; Máx. 5GB
+                        </p>
                     </div>
-                    <div class="field">
-                        <label>Público objetivo</label>
-                        <input placeholder="¿A quién va dirigido este contenido?">
-                        </input>
+
+                    <!-- Caja 2: Información del vídeo -->
+                    <div class="box" style="margin-bottom: 20px;">
+                        <h3>Información del vídeo</h3>
+                        <div class="row2">
+                            <div class="field">
+                                <label>Título del vídeo<span style="color:#2563eb">*</span></label>
+                                <input type="text" maxlength="100" placeholder="Escribe un título atractivo y descriptivo" oninput="document.getElementById('title-count').textContent = this.value.length + '/100'">
+                                <small id="title-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/100</small>
+                            </div>
+
+                            <div class="field">
+                                <label>Categoría<span style="color:#2563eb">*</span></label>
+                                <select>
+                                    <option value="">Selecciona una categoría</option>
+                                    <option>Agricultura</option>
+                                    <option>Medicina</option>
+                                    <option>Artesanías</option>
+                                    <option>Lenguas</option>
+                                    <option>Gastronomía</option>
+                                    <option>Deportes y juegos</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Descripción<span style="color:#2563eb">*</span></label>
+                                <textarea rows="4" maxlength="5000" placeholder="Cuéntanos de qué trata tu vídeo, qué aprenderá la comunidad...." oninput="document.getElementById('desc-count').textContent = this.value.length + '/5000'"></textarea>
+                                <small id="desc-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/5000</small>
+                            </div>
+
+                            <div class="field">
+                                <label>Etiquetas</label>
+                                <input type="text" placeholder="Añade etiquetas relevantes (Ej. medicina, herbolaria)">
+                                <small style="display: block; color: #64748b; font-size: 0.75rem; margin-top: 6px;">Separa las etiquetas con comas</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="field">
-                        <label>Nivel de dificultad</label>
-                        <select>
-                            <option value="">Selecciona el nivel</option>
-                            <option>Principiante</option>
-                            <option>Intermedio</option>
-                            <option>Avanzado</option>
-                        </select>
+
+                    <!-- Caja 3: Detalles adicionales -->
+                    <div class="box">
+                        <h3>Detalles adicionales</h3>
+                        <div class="row2">
+                            <div class="field">
+                                <label>Idioma del vídeo</label>
+                                <select>
+                                    <option value="">Selecciona el idioma</option>
+                                    <option>Español</option>
+                                    <option>Zapoteco</option>
+                                    <option>Náhuatl</option>
+                                    <option>Maya</option>
+                                    <option>Mixteco</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Público objetivo</label>
+                                <input type="text" placeholder="¿A quién va dirigido este contenido?">
+                            </div>
+
+                            <div class="field">
+                                <label>Nivel de dificultad</label>
+                                <select>
+                                    <option value="">Selecciona el nivel</option>
+                                    <option>Principiante</option>
+                                    <option>Intermedio</option>
+                                    <option>Avanzado</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Permitir comentarios</label>
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
+                                    <span style="font-size: 0.85rem;">Los alumnos podrán comentar y hacer preguntas</span>
+                                    <input type="checkbox" class="toggle-switch" checked>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <label style="font-size:.8rem">
-                        <input type="checkbox" checked> Los alumnos podrán comentar
+                </div>
+
+                <!-- PANEL 2: TRANSMISIÓN EN VIVO -->
+                <div data-tab="v" class="tab-panel" style="display: none;">
+                    <div class="box" style="min-height: 540px;">
+                        <h3>Crear transmisión en vivo</h3>
+                        <div class="row2">
+                            <!-- Título de la transmisión -->
+                            <div class="field">
+                                <label>Título de la transmisión<span style="color:#2563eb">*</span></label>
+                                <input type="text" maxlength="100" placeholder="Escribe un título atractivo y descriptivo" oninput="document.getElementById('live-title-count').textContent = this.value.length + '/100'">
+                                <small id="live-title-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/100</small>
+                            </div>
+
+                            <!-- Categoría -->
+                            <div class="field">
+                                <label>Categoría<span style="color:#2563eb">*</span></label>
+                                <select>
+                                    <option value="">Selecciona una categoría</option>
+                                    <option>Agricultura</option>
+                                    <option>Medicina</option>
+                                    <option>Artesanías</option>
+                                    <option>Lenguas</option>
+                                    <option>Gastronomía</option>
+                                    <option>Deportes y juegos</option>
+                                </select>
+                            </div>
+
+                            <!-- Descripción -->
+                            <div class="field">
+                                <label>Descripción<span style="color:#2563eb">*</span></label>
+                                <textarea rows="4" maxlength="5000" placeholder="Cuéntanos de qué trata tu transmisión, qué aprenderá la comunidad...." oninput="document.getElementById('live-desc-count').textContent = this.value.length + '/5000'"></textarea>
+                                <small id="live-desc-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/5000</small>
+                            </div>
+
+                            <!-- Etiquetas -->
+                            <div class="field">
+                                <label>Etiquetas</label>
+                                <input type="text" placeholder="Añade etiquetas relevantes (Ej. medicina, herbolaria)">
+                                <small style="display: block; color: #4f46e5; font-size: 0.75rem; margin-top: 6px;">Separa las etiquetas con comas</small>
+                            </div>
+
+                            <!-- Fecha (Columna izquierda completa) -->
+                            <div class="field">
+                                <label>Fecha<span style="color:#2563eb">*</span></label>
+                                <div style="position: relative; display: flex; align-items: center;">
+                                    <input type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" placeholder="Selecciona fecha" style="width: 100%; padding-right: 36px;">
+                                    <i data-lucide="calendar" style="position: absolute; right: 12px; width: 16px; height: 16px; color: #64748b; pointer-events: none;"></i>
+                                </div>
+                            </div>
+
+                            <!-- Hora de inicio y Duración estimada (Subcolumnas en la derecha) -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                                <div class="field" style="margin: 0;">
+                                    <label>Hora de inicio<span style="color:#2563eb">*</span></label>
+                                    <div style="position: relative; display: flex; align-items: center;">
+                                        <input type="text" onfocus="(this.type='time')" onblur="if(!this.value)this.type='text'" placeholder="--:--" style="width: 100%; padding-right: 34px;">
+                                        <i data-lucide="clock" style="position: absolute; right: 10px; width: 16px; height: 16px; color: #64748b; pointer-events: none;"></i>
+                                    </div>
+                                </div>
+
+                                <div class="field" style="margin: 0;">
+                                    <label>Duración estimada<span style="color:#2563eb">*</span></label>
+                                    <input type="text" placeholder="Ej. 1 hora" style="width: 100%;">
+                                </div>
+                            </div>
+
+                            <!-- Nivel de dificultad -->
+                            <div class="field">
+                                <label>Nivel de dificultad</label>
+                                <select>
+                                    <option value="">Selecciona el nivel</option>
+                                    <option>Principiante</option>
+                                    <option>Intermedio</option>
+                                    <option>Avanzado</option>
+                                </select>
+                            </div>
+
+                            <!-- Permitir comentarios -->
+                            <div class="field">
+                                <label>Permitir comentarios</label>
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
+                                    <span style="font-size: 0.85rem;">Los alumnos podrán comentar y hacer preguntas</span>
+                                    <input type="checkbox" class="toggle-switch" checked>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <aside class="right-column" style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <!-- Caja: Visibilidad -->
+                <div class="box">
+                    <h3>Visibilidad</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 14px;">Elige quién puede ver tu vídeo</p>
+                    
+                    <div class="visibility-options" style="display: flex; flex-direction: column; gap: 14px;">
+                        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="visibilidad" value="publico" checked style="margin-top: 4px;">
+                            <div>
+                                <strong style="display: block; font-size: 0.9rem;">Público</strong>
+                                <span style="font-size: 0.78rem; color: #64748b;">Cualquiera puede ver este vídeo</span>
+                            </div>
+                        </label>
+
+                        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="visibilidad" value="no_listado" style="margin-top: 4px;">
+                            <div>
+                                <strong style="display: block; font-size: 0.9rem;">No listado</strong>
+                                <span style="font-size: 0.78rem; color: #64748b;">Cualquiera con el enlace puede ver</span>
+                            </div>
+                        </label>
+
+                        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                            <input type="radio" name="visibilidad" value="privado" style="margin-top: 4px;">
+                            <div>
+                                <strong style="display: block; font-size: 0.9rem;">Privado</strong>
+                                <span style="font-size: 0.78rem; color: #64748b;">Solo tú puedes ver este vídeo</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Caja: Miniatura -->
+                <div class="box" style="text-align: center;">
+                    <h3 style="text-align: left;">Miniatura</h3>
+                    <p style="text-align: left; font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Selecciona o sube una imagen que represente tu vídeo.</p>
+                    
+                    <div class="thumbnail-preview" style="border: 1px dashed #cbd5e1; border-radius: 10px; height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #94a3b8;">
+                        <i data-lucide="image" style="width: 36px; height: 36px; stroke-width: 1.5;"></i>
+                    </div>
+
+                    <label style="display: inline-block; background: #1d70e3; color: #fff; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">
+                        Subir miniatura
+                        <input type="file" accept="image/*" hidden>
                     </label>
-                </div>
-            </div>
-        </div>
-
-        <div data-tab="v" class="tab-panel">
-            <div class="box">
-                <h3>Crear transmisión en vivo</h3>
-                <div class="row2">
-                    <div class="field">
-                        <label>Título de la transmisión*</label>
-                        <input placeholder="Escribe un título atractivo">
-                        </input>
-                    </div>
-                    <div class="field">
-                        <label>Categoría*</label>
-                        <select>
-                            <option value="">Selecciona una categoría</option>
-                            <option>Agricultura</option>
-                            <option>Medicina</option>
-                            <option>Artesanías</option>
-                            <option>Lenguas</option>
-                            <option>Gastronomía</option>
-                            <option>Deportes y juegos</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Descripción*</label>
-                        <textarea placeholder="Cuéntanos de qué trata..."></textarea>
-                    </div>
-                    <div class="field">
-                        <label>Etiquetas</label>
-                        <input placeholder="Añade etiquetas">
-                        </input>
-                    </div>
-                    <div class="field">
-                        <label>Fecha*</label>
-                        <input type="date">
-                    </div>
-                    <div class="field">
-                        <label>Hora de inicio*</label>
-                        <input type="time">
-                    </div>
-                    <div class="field">
-                        <label>Duración estimada*</label>
-                        <input placeholder="Ej. 1 hora">
-                        </input>
-                    </div>
-                    <div class="field">
-                        <label>Nivel de dificultad</label>
-                        <select>
-                            <option value="">Selecciona el nivel</option>
-                            <option>Principiante</option>
-                            <option>Intermedio</option>
-                            <option>Avanzado</option>
-                        </select>
-
-                    </div>
-
+                    <p style="font-size: 0.75rem; color: #64748b; margin-top: 8px;">Recomendado: 1280x720 px(16:9)</p>
                 </div>
 
-            </div>
+                <!-- Caja: Consejo y botón de publicar -->
+                <div class="box" style="background: #e2e8f0; border: none; text-align: center;">
+                    <p style="text-align: left; font-size: 0.85rem; line-height: 1.4; margin-bottom: 16px;">
+                        <strong>Consejo:</strong> Asegúrate de que tu vídeo tenga buena calidad de audio e imagen para brindar mejor experiencia de aprendizaje.
+                    </p>
+                    <button type="submit" style="width: 100%; background: #10d4b4; color: #0f172a; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span>Publicar vídeo</span>
+                        <i data-lucide="upload" style="width: 18px; height: 18px; stroke-width: 2.2;"></i>
+                    </button>
+                </div>
 
+            </aside>
         </div>
+    </main>
 
-    </div>
+    <!-- API de Lucide Icons para renderizar SVGs -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assiest/js/app.js"></script>
+    <script>
+        // Inicializar todos los íconos SVG de Lucide
+        lucide.createIcons();
 
-    <div>
-
-        <div class="box">
-
-            <h3>Visibilidad</h3>
-
-            <!-- Visibilidad options -->
-
-        </div>
-
-        <!-- Miniatura section -->
-
-    </div>
-
-</main>
-
-<script src="./assiest/js/app.js"></script>
-
-<script>
-
-    document.querySelectorAll('.tabs').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{
-
-        t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
-
-        b.classList.add('on');
-
-        document.querySelectorAll('[data-tab]').forEach(p=>p.classList.toggle('on',p.dataset.tab===b.dataset.t))
-
-    }));
-
-</script>
-
-</body></html>
+        // Cambio de pestañas entre Curso grabado y Transmisión en vivo mediante radio buttons
+        document.querySelectorAll('input[name="tipo_publicacion"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                const target = e.target.dataset.t;
+                document.querySelectorAll('[data-tab]').forEach(panel => {
+                    const isMatch = panel.dataset.tab === target;
+                    panel.classList.toggle('on', isMatch);
+                    panel.style.display = isMatch ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
