@@ -1,14 +1,92 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Perfil del instructor | inspira-T</title>
-<link rel="icon" href="./assiest/images/isotipo_blanco.png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assiest/css/styles.css"><link rel="stylesheet" href="./assiest/css/app.css"></head>
-<body class="app" data-page="perfil_instructor_aprendiente.html" data-role="aprendiente">
-<aside class="sidebar"><div class="brand"><img src="./assiest/images/isotipo_blanco.png" alt="">inspira-T</div><nav><a href="inicio_aprendiente.html" class="">Inicio</a><a href="explorar.html" class="active">Explorar</a><a href="mi_aprendizaje.html" class="">Mi aprendizaje</a><a href="mis_cursos.html" class="">Mis cursos</a></nav><div class="cta">Comparte tu conocimiento<a href="subir_contenido.html">Quiero ser instructor</a></div></aside>
-<main class="main"><div class="topbar"><div></div><div class="icons"><span class="bell">🔔</span><a href="perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a></div></div>
-<div class="hero-i"><div><h2 style="font-size:1.4rem">Nombre de instructor(a)</h2><p>Información sobre el instructor(a).<br>📍 Lugar, ciudad<br>Años de experiencia<br>Especialidad</p><button class="btn" data-follow>+ Seguir</button></div><div class="quote">“La naturaleza es nuestra maestra, escucharla es el primer paso para sanar.”</div></div>
-<div class="stats"><div><b>48</b>Videos</div><div><b>3,785</b>Seguidores</div><div><b>9,569</b>Me gusta</div></div><div class="tabs"><button class="on" data-t="c">Cursos</button><button data-t="l">Transmisiones en vivo</button></div><div class="tab-panel on" data-tab="c"><div class="grid g4"><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t1"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small></a><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t2"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small></a><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t3"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small></a><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t4"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small></a></div></div><div class="tab-panel" data-tab="l"><div class="grid g4"><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t1"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small><small>👁 2.1K &nbsp; 👍 320</small></a><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t2"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small><small>👁 2.1K &nbsp; 👍 320</small></a><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t3"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small><small>👁 2.1K &nbsp; 👍 320</small></a><a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit"><div class="thumb t4"></div><small>Categoría</small><b>Título del video</b><small>Instructor</small><small>👁 2.1K &nbsp; 👍 320</small></a></div></div></main>
-<script src="./assiest/js/app.js"></script>
-<script>document.querySelectorAll('.tabs').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('[data-tab]').forEach(p=>p.classList.toggle('on',p.dataset.tab===b.dataset.t))}));</script>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Perfil del instructor | inspira-T</title>
+        <link rel="icon" href="../assiest/images/isotipo_blanco.png">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../assiest/css/styles.css">
+        <link rel="stylesheet" href="../assiest/css/app.css">
+    </head>
+    <body class="app" data-page="perfil_instructor_aprendiente.html" data-role="aprendiente">
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="./assiest/images/isotipo_blanco.png" alt="">inspira-T
+            </div>
+            <nav>
+                <a href="inicio_aprendiente.html" class="">Inicio</a><a href="explorar.html" class="active">Explorar</a><a href="mi_aprendizaje.html" class="">Mi aprendizaje</a><a href="mis_cursos.html" class="">Mis cursos</a>
+            </nav>
+            <div class="cta">
+                Comparte tu conocimiento
+                <a href="subir_contenido.html">Quiero ser instructor</a>
+            </div>
+        </aside>
+        <main class="main">
+            <div class="topbar">
+                <div></div>
+                <div class="icons">
+                    <span class="bell">🔔</span>
+                    <a href="perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
+                </div>
+            </div>
+            <div class="hero-i">
+                <div>
+                    <h2 style="font-size:1.4rem">Nombre de instructor(a)</h2>
+                    <p>Información sobre el instructor(a).<br>📍 Lugar, ciudad<br>Años de experiencia<br>Especialidad</p>
+                    <button class="btn" data-follow>+ Seguir</button>
+                </div>
+                <div class="quote">“La naturaleza es nuestra maestra, escucharla es el primer paso para sanar.”</div>
+            </div>
+            <div class="stats">
+                <div><b>48</b>Videos</div>
+                <div><b>3,785</b>Seguidores</div>
+                <div><b>9,569</b>Me gusta</div>
+            </div>
+            <div class="tabs">
+                <button class="on" data-t="c">Cursos</button>
+                <button data-t="l">Transmisiones en vivo</button>
+            </div>
+            <div class="tab-panel on" data-tab="c">
+                <div class="grid g4">
+                    <a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit">
+                        <div class="thumb t1"></div>
+                        <small>Categoría</small>
+                        <b>Título del video</b>
+                        <small>Instructor</small>
+                    </a>
+                    <a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit">
+                        <div class="thumb t2"></div>
+                        <small>Categoría</small>
+                        <b>Título del video</b>
+                        <small>Instructor</small>
+                    </a>
+                    <a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit">
+                        <div class="thumb t3"></div>
+                        <small>Categoría</small>
+                        <b>Título del video</b>
+                        <small>Instructor</small>
+                    </a>
+                    <a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit">
+                        <div class="thumb t4"></div>
+                        <small>Categoría</small>
+                        <b>Título del video</b>
+                        <small>Instructor</small>
+                    </a>
+                </div>
+            </div>
+            <div class="tab-panel" data-tab="l">
+                <div class="grid g4">
+                    <a href="reproductor.html" class="card-c" style="text-decoration:none;color:inherit">
+                        <div class="thumb t1"></div>
+                        <small>Categoría</small>
+                        <b>Título del video</b>
+                        <small>Instructor</small>
+                        <small>👁 2.1K &nbsp; 👍 320</small>
+                    </a>
+                    <a href="reproductor.html" class("card-c", style:"text-decoration:none;color:inherit"):
+                        .thumb.t2
+                    </a>
+
+
 </body></html>

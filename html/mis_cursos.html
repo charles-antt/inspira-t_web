@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mis cursos | inspira-T</title>
-    <link rel="icon" href="./assiest/images/isotipo_blanco.png">
+    <link rel="icon" href="../assiest/images/isotipo_blanco.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assiest/css/styles.css">
-    <link rel="stylesheet" href="./assiest/css/app.css">
+    <link rel="stylesheet" href="../assiest/css/styles.css">
+    <link rel="stylesheet" href="../assiest/css/app.css">
 </head>
 <body class="app" data-page="mis_cursos.html" data-role="aprendiente">
 <aside class="sidebar">
     <div class="brand">
-        <img src="./assiest/images/isotipo_blanco.png" alt="">inspira-T
+        <img src="../assiest/images/isotipo_blanco.png" alt="">inspira-T
     </div>
     <nav>
-        <a href="inicio_aprendiente.html" class="">Inicio</a>
-        <a href="explorar.html" class="">Explorar</a>
-        <a href="mi_aprendizaje.html" class="">Mi aprendizaje</a>
-        <a href="mis_cursos.html" class="active">Mis cursos</a>
+        <a href="../html/inicio_aprendiente.html" class="">Inicio</a>
+        <a href="../html/explorar.html" class="">Explorar</a>
+        <a href="../html/mi_aprendizaje.html" class="">Mi aprendizaje</a>
+        <a href="../html/mis_cursos.html" class="active">Mis cursos</a>
     </nav>
     <div class="cta">Comparte tu conocimiento
-        <a href="subir_contenido.html">Quiero ser instructor</a>
+        <a href="../html/subir_contenido.html">Quiero ser instructor</a>
     </div>
 </aside>
 <main class="main">
@@ -31,7 +31,7 @@
         </div>
         <div class="icons">
             <span class="bell">🔔</span>
-            <a href="perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
+            <a href="../html/perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
         </div>
     </div>
 <div class="chips">
@@ -99,7 +99,7 @@
         12 lecciones · 5 unidades<br>
         2h 35m de contenido<br>
         Nivel principiante
-        <a class="btn block" href="reproductor.html">Continuar aprendiendo</a>
+        <a class="btn block" href="../html/reproductor.html">Continuar aprendiendo</a>
     </div>
 </div>
 <div class="tabs" style="justify-content:flex-start">
@@ -144,6 +144,6 @@
     </div>
 </div>
 </main>
-<script src="./assets/js/app.js"></script>
+<script src="../assets/js/app.js"></script>
 <script>document.querySelectorAll('.tabs').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('[data-tab]').forEach(p=>p.classList.toggle('on',p.dataset.tab===b.dataset.t))}));</script>
 </body></html>

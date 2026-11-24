@@ -1,19 +1,159 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Subir nuevo contenido | inspira-T</title>
-<link rel="icon" href="./assiest/images/isotipo_blanco.png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assiest/css/styles.css"><link rel="stylesheet" href="./assiest/css/app.css"></head>
-<body class="app" data-page="subir_contenido.html" data-role="instructor">
-<aside class="sidebar"><div class="brand"><img src="./assiest/images/isotipo_blanco.png" alt="">inspira-T</div><nav><a href="inicio_instructor.html" class="active">Inicio</a></nav></aside>
-<main class="main"><div class="topbar"><div><h1>Subir nuevo contenido</h1><p>Comparte tus conocimientos ancestrales con nuestra comunidad</p></div><div class="icons"><span class="bell">🔔</span><a href="perfil_instructor.html" class="avatar" aria-label="Mi perfil"></a></div></div>
-<p style="font-size:.8rem;margin-bottom:8px">Tipo de publicación</p><div class="tabs" style="justify-content:flex-start;margin:0 0 12px"><button class="on" data-t="g">Curso grabado</button><button data-t="v">Transmisión en vivo</button></div>
-<div class="grid" style="grid-template-columns:1fr 280px"><div>
-<div data-tab="g" class="tab-panel on"><div class="drop" id="drop"><p>Arrastra y suelta tu video aquí</p><button type="button" class="btn" id="pickfile">Seleccionar archivo</button><input type="file" id="file" accept="video/*" hidden><p id="fname" style="font-size:.8rem;margin-top:6px"></p><p style="font-size:.7rem;margin-top:8px">Formatos: MP4, MOV, AVI · Máx. 5GB</p></div>
-<div class="box"><h3>Información del video</h3><div class="row2"><div class="field"><label>Título del video*</label><input placeholder="Escribe un título atractivo"></input></div><div class="field"><label>Categoría*</label><select><option value="">Selecciona una categoría</option><option>Agricultura</option><option>Medicina</option><option>Artesanías</option><option>Lenguas</option><option>Gastronomía</option><option>Deportes y juegos</option></select></div><div class="field"><label>Descripción*</label><textarea placeholder="Cuéntanos de qué trata..."></textarea></div><div class="field"><label>Etiquetas</label><input placeholder="Añade etiquetas (ej. medicina, herbolaria)"></input></div></div></div>
-<div class="box"><h3>Detalles adicionales</h3><div class="row2"><div class="field"><label>Idioma del video</label><select><option value="">Selecciona el idioma</option><option>Español</option><option>Zapoteco</option><option>Náhuatl</option><option>Maya</option><option>Mixteco</option></select></div><div class="field"><label>Público objetivo</label><input placeholder="¿A quién va dirigido este contenido?"></input></div><div class="field"><label>Nivel de dificultad</label><select><option value="">Selecciona el nivel</option><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select></div><label style="font-size:.8rem"><input type="checkbox" checked> Los alumnos podrán comentar</label></div></div></div>
-<div data-tab="v" class="tab-panel"><div class="box"><h3>Crear transmisión en vivo</h3><div class="row2"><div class="field"><label>Título de la transmisión*</label><input placeholder="Escribe un título atractivo"></input></div><div class="field"><label>Categoría*</label><select><option value="">Selecciona una categoría</option><option>Agricultura</option><option>Medicina</option><option>Artesanías</option><option>Lenguas</option><option>Gastronomía</option><option>Deportes y juegos</option></select></div><div class="field"><label>Descripción*</label><textarea placeholder="Cuéntanos de qué trata..."></textarea></div><div class="field"><label>Etiquetas</label><input placeholder="Añade etiquetas"></input></div><div class="field"><label>Fecha*</label><input type="date"></div><div class="field"><label>Hora de inicio*</label><input type="time"></div><div class="field"><label>Duración estimada*</label><input placeholder="Ej. 1 hora"></input></div><div class="field"><label>Nivel de dificultad</label><select><option value="">Selecciona el nivel</option><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select></div></div></div></div>
-</div><div><div class="box"><h3>Visibilidad</h3><label style="display:block;font-size:.8rem;margin:6px 0"><input type="radio" name="vis" checked> <b>Público</b><br><small style="margin-left:22px">Cualquiera puede ver este video</small></label><label style="display:block;font-size:.8rem;margin:6px 0"><input type="radio" name="vis" > <b>No listado</b><br><small style="margin-left:22px">Cualquiera con el enlace puede ver</small></label><label style="display:block;font-size:.8rem;margin:6px 0"><input type="radio" name="vis" > <b>Privado</b><br><small style="margin-left:22px">Solo tú puedes ver este video</small></label></div><div class="box" style="text-align:center"><h3>Miniatura</h3><p style="font-size:.7rem">Recomendado: 1280x720 px (16:9)</p><button type="button" class="btn" id="pickthumb">Subir miniatura</button><input type="file" id="thumb" accept="image/*" hidden><p id="tname" style="font-size:.7rem"></p></div><div class="panel"><small>Consejo: asegúrate de que tu video tenga buena calidad de audio e imagen.</small><button class="btn teal block" id="publish" type="button">Publicar</button></div></div></div></main>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Subir nuevo contenido | inspira-T</title>
+        <link rel="icon" href="../assiest/images/isotipo_blanco.png">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../assiest/css/styles.css">
+        <link rel="stylesheet" href="../assiest/css/app.css">
+    </head>
+    <body class="app" data-page="subir_contenido.html" data-role="instructor">
+        <aside class="sidebar">
+            <div class="brand"><img src="../assiest/images/isotipo_blanco.png" alt="">inspira-T</div>
+            <nav>
+                <a href="../html/inicio_instructor.html" class="active">Inicio</a>
+            </nav>
+        </aside>
+        <main class="main">
+            <div class="topbar">
+                <div>
+                    <h1>Subir nuevo contenido</h1>
+                    <p>Comparte tus conocimientos ancestrales con nuestra comunidad</p>
+                </div>
+                <div class="icons">
+                    <span class="bell">🔔</span>
+                    <a href="../html/perfil_instructor.html" class="avatar" aria-label="Mi perfil"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Detalles adicionales</h3>
+                <div class="row2">
+                    <div class="field">
+                        <label>Idioma del video</label>
+                        <select>
+                            <option value="">Selecciona el idioma</option>
+                            <option>Español</option>
+                            <option>Zapoteco</option>
+                            <option>Náhuatl</option>
+                            <option>Maya</option>
+                            <option>Mixteco</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Público objetivo</label>
+                        <input placeholder="¿A quién va dirigido este contenido?">
+                        </input>
+                    </div>
+                    <div class="field">
+                        <label>Nivel de dificultad</label>
+                        <select>
+                            <option value="">Selecciona el nivel</option>
+                            <option>Principiante</option>
+                            <option>Intermedio</option>
+                            <option>Avanzado</option>
+                        </select>
+                    </div>
+                    <label style="font-size:.8rem">
+                        <input type="checkbox" checked> Los alumnos podrán comentar
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div data-tab="v" class="tab-panel">
+            <div class="box">
+                <h3>Crear transmisión en vivo</h3>
+                <div class="row2">
+                    <div class="field">
+                        <label>Título de la transmisión*</label>
+                        <input placeholder="Escribe un título atractivo">
+                        </input>
+                    </div>
+                    <div class="field">
+                        <label>Categoría*</label>
+                        <select>
+                            <option value="">Selecciona una categoría</option>
+                            <option>Agricultura</option>
+                            <option>Medicina</option>
+                            <option>Artesanías</option>
+                            <option>Lenguas</option>
+                            <option>Gastronomía</option>
+                            <option>Deportes y juegos</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Descripción*</label>
+                        <textarea placeholder="Cuéntanos de qué trata..."></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Etiquetas</label>
+                        <input placeholder="Añade etiquetas">
+                        </input>
+                    </div>
+                    <div class="field">
+                        <label>Fecha*</label>
+                        <input type="date">
+                    </div>
+                    <div class="field">
+                        <label>Hora de inicio*</label>
+                        <input type="time">
+                    </div>
+                    <div class="field">
+                        <label>Duración estimada*</label>
+                        <input placeholder="Ej. 1 hora">
+                        </input>
+                    </div>
+                    <div class="field">
+                        <label>Nivel de dificultad</label>
+                        <select>
+                            <option value="">Selecciona el nivel</option>
+                            <option>Principiante</option>
+                            <option>Intermedio</option>
+                            <option>Avanzado</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+
+        <div class="box">
+
+            <h3>Visibilidad</h3>
+
+            <!-- Visibilidad options -->
+
+        </div>
+
+        <!-- Miniatura section -->
+
+    </div>
+
+</main>
+
 <script src="./assiest/js/app.js"></script>
-<script>document.querySelectorAll('.tabs').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('[data-tab]').forEach(p=>p.classList.toggle('on',p.dataset.tab===b.dataset.t))}));</script>
+
+<script>
+
+    document.querySelectorAll('.tabs').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+
+        t.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+
+        b.classList.add('on');
+
+        document.querySelectorAll('[data-tab]').forEach(p=>p.classList.toggle('on',p.dataset.tab===b.dataset.t))
+
+    }));
+
+</script>
+
 </body></html>
