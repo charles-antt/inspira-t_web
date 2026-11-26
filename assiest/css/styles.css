@@ -1,6 +1,4 @@
-/* ==========================================================================
-   Variables de Color y Tipografía
-   ========================================================================== */
+/**Variables de Color y Tipografía**/
 :root {
   --fuente: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
   --primary-purple: #7b61ff;
@@ -13,6 +11,7 @@
   --text-main: #2e3440;
   --text-muted: #2e3440;
   --border-light: #dfe3eb;
+  --azul-confianza: #1F3C88;
 }
 
 /* Reset Básico */
@@ -26,36 +25,34 @@ body {
   font-family: var(--fuente);
   color: var(--text-main);
   background-color: #ffffff;
-  line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .container {
   width: 100%;
-  max-width: none; /* ocupa todo el ancho de la pantalla */
+  max-width: none;
+  /* ocupa todo el ancho de la pantalla */
   margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 80px);
 }
 
-/* ==========================================================================
-   Encabezado / Navegación
-   ========================================================================== */
+/* Encabezado / Navegación*/
 .header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 15px 0;
-  border-bottom: 1px solid #dfe3eb;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  justify-self: start;
 }
 
 /* ESPACIO PARA IMPLEMENTAR TU LOGO */
 .logo-img {
-  height: 140px; /* Ajusta la altura según tu diseño de logo */
+  height: 140px;
+  /* Ajusta la altura según tu diseño de logo */
   width: auto;
   object-fit: contain;
 }
@@ -72,14 +69,15 @@ body {
 }
 
 .nav {
+  justify-self: center;
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 70px;
 }
 
 .nav-link {
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #2e3440;
   position: relative;
@@ -112,10 +110,11 @@ body {
   padding: 8px 18px;
   border-radius: 20px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.3rem;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
+  justify-self: end;
 }
 
 .btn-login:hover {
@@ -124,19 +123,17 @@ body {
 }
 
 .btn-login svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
 }
 
-/* ==========================================================================
-   Sección Hero
-   ========================================================================== */
+/*Sección Hero*/
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0;
+  padding: 0px 0px;
   gap: 30px;
 }
 
@@ -145,10 +142,11 @@ body {
 }
 
 .hero-title {
-  font-size: 2.3rem;
-  font-weight: 800;
+  font-size: 3.3rem;
+  font-weight: 900;
+  font-style: italic;
   line-height: 1.25;
-  color: #2e3440;
+  color: var(--text-main);
   margin-bottom: 25px;
 }
 
@@ -163,14 +161,14 @@ body {
 .hero-subtext {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
 }
 
 .icon-leaf-badge {
-  background-color: #ecf2fc;
-  color: var(--accent-cyan);
-  width: 32px;
-  height: 32px;
+  background-color: color-mix(in srgb, var(--accent-cyan) 15%, transparent);
+  color: var(--text-main);
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -178,9 +176,15 @@ body {
   flex-shrink: 0;
 }
 
+.vector-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
 .hero-subtext p {
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   font-style: italic;
   color: #2e3440;
 }
@@ -199,24 +203,36 @@ body {
 /* Titulos de Secciones */
 .section-title {
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 800;
-  font-style: italic;
-  color: #2e3440;
-  margin: 30px 0 20px 0;
+  font-size: 1.9rem;
+  color: var(--text-main);
+  margin: 30px 0 30px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  /* Espacio entre el texto y las líneas */
+  font-weight: 700;
+  width: 100%;
 }
 
-/* ==========================================================================
-   Grid Oferta Educativa
-   ========================================================================== */
+.section-title::before,
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--primary-purple);
+}
+
+/*Grid Oferta Educativa*/
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+  gap: 30px;
 }
 
 .card-item {
-  background-color: var(--bg-card);
+  background-color: color-mix(in srgb, var(--azul-confianza) 7%, transparent);
   border-radius: 12px;
   padding: 10px;
   text-align: center;
@@ -226,33 +242,28 @@ body {
   transition: transform 0.2s ease;
 }
 
-.card-item:hover {
-  transform: translateY(-4px);
-}
 
 .card-image {
   width: 100%;
   height: 110px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
   margin-bottom: 10px;
 }
 
 .card-item h3 {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #2e3440;
 }
 
-/* ==========================================================================
-   Banner Informativo (4 Columnas)
-   ========================================================================== */
+/*Banner Informativo (4 Columnas)*/
 .stats-banner {
-  background-color: var(--bg-card);
+  background-color: color-mix(in srgb, var(--azul-confianza) 7%, transparent);
   border-radius: 12px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 20px;
+  padding: 25px;
   margin: 35px 0;
   gap: 15px;
 }
@@ -279,30 +290,51 @@ body {
 }
 
 /* Colores de los iconos del Banner */
-.stat-icon.blue { color: var(--secondary-blue); }
-.stat-icon.purple { color: var(--primary-purple); }
-.stat-icon.cyan { color: var(--accent-cyan); }
-.stat-icon.dark-blue { color: #1f3c88; }
+.stat-icon.blue {
+  color: var(--secondary-blue);
+}
+
+.stat-icon.purple {
+  color: var(--primary-purple);
+}
+
+.stat-icon.cyan {
+  color: var(--accent-cyan);
+}
+
+.stat-icon.dark-blue {
+  color: #1f3c88;
+}
+
 .stat-content h4 {
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
-.stat-content h4.blue { color: var(--secondary-blue); }
-.stat-content h4.purple { color: var(--primary-purple); }
-.stat-content h4.cyan { color: var(--accent-cyan); }
-.stat-content h4.dark-blue { color: #1f3c88; }
+.stat-content h4.blue {
+  color: var(--secondary-blue);
+}
+
+.stat-content h4.purple {
+  color: var(--primary-purple);
+}
+
+.stat-content h4.cyan {
+  color: var(--accent-cyan);
+}
+
+.stat-content h4.dark-blue {
+  color: #1f3c88;
+}
 
 .stat-content p {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #2e3440;
   font-weight: 600;
   line-height: 1.2;
 }
 
-/* ==========================================================================
-   Sección Misión y Visión
-   ========================================================================== */
+/*Sección Misión y Visión */
 .mission-vision-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -311,7 +343,7 @@ body {
 }
 
 .mv-card {
-  background-color: var(--bg-light-purple);
+  background-color: color-mix(in srgb, var(--primary-purple) 7%, transparent);
   border-radius: 12px;
   padding: 25px;
   display: flex;
@@ -320,22 +352,23 @@ body {
 }
 
 .mv-icon {
-  width: 55px;
-  height: 55px;
-  color: #2e3440;
+  width: 60px;
+  height: 60px;
+  color: --var(--text-main);
   flex-shrink: 0;
 }
 
 .mv-content h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  margin-bottom: 8px;
-  color: #2e3440;
+  margin-bottom: 18px;
+  color: var(--text-main);
 }
 
 .mv-content p {
-  font-size: 0.8rem;
-  color: #2e3440;
+  font-size: 1rem;
+  text-align: justify;
+  color: var(--text-main);
   line-height: 1.35;
 }
 
@@ -373,13 +406,25 @@ body {
 /* Estilo para los iconos de FontAwesome dentro de los círculos */
 .action-icon i {
   font-size: 24px;
-  color: currentColor; /* Hereda el color blue, cyan, purple, etc. */
+  color: currentColor;
+  /* Hereda el color blue, cyan, purple, etc. */
 }
-  
-.action-icon.blue { color: var(--secondary-blue); }
-.action-icon.cyan { color: var(--accent-cyan); }
-.action-icon.purple { color: var(--primary-purple); }
-.action-icon.dark-blue { color: #1f3c88; }
+
+.action-icon.blue {
+  color: var(--secondary-blue);
+}
+
+.action-icon.cyan {
+  color: var(--accent-cyan);
+}
+
+.action-icon.purple {
+  color: var(--primary-purple);
+}
+
+.action-icon.dark-blue {
+  color: #1f3c88;
+}
 
 .action-icon svg {
   width: 28px;
@@ -388,71 +433,88 @@ body {
 }
 
 .action-card h4 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 800;
   margin-bottom: 8px;
 }
 
-.action-card h4.blue { color: var(--secondary-blue); }
-.action-card h4.cyan { color: var(--accent-cyan); }
-.action-card h4.purple { color: var(--primary-purple); }
-.action-card h4.dark-blue { color: #1f3c88; }
+.action-card h4.blue {
+  color: var(--secondary-blue);
+}
+
+.action-card h4.cyan {
+  color: var(--accent-cyan);
+}
+
+.action-card h4.purple {
+  color: var(--primary-purple);
+}
+
+.action-card h4.dark-blue {
+  color: #1f3c88;
+}
 
 .action-card p {
-  font-size: 0.78rem;
-  color: #2e3440;
+  font-size: 1rem;
+  color: var(--text-main);
   line-height: 1.3;
 }
 
 /* Responsive para pantallas medianas y pequeñas */
 @media (max-width: 900px) {
-  .cards-grid, .what-we-do-grid, .stats-banner {
+
+  .cards-grid,
+  .what-we-do-grid,
+  .stats-banner {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .mission-vision-grid {
     grid-template-columns: 1fr;
   }
+
   .hero {
     flex-direction: column;
   }
+
   .stat-box {
     border-right: none;
     border-bottom: 1px solid #dfe3eb;
     padding-bottom: 10px;
   }
+
   .action-card {
     border-right: none;
   }
 }
 
-/* ==========================================================================
-   LOGIN (inspira-T)
-   Todo lo de abajo está limitado a .login-page para no afectar el landing.
-   ========================================================================== */
+/* LOGIN */
 
 /* Variables del login (se suman a las que ya tenías) */
 :root {
-  --login-azul-profundo: #1f3c88;   /* títulos, lema */
-  --login-azul-boton:    #2f80ed;   /* botón y enlaces */
-  --login-violeta:       #7b61ff;   /* palabras destacadas del lema */
-  --login-tarjeta:       #ecf2fc;   /* fondo de la tarjeta */
-  --login-texto:         #2e3440;
-  --login-texto-suave:   #969696;
-  --login-borde:         #dfe3eb;
+  --login-azul-profundo: #1f3c88;
+  /* títulos, lema */
+  --login-azul-boton: #2f80ed;
+  /* botón y enlaces */
+  --login-violeta: #7b61ff;
+  /* palabras destacadas del lema */
+  --login-tarjeta: #ecf2fc;
+  /* fondo de la tarjeta */
+  --login-texto: #2e3440;
+  --login-texto-suave: #969696;
+  --login-borde: #dfe3eb;
   --login-fuente: var(--fuente);
 }
 
 /* Layout general: ilustración | tarjeta | panel */
 .login-page {
   position: relative;
-  min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr minmax(380px, 580px) 1fr;
+  grid-template-columns: 1fr minmax(180px, 500px) 1fr;
   align-items: center;
   overflow: hidden;
   font-family: var(--login-fuente);
   color: var(--login-texto);
-  background: #ffffff;
 }
 
 .login-page img {
@@ -474,23 +536,18 @@ body {
   overflow: hidden;
 }
 
-
-
-
 /* Ilustración principal: columna izquierda */
 .login-page .slot--ilustracion {
-  left: 1%;
+  padding-left: 5px;
   bottom: 2%;
   width: 30vw;
-  max-width: 580px;
   height: 100%;
 }
 
 /* Logo: dentro de la tarjeta */
 .login-page .slot--logo {
   position: relative;
-  width: min(100%, 480px);
-  aspect-ratio: 350 / 250;
+  width: min(50%, 350px);
   margin: 0 auto;
 }
 
@@ -510,23 +567,26 @@ body {
   border: 0;
   background: none;
 }
-.login-page .slot--limpio::before { content: none; }
 
-/* --------------------------------------------------------------------------
-   Tarjeta de login
-   -------------------------------------------------------------------------- */
+.login-page .slot--limpio::before {
+  content: none;
+}
+
+/* Tarjeta de login */
 .login-page .card {
   grid-column: 2;
   position: relative;
   z-index: 1;
-  margin: 24px 0;
-  padding: 48px 56px 56px;
+  margin: 25px 0;
+  padding: 30px 55px 30px 55px;
   background: var(--login-tarjeta);
   border-radius: 28px;
   box-shadow: 6px 8px 0 #dbe8fa;
 }
 
-.login-page .card__header { text-align: center; }
+.login-page .card__header {
+  text-align: center;
+}
 
 .login-page .lema {
   margin: 8px 0 0;
@@ -537,14 +597,21 @@ body {
   color: var(--login-azul-profundo);
   border-top: 1px solid var(--login-azul-profundo);
 }
-.login-page .lema__acento { color: var(--login-violeta); }
+
+.login-page .lema__acento {
+  color: var(--login-violeta);
+}
 
 /* --------------------------------------------------------------------------
    Formulario
    -------------------------------------------------------------------------- */
-.login-page .form { margin-top: 56px; }
+.login-page .form {
+  margin-top: 40px;
+}
 
-.login-page .field { margin-bottom: 22px; }
+.login-page .field {
+  margin-bottom: 22px;
+}
 
 .login-page .field label {
   display: block;
@@ -565,6 +632,7 @@ body {
   border-radius: 14px;
   transition: border-color .2s, box-shadow .2s;
 }
+
 .login-page .input:focus-within {
   border-color: var(--login-azul-boton);
   box-shadow: 0 0 0 3px #dbe8fa;
@@ -580,7 +648,10 @@ body {
   font-size: .95rem;
   color: var(--login-texto);
 }
-.login-page .input input::placeholder { color: var(--login-texto-suave); }
+
+.login-page .input input::placeholder {
+  color: var(--login-texto-suave);
+}
 
 .login-page .input__icon,
 .login-page .input__toggle svg,
@@ -594,7 +665,10 @@ body {
   stroke-linejoin: round;
   flex-shrink: 0;
 }
-.login-page .input__icon { color: var(--login-texto); }
+
+.login-page .input__icon {
+  color: var(--login-texto);
+}
 
 .login-page .input__toggle {
   display: grid;
@@ -606,7 +680,10 @@ body {
   color: var(--login-texto);
   cursor: pointer;
 }
-.login-page .input__toggle:focus-visible { outline: 2px solid var(--login-azul-boton); }
+
+.login-page .input__toggle:focus-visible {
+  outline: 2px solid var(--login-azul-boton);
+}
 
 /* Enlaces */
 .login-page .link {
@@ -614,7 +691,11 @@ body {
   font-weight: 600;
   text-decoration: none;
 }
-.login-page .link:hover { text-decoration: underline; }
+
+.login-page .link:hover {
+  text-decoration: underline;
+}
+
 .login-page .link:focus-visible {
   outline: 2px solid var(--login-azul-boton);
   outline-offset: 3px;
@@ -623,9 +704,9 @@ body {
 
 .login-page .link--olvido {
   display: block;
-  margin-top: 14px;
+  margin-top: 20px;
   text-align: right;
-  font-size: .88rem;
+  font-size: 1rem;
 }
 
 /* Botón principal */
@@ -647,8 +728,15 @@ body {
   cursor: pointer;
   transition: background .2s, transform .1s;
 }
-.login-page .btn:hover { background: #1f3c88; }
-.login-page .btn:active { transform: translateY(1px); }
+
+.login-page .btn:hover {
+  background: #1f3c88;
+}
+
+.login-page .btn:active {
+  transform: translateY(1px);
+}
+
 .login-page .btn:focus-visible {
   outline: 3px solid #2f80ed;
   outline-offset: 3px;
@@ -660,11 +748,14 @@ body {
   justify-content: center;
   align-items: center;
   gap: 44px;
-  margin: 56px 0 0;
+  margin: 45px 0 30px 0;
   font-size: 1.05rem;
   font-weight: 500;
 }
-.login-page .registro .link { font-size: 1.15rem; }
+
+.login-page .registro .link {
+  font-size: 1.15rem;
+}
 
 /* --------------------------------------------------------------------------
    Panel derecho
@@ -696,8 +787,13 @@ body {
    Responsive del login
    -------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
-  .login-page { grid-template-columns: 1fr minmax(360px, 540px) 1fr; }
-  .login-page .slot--ilustracion { width: 26vw; }
+  .login-page {
+    grid-template-columns: 1fr minmax(360px, 540px) 1fr;
+  }
+
+  .login-page .slot--ilustracion {
+    width: 26vw;
+  }
 }
 
 /* Tablet / móvil: solo se muestra la tarjeta */
@@ -707,31 +803,49 @@ body {
     justify-items: center;
     padding: 16px;
   }
+
   .login-page .card {
     grid-column: 1;
     width: 100%;
-    max-width: 560px;
+    max-width: 500px;
     padding: 32px 24px 40px;
   }
+
   .login-page .panel,
   .login-page .slot--ilustracion,
-  .login-page .slot--patron { display: none; }
-  .login-page .slot--sol { width: 90px; left: 12px; }
-  .login-page .form { margin-top: 36px; }
-  .login-page .registro { gap: 16px; flex-wrap: wrap; margin-top: 36px; }
+  .login-page .slot--patron {
+    display: none;
+  }
+
+  .login-page .slot--sol {
+    width: 90px;
+    left: 12px;
+  }
+
+  .login-page .form {
+    margin-top: 36px;
+  }
+
+  .login-page .registro {
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .login-page * { transition: none !important; }
+  .login-page * {
+    transition: none !important;
+  }
 }
 
- 
+
 /* ==========================================================================
    REGISTRO / CREAR CUENTA (inspira-T)
    Todo está limitado a .register-page para no afectar el landing ni el login.
    Usa las variables --login-* definidas en la sección de LOGIN.
    ========================================================================== */
- 
+
 .register-page {
   position: relative;
   min-height: 100vh;
@@ -744,9 +858,12 @@ body {
   color: var(--login-texto);
   background: #ffffff;
 }
- 
-.register-page img { display: block; max-width: 100%; }
- 
+
+.register-page img {
+  display: block;
+  max-width: 100%;
+}
+
 /* --------------------------------------------------------------------------
    Espacios para imágenes (recuadro punteado hasta que pongas la imagen)
    -------------------------------------------------------------------------- */
@@ -759,6 +876,7 @@ body {
   background: #f5f7fa;
   overflow: hidden;
 }
+
 .register-page .slot img {
   position: absolute;
   inset: 0;
@@ -766,41 +884,50 @@ body {
   height: 100%;
   object-fit: contain;
 }
+
 /* Borra este bloque cuando ya tengas tus imágenes */
 .register-page .slot::before {
   content: attr(data-nombre);
   font-size: .7rem;
   color: #969696;
 }
- 
+
 .register-page .slot--reg-logo {
   width: min(100%, 480px);
   aspect-ratio: 480 / 260;
   margin: 0 auto;
 }
+
 .register-page .slot--reg-ilustracion {
   position: absolute;
   inset: 0;
   border-radius: 0;
 }
-.register-page .slot--reg-ilustracion img { object-fit: cover; }
+
+.register-page .slot--reg-ilustracion img {
+  object-fit: cover;
+}
+
 .register-page .slot--beneficio {
   width: 76px;
   height: 76px;
   border-radius: 50%;
   flex-shrink: 0;
 }
+
 .register-page .slot--reg-flor {
   width: 44px;
   height: 44px;
   background: #ecf2fc;
 }
+
 .register-page .slot--tipo {
   width: 64px;
   height: 40px;
   border: 0;
   background: none;
 }
+
 .register-page .slot--reg-patron {
   position: absolute;
   right: 0;
@@ -811,11 +938,17 @@ body {
   aspect-ratio: 1 / 1;
   pointer-events: none;
 }
- 
+
 /* Agrega esta clase a cualquier .slot para quitar el recuadro punteado */
-.register-page .slot--limpio { border: 0; background: none; }
-.register-page .slot--limpio::before { content: none; }
- 
+.register-page .slot--limpio {
+  border: 0;
+  background: none;
+}
+
+.register-page .slot--limpio::before {
+  content: none;
+}
+
 /* --------------------------------------------------------------------------
    Columna izquierda
    -------------------------------------------------------------------------- */
@@ -825,7 +958,7 @@ body {
   padding: 24px 0 0;
   min-width: 0;
 }
- 
+
 .register-page .reg-lema {
   margin: 4px auto 0;
   padding-top: 10px;
@@ -837,8 +970,11 @@ body {
   color: var(--login-azul-profundo);
   border-top: 1px solid var(--login-azul-profundo);
 }
-.register-page .reg-lema .acento { color: var(--login-violeta); }
- 
+
+.register-page .reg-lema .acento {
+  color: var(--login-violeta);
+}
+
 .register-page .reg-titulo {
   margin: 40px 0 0;
   padding: 0 72px;
@@ -846,18 +982,21 @@ body {
   font-weight: 600;
   color: #2e3440;
 }
-.register-page .reg-titulo__verde { color: #2dd4bf; }
- 
+
+.register-page .reg-titulo__verde {
+  color: #2dd4bf;
+}
+
 .register-page .reg-texto {
   margin: 24px 0 0;
   padding: 0 72px;
   max-width: 720px;
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 600;
   line-height: 1.7;
-  color: #2e3440;
+  color: var(--main-text);
 }
- 
+
 /* Escena: ilustración + tarjeta de beneficios encima */
 .register-page .reg-escena {
   position: relative;
@@ -865,7 +1004,7 @@ body {
   min-height: 560px;
   margin-top: 8px;
 }
- 
+
 .register-page .beneficios {
   position: absolute;
   left: 72px;
@@ -879,18 +1018,20 @@ body {
   background: #ffffff;
   border-radius: 48px 48px 0 0;
 }
- 
+
 .register-page .beneficio {
   display: flex;
   align-items: center;
   gap: 40px;
 }
+
 .register-page .beneficio h2 {
   margin: 0 0 4px;
   font-size: 1.7rem;
   font-weight: 600;
   color: #2e3440;
 }
+
 .register-page .beneficio p {
   margin: 0;
   max-width: 420px;
@@ -898,7 +1039,7 @@ body {
   line-height: 1.5;
   color: #2e3440;
 }
- 
+
 /* --------------------------------------------------------------------------
    Tarjeta de registro
    -------------------------------------------------------------------------- */
@@ -911,9 +1052,11 @@ body {
   border-radius: 28px;
   box-shadow: 6px 8px 0 #dbe8fa;
 }
- 
-.register-page .reg-card__header { text-align: center; }
- 
+
+.register-page .reg-card__header {
+  text-align: center;
+}
+
 .register-page .reg-avatar {
   display: grid;
   place-items: center;
@@ -924,6 +1067,7 @@ body {
   background: var(--login-azul-profundo);
   color: #ffffff;
 }
+
 .register-page .reg-avatar svg {
   width: 52px;
   height: 52px;
@@ -933,7 +1077,7 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
- 
+
 .register-page .reg-card__header h2 {
   margin: 0;
   font-size: clamp(2.2rem, 3.6vw, 3.3rem);
@@ -941,13 +1085,14 @@ body {
   line-height: 1.15;
   color: var(--login-azul-profundo);
 }
+
 .register-page .reg-card__header p {
   margin: 4px 0 0;
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--login-azul-profundo);
 }
- 
+
 /* Divisor con flor al centro */
 .register-page .reg-divisor {
   display: flex;
@@ -956,6 +1101,7 @@ body {
   gap: 8px;
   margin: 10px 0 4px;
 }
+
 .register-page .reg-divisor::before,
 .register-page .reg-divisor::after {
   content: "";
@@ -963,14 +1109,18 @@ body {
   height: 1px;
   background: var(--login-azul-boton);
 }
- 
+
 /* --------------------------------------------------------------------------
    Formulario
    -------------------------------------------------------------------------- */
-.register-page .reg-form { margin-top: 4px; }
- 
-.register-page .field { margin-bottom: 14px; }
- 
+.register-page .reg-form {
+  margin-top: 4px;
+}
+
+.register-page .field {
+  margin-bottom: 14px;
+}
+
 .register-page .field label,
 .register-page .tipo legend {
   display: block;
@@ -979,22 +1129,23 @@ body {
   font-weight: 600;
   color: var(--login-texto);
 }
- 
+
 .register-page .input {
   display: flex;
   align-items: center;
   gap: 16px;
-  height: 54px;
   padding: 0 24px;
   background: #ffffff;
   border: 1px solid var(--login-borde);
   border-radius: 16px;
   transition: border-color .2s, box-shadow .2s;
 }
+
 .register-page .input:focus-within {
   border-color: var(--login-azul-boton);
   box-shadow: 0 0 0 3px #dbe8fa;
 }
+
 .register-page .input input {
   flex: 1;
   min-width: 0;
@@ -1005,8 +1156,11 @@ body {
   font-size: 1rem;
   color: var(--login-texto);
 }
-.register-page .input input::placeholder { color: var(--login-texto-suave); }
- 
+
+.register-page .input input::placeholder {
+  color: var(--login-texto-suave);
+}
+
 .register-page .input__icon,
 .register-page .input__toggle svg,
 .register-page .btn-registro svg {
@@ -1019,8 +1173,11 @@ body {
   stroke-linejoin: round;
   flex-shrink: 0;
 }
-.register-page .input__icon { color: var(--login-texto); }
- 
+
+.register-page .input__icon {
+  color: var(--login-texto);
+}
+
 .register-page .input__toggle {
   display: grid;
   place-items: center;
@@ -1032,8 +1189,11 @@ body {
   color: var(--login-texto);
   cursor: pointer;
 }
-.register-page .input__toggle:focus-visible { outline: 2px solid var(--login-azul-boton); }
- 
+
+.register-page .input__toggle:focus-visible {
+  outline: 2px solid var(--login-azul-boton);
+}
+
 /* Tipo de usuario */
 .register-page .tipo {
   display: grid;
@@ -1044,16 +1204,30 @@ body {
   border: 0;
   min-width: 0;
 }
-.register-page .tipo legend { grid-column: 1 / -1; padding: 0; float: left; width: 100%; }
-.register-page .tipo legend + * { clear: both; }
- 
-.register-page .tipo__op { position: relative; display: block; cursor: pointer; }
+
+.register-page .tipo legend {
+  grid-column: 1 / -1;
+  padding: 0;
+  float: left;
+  width: 100%;
+}
+
+.register-page .tipo legend+* {
+  clear: both;
+}
+
+.register-page .tipo__op {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
 .register-page .tipo__op input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
- 
+
 .register-page .tipo__card {
   position: relative;
   display: flex;
@@ -1068,6 +1242,7 @@ body {
   border-radius: 14px;
   transition: border-color .2s, background .2s;
 }
+
 /* Círculo de selección (radio) */
 .register-page .tipo__card::before {
   content: "";
@@ -1080,29 +1255,35 @@ body {
   border-radius: 50%;
   background: transparent;
 }
+
 .register-page .tipo__card strong {
   margin-top: 8px;
   font-size: 1.5rem;
   font-weight: 600;
   color: #2e3440;
 }
+
 .register-page .tipo__card small {
   font-size: .85rem;
   line-height: 1.5;
   color: #2e3440;
 }
- 
-.register-page .tipo__op input:checked + .tipo__card { border-color: #2dd4bf; }
-.register-page .tipo__op input:checked + .tipo__card::before {
+
+.register-page .tipo__op input:checked+.tipo__card {
+  border-color: #2dd4bf;
+}
+
+.register-page .tipo__op input:checked+.tipo__card::before {
   border-color: #2dd4bf;
   background: #2dd4bf;
   box-shadow: inset 0 0 0 7px #ecf2fc;
 }
-.register-page .tipo__op input:focus-visible + .tipo__card {
+
+.register-page .tipo__op input:focus-visible+.tipo__card {
   outline: 3px solid #2f80ed;
   outline-offset: 3px;
 }
- 
+
 /* Botón */
 .register-page .btn-registro {
   display: flex;
@@ -1121,13 +1302,20 @@ body {
   cursor: pointer;
   transition: background .2s, transform .1s;
 }
-.register-page .btn-registro:hover { background: #1f3c88; }
-.register-page .btn-registro:active { transform: translateY(1px); }
+
+.register-page .btn-registro:hover {
+  background: #1f3c88;
+}
+
+.register-page .btn-registro:active {
+  transform: translateY(1px);
+}
+
 .register-page .btn-registro:focus-visible {
   outline: 3px solid #2f80ed;
   outline-offset: 3px;
 }
- 
+
 .register-page .reg-login {
   display: flex;
   justify-content: center;
@@ -1137,47 +1325,317 @@ body {
   font-size: 1.4rem;
   font-weight: 500;
 }
+
 .register-page .reg-link {
   color: var(--login-azul-boton);
   font-weight: 600;
   text-decoration: none;
 }
-.register-page .reg-link:hover { text-decoration: underline; }
+
+.register-page .reg-link:hover {
+  text-decoration: underline;
+}
+
 .register-page .reg-link:focus-visible {
   outline: 2px solid var(--login-azul-boton);
   outline-offset: 3px;
   border-radius: 4px;
 }
- 
-/* --------------------------------------------------------------------------
-   Responsive del registro
-   -------------------------------------------------------------------------- */
+
+/* Responsive del registro */
 @media (max-width: 1200px) {
-  .register-page .reg-card { margin-right: 40px; padding: 20px 36px 32px; }
-  .register-page .tipo { gap: 24px; }
+  .register-page .reg-card {
+    margin-right: 40px;
+    padding: 20px 36px 32px;
+  }
+
+  .register-page .tipo {
+    gap: 24px;
+  }
+
   .register-page .reg-titulo,
-  .register-page .reg-texto { padding: 0 32px; }
-  .register-page .beneficios { left: 32px; right: 32px; }
+  .register-page .reg-texto {
+    padding: 0 32px;
+  }
+
+  .register-page .beneficios {
+    left: 32px;
+    right: 32px;
+  }
 }
- 
+
 /* Tablet / móvil: una sola columna, solo la tarjeta */
 @media (max-width: 900px) {
   .register-page {
     grid-template-columns: 1fr;
     padding: 16px;
   }
+
   .register-page .reg-escena,
   .register-page .reg-texto,
-  .register-page .slot--reg-patron { display: none; }
-  .register-page .reg-titulo { padding: 0; margin-top: 20px; text-align: center; }
+  .register-page .slot--reg-patron {
+    display: none;
+  }
+
+  .register-page .reg-titulo {
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+
   .register-page .reg-card {
     margin: 24px 0;
     padding: 20px 20px 28px;
   }
-  .register-page .tipo { grid-template-columns: 1fr; gap: 14px; }
-  .register-page .reg-login { gap: 16px; flex-wrap: wrap; font-size: 1.1rem; }
+
+  .register-page .tipo {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .register-page .reg-login {
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+  }
 }
- 
+
 @media (prefers-reduced-motion: reduce) {
-  .register-page * { transition: none !important; }
+  .register-page * {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Responsive Design (Tablets y Celulares)
+   ========================================================================== */
+
+/* 1. Laptops pequeñas y Tablets horizontales (hasta 1100px) */
+@media (max-width: 1100px) {
+  .nav {
+    gap: 30px;
+    /* Reduce el espacio entre enlaces para que no choquen */
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    /* Pasa de 5 a 3 tarjetas por fila */
+  }
+}
+
+/* 2. Tablets verticales (hasta 900px) */
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr auto;
+    /* Logo a la izquierda, botón a la derecha */
+    row-gap: 15px;
+  }
+
+  .logo-img {
+    height: 95px;
+    /* Reduce un poco el logo */
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    /* Manda el menú a una segunda fila ocupando todo el ancho */
+    order: 3;
+    justify-content: center;
+    gap: 35px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .hero-subtext {
+    justify-content: center;
+  }
+
+  .cards-grid,
+  .what-we-do-grid,
+  .stats-banner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-box {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 15px;
+  }
+
+  .stat-box:nth-last-child(-n+2) {
+    border-bottom: none;
+    /* Quita el borde a los 2 últimos elementos */
+  }
+
+  .action-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .action-card:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+/* 3. Celulares (hasta 600px) */
+@media (max-width: 600px) {
+  .logo-img {
+    height: 75px;
+  }
+
+  .nav {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+  }
+
+  .btn-login {
+    font-size: 1rem;
+    padding: 6px 14px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtext p {
+    font-size: 1.15rem;
+    text-align: left;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    gap: 12px;
+  }
+
+  /* Pasa todas las cuadrículas a 1 sola columna */
+  .cards-grid,
+  .what-we-do-grid,
+  .stats-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .mv-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stat-box:nth-last-child(2),
+  .action-card:nth-last-child(2) {
+    border-bottom: 1px solid var(--border-light);
+  }
+}
+
+
+/* Contenedor principal de los 4 mosaicos */
+.mosaicos-decorativos {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  /* Recorta los mosaicos que salen por abajo o a la derecha */
+  pointer-events: none;
+  /* Evita que bloqueen el cursor o la selección de texto */
+  z-index: -1;
+  /* Los envía detrás de "Fortalecemos" */
+}
+
+/* Estilo base para cada rombo */
+.mosaico {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0.45;
+}
+
+/* Posición de cada uno formando la estructura de la imagen */
+.m-1 {
+  /* Rombo izquierdo (cían) */
+  width: 220px;
+  height: 160px;
+  bottom: 17px;
+  right: 25px;
+}
+
+.m-2 {
+  /* Rombo inferior */
+  width: 200px;
+  height: 160px;
+  bottom: -45px;
+  right: 90px;
+}
+
+.m-3 {
+  /* Rombo superior */
+  width: 210px;
+  height: 160px;
+  bottom: 75px;
+  right: -49px;
+}
+
+.m-4 {
+  /* Rombo inferior derecho */
+  width: 180px;
+  height: 130px;
+  bottom: -15px;
+  right: -20px;
+}
+
+@media (max-width: 600px) {
+  /* ... aquí van tus otros estilos móviles ... */
+
+  .mosaicos-decorativos {
+    width: 300px;
+    height: 300px;
+  }
+
+  .m-1 {
+    /* Rombo izquierdo (cian) */
+    width: 143px;
+    height: 104px;
+    bottom: 11px;
+    right: 16px;
+  }
+
+  .m-2 {
+    /* Rombo inferior */
+    width: 130px;
+    height: 104px;
+    bottom: -29px;
+    right: 58px;
+  }
+
+  .m-3 {
+    /* Rombo superior */
+    width: 136px;
+    height: 104px;
+    bottom: 49px;
+    right: -32px;
+  }
+
+  .m-4 {
+    /* Rombo inferior derecho */
+    width: 117px;
+    height: 85px;
+    bottom: -10px;
+    right: -13px;
+  }
 }
