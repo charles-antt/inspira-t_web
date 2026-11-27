@@ -11,6 +11,65 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../assiest/css/styles.css">
     <link rel="stylesheet" href="../assiest/css/app.css">
+
+    <style>
+        /* Estilos para validaciones, áreas de texto y estados de edición */
+        .field .error-msg {
+            display: none;
+            color: #dc2626;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .field .error-msg.visible {
+            display: block;
+        }
+
+        .field input.input--error,
+        .field textarea.input--error {
+            border-color: #dc2626 !important;
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+        }
+
+        .field input:disabled,
+        .field textarea:disabled {
+            background-color: #f8fafc;
+            color: #475569;
+            cursor: not-allowed;
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 82px;
+            font-family: inherit;
+        }
+
+        .profile-alert {
+            display: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .profile-alert--success {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+        }
+
+        .profile-alert--error {
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+        }
+
+        .profile-alert.visible {
+            display: block;
+        }
+    </style>
 </head>
 
 <body class="app" data-page="perfil_instructor.html" data-role="instructor">
@@ -20,12 +79,16 @@
         <!-- Barra superior -->
         <div id="topbar-container"></div>
 
+        <!-- Alerta de retroalimentación -->
+        <div id="profile-alert" class="profile-alert" role="alert"></div>
+
         <div class="profile-head">
             <div class="avatar-wrapper">
                 <span class="avatar">
-                    <img src="../assiest/images/instructor_image.svg" alt="Foto de perfil">
+                    <img id="avatar-img" src="../assiest/images/instructor_image.svg" alt="Foto de perfil">
                 </span>
-                <button type="button" class="edit-avatar-btn" title="Cambiar foto de perfil"
+                <input type="file" id="avatar-input" accept="image/*" hidden>
+                <button type="button" class="edit-avatar-btn" id="btn-change-avatar" title="Cambiar foto de perfil"
                     aria-label="Cambiar foto de perfil">
                     <i data-lucide="pencil"></i>
                 </button>
@@ -37,57 +100,449 @@
                 Instructor
             </p>
         </div>
-        <div class="box">
-            <div style="display:flex;justify-content:space-between">
-                <h3>Información personal</h3>
-                <button class="btn teal" id="edit">Editar</button>
-            </div>
-            <div class="row2">
-                <div class="field">
-                    <label>Nombre completo*</label>
-                    <input data-field="Nombre completo" placeholder="Nombre completo">
-                </div>
-                <div class="field">
-                    <label>Nombre de usuario*</label>
-                    <input data-field="Nombre de usuario" placeholder="Nombre de usuario">
-                </div>
-                <div class="field">
-                    <label>Correo electrónico*</label>
-                    <input data-field="Correo electrónico" placeholder="Correo electrónico">
-                </div>
-                <div class="field">
-                    <label>Número de teléfono*</label>
-                    <input data-field="Número de teléfono" placeholder="Número de teléfono">
-                </div>
-            </div>
-            <h3>Información adicional</h3>
-            <div class="row2">
-                <div class="field">
-                    <label>Años de experiencia*</label>
-                    <input data-field="Años de experiencia" placeholder="Ej. 6 años">
-                </div>
-                <div class="field">
-                    <label>Ciudad*</label>
-                    <input data-field="Ciudad" placeholder="Nombre de la ciudad">
-                </div>
-                <div class="field">
-                    <label>Biografía*</label>
-                    <textarea data-field="Biografía" placeholder="Cuéntanos sobre ti..."></textarea>
-                </div>
-                <div class="field">
-                    <label>Frase personal*</label>
-                    <textarea data-field="Frase personal" placeholder="Frase que represente tu esencia..."></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="actions">
-            <button class="btn" id="save">Guardar</button>
-            <a class="btn purple" href="#" data-logout>Cerrar Sesión</a>
-        </div>
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <script src="../js/sidebar.js"></script>
-        <script src="../js/topbar.js"></script>
 
+        <div class="box">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <h3>Información personal</h3>
+                <button type="button" class="btn teal" id="edit">Editar</button>
+            </div>
+            <div class="row2">
+                <div class="field">
+                    <label for="input-nombre">Nombre completo*</label>
+                    <input id="input-nombre" type="text" data-field="Nombre completo" placeholder="Nombre completo"
+                        disabled>
+                    <span class="error-msg" id="error-nombre"></span>
+                </div>
+                <div class="field">
+                    <label for="input-usuario">Nombre de usuario*</label>
+                    <input id="input-usuario" type="text" data-field="Nombre de usuario" placeholder="Nombre de usuario"
+                        disabled>
+                    <span class="error-msg" id="error-usuario"></span>
+                </div>
+                <div class="field">
+                    <label for="input-correo">Correo electrónico*</label>
+                    <input id="input-correo" type="email" data-field="Correo electrónico"
+                        placeholder="Correo electrónico" disabled>
+                    <span class="error-msg" id="error-correo"></span>
+                </div>
+                <div class="field">
+                    <label for="input-telefono">Número de teléfono*</label>
+                    <input id="input-telefono" type="tel" data-field="Número de teléfono"
+                        placeholder="10 dígitos (ej. 5512345678)" disabled>
+                    <span class="error-msg" id="error-telefono"></span>
+                </div>
+            </div>
+
+            <h3 style="margin-top:20px;">Información adicional</h3>
+            <div class="row2">
+                <div class="field">
+                    <label for="input-experiencia">Años de experiencia*</label>
+                    <input id="input-experiencia" type="text" data-field="Años de experiencia" placeholder="Ej. 6 años"
+                        disabled>
+                    <span class="error-msg" id="error-experiencia"></span>
+                </div>
+                <div class="field">
+                    <label for="input-ciudad">Ciudad*</label>
+                    <input id="input-ciudad" type="text" data-field="Ciudad" placeholder="Nombre de la ciudad" disabled>
+                    <span class="error-msg" id="error-ciudad"></span>
+                </div>
+                <div class="field">
+                    <label for="input-bio">Biografía*</label>
+                    <textarea id="input-bio" data-field="Biografía" placeholder="Cuéntanos sobre ti..."
+                        disabled></textarea>
+                    <span class="error-msg" id="error-bio"></span>
+                </div>
+                <div class="field">
+                    <label for="input-frase">Frase personal*</label>
+                    <textarea id="input-frase" data-field="Frase personal"
+                        placeholder="Frase que represente tu esencia..." disabled></textarea>
+                    <span class="error-msg" id="error-frase"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="button" class="btn" id="save" disabled>Guardar</button>
+            <a class="btn purple" href="login_page.html" data-logout>Cerrar Sesión</a>
+        </div>
+    </main>
+
+    <script src="../assiest/js/app.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/topbar.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            // 1. REFERENCIAS DEL DOM
+            const unameEl = document.getElementById('uname');
+            const avatarImg = document.getElementById('avatar-img');
+            const avatarInput = document.getElementById('avatar-input');
+            const btnChangeAvatar = document.getElementById('btn-change-avatar');
+
+            const campos = {
+                nombre: { input: document.getElementById('input-nombre'), error: document.getElementById('error-nombre') },
+                usuario: { input: document.getElementById('input-usuario'), error: document.getElementById('error-usuario') },
+                correo: { input: document.getElementById('input-correo'), error: document.getElementById('error-correo') },
+                telefono: { input: document.getElementById('input-telefono'), error: document.getElementById('error-telefono') },
+                experiencia: { input: document.getElementById('input-experiencia'), error: document.getElementById('error-experiencia') },
+                ciudad: { input: document.getElementById('input-ciudad'), error: document.getElementById('error-ciudad') },
+                bio: { input: document.getElementById('input-bio'), error: document.getElementById('error-bio') },
+                frase: { input: document.getElementById('input-frase'), error: document.getElementById('error-frase') }
+            };
+
+            const btnEdit = document.getElementById('edit');
+            const btnSave = document.getElementById('save');
+            const btnLogout = document.querySelector('[data-logout]');
+            const profileAlert = document.getElementById('profile-alert');
+
+            let modoEdicion = false;
+
+            // 2. OBTENER Y PINTAR DATOS DEL INSTRUCTOR EN SESIÓN
+            function obtenerInstructorSesion() {
+                const sesionGuardada = JSON.parse(localStorage.getItem('inspirat_usuario') || 'null');
+
+                if (sesionGuardada && sesionGuardada.rol === 'instructor') {
+                    return {
+                        nombre: sesionGuardada.nombre || 'Antonia Gómez',
+                        usuario: sesionGuardada.usuario || sesionGuardada.correo.split('@')[0],
+                        correo: sesionGuardada.correo || 'instructor@inspirat.com',
+                        telefono: sesionGuardada.telefono || '9511234567',
+                        experiencia: sesionGuardada.experiencia || '18 años',
+                        ciudad: sesionGuardada.ciudad || sesionGuardada.lugar || 'Oaxaca de Juárez, Oaxaca',
+                        bio: sesionGuardada.bio || 'Maestra artesana dedicada a la enseñanza y preservación del tejido tradicional en telar de cintura.',
+                        frase: sesionGuardada.frase || sesionGuardada.quote || 'La naturaleza es nuestra maestra, escucharla es el primer paso para sanar.',
+                        rol: 'instructor',
+                        avatar: sesionGuardada.avatar || '../assiest/images/instructor_image.svg'
+                    };
+                }
+
+                // Respaldo si abren el perfil directo sin pasar por login
+                const instructorPorDefecto = {
+                    nombre: 'Antonia Gómez',
+                    usuario: 'antonia_gomez',
+                    correo: 'instructor@inspirat.com',
+                    telefono: '9511234567',
+                    experiencia: '18 años',
+                    ciudad: 'Oaxaca de Juárez, Oaxaca',
+                    bio: 'Maestra artesana dedicada a la enseñanza y preservación del tejido tradicional en telar de cintura.',
+                    frase: 'La naturaleza es nuestra maestra, escucharla es el primer paso para sanar.',
+                    rol: 'instructor',
+                    avatar: '../assiest/images/instructor_image.svg'
+                };
+                localStorage.setItem('inspirat_usuario', JSON.stringify(instructorPorDefecto));
+                return instructorPorDefecto;
+            }
+
+            function pintarDatosEnPantalla() {
+                const datos = obtenerInstructorSesion();
+                unameEl.textContent = datos.usuario || datos.nombre;
+
+                campos.nombre.input.value = datos.nombre;
+                campos.usuario.input.value = datos.usuario;
+                campos.correo.input.value = datos.correo;
+                campos.telefono.input.value = datos.telefono;
+                campos.experiencia.input.value = datos.experiencia;
+                campos.ciudad.input.value = datos.ciudad;
+                campos.bio.input.value = datos.bio;
+                campos.frase.input.value = datos.frase;
+
+                if (datos.avatar) {
+                    avatarImg.src = datos.avatar;
+                }
+            }
+
+            pintarDatosEnPantalla();
+
+            // 3. FUNCIONES DE VALIDACIÓN
+            function mostrarError(campoObj, mensaje) {
+                campoObj.input.classList.add('input--error');
+                campoObj.error.textContent = mensaje;
+                campoObj.error.classList.add('visible');
+            }
+
+            function limpiarError(campoObj) {
+                campoObj.input.classList.remove('input--error');
+                campoObj.error.textContent = '';
+                campoObj.error.classList.remove('visible');
+            }
+
+            function limpiarTodosLosErrores() {
+                Object.values(campos).forEach(limpiarError);
+            }
+
+            function validarNombre() {
+                const valor = campos.nombre.input.value.trim();
+                const regexNombre = /^[a-zA-ZÁÉÍÓÚáéíóúÑñÜü\s]+$/;
+                if (!valor) {
+                    mostrarError(campos.nombre, 'El nombre completo es obligatorio.');
+                    return false;
+                }
+                if (valor.length < 3) {
+                    mostrarError(campos.nombre, 'Debe contener al menos 3 caracteres.');
+                    return false;
+                }
+                if (!regexNombre.test(valor)) {
+                    mostrarError(campos.nombre, 'Solo se permiten letras y espacios.');
+                    return false;
+                }
+                limpiarError(campos.nombre);
+                return true;
+            }
+
+            function validarUsuario() {
+                const valor = campos.usuario.input.value.trim();
+                const regexUser = /^[a-zA-Z0-9._-]+$/;
+                if (!valor) {
+                    mostrarError(campos.usuario, 'El nombre de usuario es obligatorio.');
+                    return false;
+                }
+                if (valor.length < 3) {
+                    mostrarError(campos.usuario, 'Debe contener al menos 3 caracteres.');
+                    return false;
+                }
+                if (!regexUser.test(valor)) {
+                    mostrarError(campos.usuario, 'No uses espacios ni caracteres especiales.');
+                    return false;
+                }
+                limpiarError(campos.usuario);
+                return true;
+            }
+
+            function validarCorreo() {
+                const valor = campos.correo.input.value.trim();
+                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!valor) {
+                    mostrarError(campos.correo, 'El correo electrónico es obligatorio.');
+                    return false;
+                }
+                if (!regexEmail.test(valor)) {
+                    mostrarError(campos.correo, 'Ingresa un formato de correo válido.');
+                    return false;
+                }
+                limpiarError(campos.correo);
+                return true;
+            }
+
+            function validarTelefono() {
+                const soloDigitos = campos.telefono.input.value.replace(/[\s()-]/g, '');
+                if (!soloDigitos) {
+                    mostrarError(campos.telefono, 'El número de teléfono es obligatorio.');
+                    return false;
+                }
+                if (!/^\d{10}$/.test(soloDigitos)) {
+                    mostrarError(campos.telefono, 'Ingresa un número válido de 10 dígitos.');
+                    return false;
+                }
+                limpiarError(campos.telefono);
+                return true;
+            }
+
+            function validarExperiencia() {
+                const valor = campos.experiencia.input.value.trim();
+                const matchNumero = valor.match(/\d+/);
+                if (!valor) {
+                    mostrarError(campos.experiencia, 'Indica tus años de experiencia.');
+                    return false;
+                }
+                if (!matchNumero) {
+                    mostrarError(campos.experiencia, 'Incluye una cantidad numérica (ej. 6 años).');
+                    return false;
+                }
+                const anios = parseInt(matchNumero[0], 10);
+                if (anios < 0 || anios > 80) {
+                    mostrarError(campos.experiencia, 'Ingresa una cantidad de años válida (0 a 80).');
+                    return false;
+                }
+                limpiarError(campos.experiencia);
+                return true;
+            }
+
+            function validarCiudad() {
+                const valor = campos.ciudad.input.value.trim();
+                if (!valor) {
+                    mostrarError(campos.ciudad, 'La ciudad es obligatoria.');
+                    return false;
+                }
+                if (valor.length < 3) {
+                    mostrarError(campos.ciudad, 'Ingresa el nombre completo de tu ciudad.');
+                    return false;
+                }
+                limpiarError(campos.ciudad);
+                return true;
+            }
+
+            function validarBio() {
+                const valor = campos.bio.input.value.trim();
+                if (!valor) {
+                    mostrarError(campos.bio, 'La biografía es obligatoria.');
+                    return false;
+                }
+                if (valor.length < 15) {
+                    mostrarError(campos.bio, 'Escribe al menos 15 caracteres sobre tu trayectoria.');
+                    return false;
+                }
+                limpiarError(campos.bio);
+                return true;
+            }
+
+            function validarFrase() {
+                const valor = campos.frase.input.value.trim();
+                if (!valor) {
+                    mostrarError(campos.frase, 'La frase personal es obligatoria.');
+                    return false;
+                }
+                if (valor.length < 10) {
+                    mostrarError(campos.frase, 'Escribe una frase de al menos 10 caracteres.');
+                    return false;
+                }
+                limpiarError(campos.frase);
+                return true;
+            }
+
+            // Validación en tiempo real cuando ya se mostró un error
+            const validadores = {
+                nombre: validarNombre,
+                usuario: validarUsuario,
+                correo: validarCorreo,
+                telefono: validarTelefono,
+                experiencia: validarExperiencia,
+                ciudad: validarCiudad,
+                bio: validarBio,
+                frase: validarFrase
+            };
+
+            Object.keys(campos).forEach(key => {
+                campos[key].input.addEventListener('input', () => {
+                    if (campos[key].input.classList.contains('input--error')) {
+                        validadores[key]();
+                    }
+                });
+            });
+
+            // 4. ACTIVAR / CANCELAR MODO EDICIÓN
+            function establecerModoEdicion(activar) {
+                modoEdicion = activar;
+                Object.values(campos).forEach(c => c.input.disabled = !activar);
+                btnSave.disabled = !activar;
+
+                if (activar) {
+                    btnEdit.textContent = 'Cancelar';
+                    btnEdit.classList.remove('teal');
+                    btnEdit.classList.add('purple');
+                    profileAlert.className = 'profile-alert';
+                    campos.nombre.input.focus();
+                } else {
+                    btnEdit.textContent = 'Editar';
+                    btnEdit.classList.remove('purple');
+                    btnEdit.classList.add('teal');
+                    limpiarTodosLosErrores();
+                    pintarDatosEnPantalla();
+                }
+            }
+
+            btnEdit.addEventListener('click', () => {
+                establecerModoEdicion(!modoEdicion);
+            });
+
+            // 5. GUARDAR CAMBIOS Y SINCRONIZAR CON PERFIL PÚBLICO
+            btnSave.addEventListener('click', () => {
+                if (!modoEdicion) return;
+
+                const resultados = Object.values(validadores).map(fn => fn());
+                if (resultados.includes(false)) {
+                    profileAlert.textContent = 'Por favor, corrige los campos marcados en rojo antes de guardar.';
+                    profileAlert.className = 'profile-alert profile-alert--error visible';
+                    return;
+                }
+
+                const sesionActual = obtenerInstructorSesion();
+                const correoAnterior = sesionActual.correo;
+
+                const expTexto = campos.experiencia.input.value.trim();
+                const expFormateada = /^\d+$/.test(expTexto) ? `${expTexto} años` : expTexto;
+                const ciudadLimpia = campos.ciudad.input.value.trim();
+                const fraseLimpia = campos.frase.input.value.trim();
+
+                const datosActualizados = {
+                    ...sesionActual,
+                    nombre: campos.nombre.input.value.trim(),
+                    usuario: campos.usuario.input.value.trim(),
+                    correo: campos.correo.input.value.trim().toLowerCase(),
+                    telefono: campos.telefono.input.value.replace(/[\s()-]/g, ''),
+                    experiencia: expFormateada,
+                    ciudad: ciudadLimpia,
+                    lugar: ciudadLimpia, // Sincroniza con perfil_instructor_aprendiente.html
+                    bio: campos.bio.input.value.trim(),
+                    frase: fraseLimpia,
+                    quote: `“${fraseLimpia.replace(/^[“"]|[”"]$/g, '')}”` // Sincroniza con vista pública
+                };
+
+                // Guardar en sesión activa
+                localStorage.setItem('inspirat_usuario', JSON.stringify(datosActualizados));
+
+                // Actualizar también en la lista de usuarios registrados si aplica
+                const registrados = JSON.parse(localStorage.getItem('inspirat_usuarios_registrados') || '[]');
+                const idx = registrados.findIndex(u => u.correo.toLowerCase() === correoAnterior.toLowerCase());
+                if (idx !== -1) {
+                    registrados[idx] = { ...registrados[idx], ...datosActualizados };
+                    localStorage.setItem('inspirat_usuarios_registrados', JSON.stringify(registrados));
+                }
+
+                establecerModoEdicion(false);
+                profileAlert.textContent = '¡Tu perfil de instructor se ha actualizado correctamente!';
+                profileAlert.className = 'profile-alert profile-alert--success visible';
+
+                setTimeout(() => {
+                    profileAlert.classList.remove('visible');
+                }, 3500);
+            });
+
+            // 6. CAMBIO DE FOTO DE PERFIL
+            btnChangeAvatar.addEventListener('click', () => {
+                avatarInput.click();
+            });
+
+            avatarInput.addEventListener('change', (e) => {
+                const archivo = e.target.files[0];
+                if (!archivo) return;
+
+                if (!archivo.type.startsWith('image/')) {
+                    profileAlert.textContent = 'Por favor selecciona un archivo de imagen válido.';
+                    profileAlert.className = 'profile-alert profile-alert--error visible';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const nuevaImagenBase64 = ev.target.result;
+                    avatarImg.src = nuevaImagenBase64;
+
+                    const sesionActual = obtenerInstructorSesion();
+                    sesionActual.avatar = nuevaImagenBase64;
+                    localStorage.setItem('inspirat_usuario', JSON.stringify(sesionActual));
+
+                    profileAlert.textContent = 'Foto de perfil actualizada.';
+                    profileAlert.className = 'profile-alert profile-alert--success visible';
+                    setTimeout(() => profileAlert.classList.remove('visible'), 3000);
+                };
+                reader.readAsDataURL(archivo);
+            });
+
+            // 7. CERRAR SESIÓN
+            if (btnLogout) {
+                btnLogout.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('inspirat_usuario');
+                    window.location.href = 'login_page.html';
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

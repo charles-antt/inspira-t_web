@@ -138,7 +138,7 @@
                     <b style="display: block; font-size: 1rem;">Cocina tradicional</b>
                     <small style="color: #475569;font-size: 0.9rem;">Pablo Hernández</small>
                 </div>
-                <button type="button" class="btn-enroll"
+                <button type="button" class="btn-enroll" onclick="inscribirUsuario(this)"
                     style="width: 100%; background: #26d0b8; color: #ffffff; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto;">
                     <i data-lucide="user-plus" style="width: 25px; height: 25px;"></i>
                     <span style="font-size: 1.2rem;">Inscribirse</span>
@@ -155,7 +155,7 @@
                     <b style="display: block; font-size: 1rem;">Medicina tradicional</b>
                     <small style="color: #475569;font-size: 0.9rem;">María López</small>
                 </div>
-                <button type="button" class="btn-enroll"
+                <button type="button" class="btn-enroll" onclick="inscribirUsuario(this)"
                     style="width: 100%; background: #26d0b8; color: #ffffff; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto;">
                     <i data-lucide="user-plus" style="width: 25px; height: 25px;"></i>
                     <span style="font-size: 1.2rem;">Inscribirse</span>
@@ -172,7 +172,7 @@
                     <b style="display: block; font-size: 1rem;">Arte popular mexicano</b>
                     <small style="color: #475569;font-size: 0.9rem;">Carlos Ramírez</small>
                 </div>
-                <button type="button" class="btn-enroll"
+                <button type="button" class="btn-enroll" onclick="inscribirUsuario(this)"
                     style="width: 100%; background: #26d0b8; color: #ffffff; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto;">
                     <i data-lucide="user-plus" style="width: 25px; height: 25px;"></i>
                     <span style="font-size: 1.2rem;">Inscribirse</span>
@@ -189,7 +189,7 @@
                     <b style="display: block; font-size: 1rem;">Alfarería Ancestral</b>
                     <small style="color: #475569;font-size: 0.9rem;">Juana Bautista</small>
                 </div>
-                <button type="button" class="btn-enroll"
+                <button type="button" class="btn-enroll" onclick="inscribirUsuario(this)"
                     style="width: 100%; background: #26d0b8; color: #ffffff; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: auto;">
                     <i data-lucide="user-plus" style="width: 25px; height: 25px;"></i>
                     <span style="font-size: 1.2rem;">Inscribirse</span>
@@ -204,7 +204,19 @@
     <script>
         lucide.createIcons();
     </script>
+    <script>
+        function inscribirUsuario(boton) {
+            const textoSpan = boton.querySelector('span');
 
+            if (textoSpan.textContent === 'Inscribirse') {
+                textoSpan.textContent = 'Inscrito';
+                boton.style.background = '#1e9e8c'; // Opcional: oscurece un poco el color
+            } else {
+                textoSpan.textContent = 'Inscribirse';
+                boton.style.background = '#26d0b8'; // Regresa al color original
+            }
+        }
+    </script>
     <script src="../js/sidebar.js"></script>
     <script src="../js/topbar.js"></script>
 </body>

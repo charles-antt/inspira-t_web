@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +9,59 @@
   <link rel="icon" type="image/x-icon" href="../assiest/images/isotipo_blanco.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="../assiest/css/styles.css">
+
+  <style>
+    /* Estilos para mensajes de validación y alertas */
+    .error-msg {
+      display: none;
+      color: #dc2626;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .error-msg.visible {
+      display: block;
+    }
+
+    .input.input--error {
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+    }
+
+    .reg-alert {
+      display: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .reg-alert--error {
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+
+    .reg-alert--success {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #15803d;
+    }
+
+    .reg-alert.visible {
+      display: block;
+    }
+  </style>
 </head>
+
 <body>
   <main class="register-page">
 
@@ -78,8 +128,8 @@
       <header class="reg-card__header">
         <div class="reg-avatar" aria-hidden="true">
           <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="8" r="4"/>
-            <path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/>
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21" />
           </svg>
         </div>
         <h2 id="reg-h">Crear cuenta</h2>
@@ -92,75 +142,90 @@
         </div>
       </header>
 
-      <form class="reg-form" action="#" method="post" novalidate>
+      <!-- Alerta general de registro -->
+      <div id="reg-alert" class="reg-alert" role="alert"></div>
+
+      <form class="reg-form" id="register-form" action="#" method="post" novalidate>
 
         <div class="field">
           <label for="nombre">Nombre completo</label>
-          <div class="input">
+          <div class="input" id="nombre-wrapper">
             <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21"/>
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21v-1.5A5.5 5.5 0 0 1 9.5 14h5a5.5 5.5 0 0 1 5.5 5.5V21" />
             </svg>
-            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" autocomplete="name" required>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" autocomplete="name"
+              required>
           </div>
+          <span class="error-msg" id="nombre-error"></span>
         </div>
 
         <div class="field">
-          <label for="correo">Correo electronico</label>
-          <div class="input">
+          <label for="correo">Correo electrónico</label>
+          <div class="input" id="correo-wrapper">
             <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2"/>
-              <path d="m3.5 6.5 8.5 7 8.5-7"/>
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3.5 6.5 8.5 7 8.5-7" />
             </svg>
-            <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" autocomplete="email" required>
+            <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico"
+              autocomplete="email" required>
           </div>
+          <span class="error-msg" id="correo-error"></span>
         </div>
 
         <div class="field">
           <label for="usuario">Nombre de usuario</label>
-          <div class="input">
+          <div class="input" id="usuario-wrapper">
             <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="4"/>
-              <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/>
+              <circle cx="12" cy="12" r="4" />
+              <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
             </svg>
-            <input type="text" id="usuario" name="usuario" placeholder="Ingresa un nombre de usuario" autocomplete="username" required>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingresa un nombre de usuario"
+              autocomplete="username" required>
           </div>
+          <span class="error-msg" id="usuario-error"></span>
         </div>
 
         <div class="field">
           <label for="password">Contraseña</label>
-          <div class="input">
+          <div class="input" id="password-wrapper">
             <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="4" y="10" width="16" height="11" rx="2.5"/>
-              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-              <circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/>
+              <rect x="4" y="10" width="16" height="11" rx="2.5" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              <circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none" />
             </svg>
-            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" autocomplete="new-password" required>
+            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña"
+              autocomplete="new-password" required>
             <button type="button" class="input__toggle" data-toggle="password" aria-label="Mostrar contraseña">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
-                <circle cx="12" cy="12" r="3"/>
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
             </button>
           </div>
+          <span class="error-msg" id="password-error"></span>
         </div>
 
         <div class="field">
           <label for="password2">Confirmar contraseña</label>
-          <div class="input">
+          <div class="input" id="password2-wrapper">
             <svg class="input__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="4" y="10" width="16" height="11" rx="2.5"/>
-              <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
-              <circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/>
+              <rect x="4" y="10" width="16" height="11" rx="2.5" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              <circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none" />
             </svg>
-            <input type="password" id="password2" name="password2" placeholder="Confirma tu contraseña" autocomplete="new-password" required>
+            <input type="password" id="password2" name="password2" placeholder="Confirma tu contraseña"
+              autocomplete="new-password" required>
             <button type="button" class="input__toggle" data-toggle="password2" aria-label="Mostrar contraseña">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
-                <circle cx="12" cy="12" r="3"/>
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z" />
+                <circle cx="12" cy="12" r="3" />
               </svg>
             </button>
           </div>
+          <span class="error-msg" id="password2-error"></span>
         </div>
 
         <!-- Tipo de usuario -->
@@ -188,15 +253,16 @@
               </span>
               <strong>Instructor</strong>
               <small>Quiero compartir mis conocimientos.</small>
+              <br>
             </span>
           </label>
         </fieldset>
 
-        <button type="submit" class="btn-registro">
+        <button type="submit" class="btn-registro" id="btn-submit">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="9.5" cy="8" r="4"/>
-            <path d="M2 21v-1.5A5.5 5.5 0 0 1 7.5 14h4a5.5 5.5 0 0 1 5.5 5.5V21"/>
-            <path d="M19 8v6M16 11h6"/>
+            <circle cx="9.5" cy="8" r="4" />
+            <path d="M2 21v-1.5A5.5 5.5 0 0 1 7.5 14h4a5.5 5.5 0 0 1 5.5 5.5V21" />
+            <path d="M19 8v6M16 11h6" />
           </svg>
           Crear cuenta
         </button>
@@ -218,16 +284,7 @@
   </main>
 
   <script src="../assiest/js/app.js"></script>
-  <script>
-    // Mostrar / ocultar contraseña (funciona para ambos campos)
-    document.querySelectorAll('[data-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const campo = document.getElementById(btn.dataset.toggle);
-        const visible = campo.type === 'text';
-        campo.type = visible ? 'password' : 'text';
-        btn.setAttribute('aria-label', visible ? 'Mostrar contraseña' : 'Ocultar contraseña');
-      });
-    });
-  </script>
+  <script src="../js/app.js"></script>
 </body>
+
 </html>

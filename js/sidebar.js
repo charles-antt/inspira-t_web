@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </a>
         `;
 
-    // 3. Inserta el HTML completo de la barra lateral
     sidebarContainer.innerHTML = `
         <aside class="sidebar">
             <div class="brand">

@@ -11,6 +11,57 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../assiest/css/styles.css">
     <link rel="stylesheet" href="../assiest/css/app.css">
+
+    <style>
+        /* Estilos para validaciones y estados de edición */
+        .field .error-msg {
+            display: none;
+            color: #dc2626;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .field .error-msg.visible {
+            display: block;
+        }
+
+        .field input.input--error {
+            border-color: #dc2626 !important;
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+        }
+
+        .field input:disabled {
+            background-color: #f8fafc;
+            color: #475569;
+            cursor: not-allowed;
+        }
+
+        .profile-alert {
+            display: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .profile-alert--success {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+        }
+
+        .profile-alert--error {
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+        }
+
+        .profile-alert.visible {
+            display: block;
+        }
+    </style>
 </head>
 
 <body class="app" data-page="perfil_aprendiente.html" data-role="aprendiente">
@@ -20,12 +71,16 @@
         <!-- Barra superior -->
         <div id="topbar-container"></div>
 
+        <!-- Alerta de estado al guardar o editar -->
+        <div id="profile-alert" class="profile-alert" role="alert"></div>
+
         <div class="profile-head">
             <div class="avatar-wrapper">
                 <span class="avatar">
-                    <img src="../assiest/images/aprendiente_image.svg" alt="Foto de perfil">
+                    <img id="avatar-img" src="../assiest/images/aprendiente_image.svg" alt="Foto de perfil">
                 </span>
-                <button type="button" class="edit-avatar-btn" title="Cambiar foto de perfil"
+                <input type="file" id="avatar-input" accept="image/*" hidden>
+                <button type="button" class="edit-avatar-btn" id="btn-change-avatar" title="Cambiar foto de perfil"
                     aria-label="Cambiar foto de perfil">
                     <i data-lucide="pencil"></i>
                 </button>
@@ -38,40 +93,337 @@
             </p>
         </div>
 
-
         <div class="box">
-            <div style="display:flex;justify-content:space-between">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
                 <h3>Información personal</h3>
-                <button class="btn teal" id="edit">Editar</button>
+                <button type="button" class="btn teal" id="edit">Editar</button>
             </div>
             <div class="row2">
                 <div class="field">
-                    <label>Nombre completo*</label>
-                    <input data-field="Nombre completo" placeholder="Nombre completo">
+                    <label for="input-nombre">Nombre completo*</label>
+                    <input id="input-nombre" type="text" data-field="Nombre completo" placeholder="Nombre completo"
+                        disabled>
+                    <span class="error-msg" id="error-nombre"></span>
                 </div>
                 <div class="field">
-                    <label>Nombre de usuario*</label>
-                    <input data-field="Nombre de usuario" placeholder="Nombre de usuario">
+                    <label for="input-usuario">Nombre de usuario*</label>
+                    <input id="input-usuario" type="text" data-field="Nombre de usuario" placeholder="Nombre de usuario"
+                        disabled>
+                    <span class="error-msg" id="error-usuario"></span>
                 </div>
                 <div class="field">
-                    <label>Correo electrónico*</label>
-                    <input data-field="Correo electrónico" placeholder="Correo electrónico">
+                    <label for="input-correo">Correo electrónico*</label>
+                    <input id="input-correo" type="email" data-field="Correo electrónico"
+                        placeholder="Correo electrónico" disabled>
+                    <span class="error-msg" id="error-correo"></span>
                 </div>
                 <div class="field">
-                    <label>Número de teléfono*</label>
-                    <input data-field="Número de teléfono" placeholder="Número de teléfono">
+                    <label for="input-telefono">Número de teléfono*</label>
+                    <input id="input-telefono" type="tel" data-field="Número de teléfono"
+                        placeholder="10 dígitos (ej. 5512345678)" disabled>
+                    <span class="error-msg" id="error-telefono"></span>
                 </div>
             </div>
         </div>
+
         <div class="actions">
-            <button class="btn" id="save">Guardar</button>
-            <a class="btn purple" href="#" data-logout>Cerrar Sesión</a>
+            <button type="button" class="btn" id="save" disabled>Guardar</button>
+            <a class="btn purple" href="login_page.html" data-logout>Cerrar Sesión</a>
         </div>
     </main>
+
     <script src="../assiest/js/app.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../js/sidebar.js"></script>
     <script src="../js/topbar.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            // 1. REFERENCIAS DEL DOM
+            const unameEl = document.getElementById('uname');
+            const avatarImg = document.getElementById('avatar-img');
+            const avatarInput = document.getElementById('avatar-input');
+            const btnChangeAvatar = document.getElementById('btn-change-avatar');
+
+            const inputNombre = document.getElementById('input-nombre');
+            const inputUsuario = document.getElementById('input-usuario');
+            const inputCorreo = document.getElementById('input-correo');
+            const inputTelefono = document.getElementById('input-telefono');
+
+            const errorNombre = document.getElementById('error-nombre');
+            const errorUsuario = document.getElementById('error-usuario');
+            const errorCorreo = document.getElementById('error-correo');
+            const errorTelefono = document.getElementById('error-telefono');
+
+            const btnEdit = document.getElementById('edit');
+            const btnSave = document.getElementById('save');
+            const btnLogout = document.querySelector('[data-logout]');
+            const profileAlert = document.getElementById('profile-alert');
+
+            const todosLosInputs = [inputNombre, inputUsuario, inputCorreo, inputTelefono];
+            let modoEdicion = false;
+
+            // 2. OBTENER Y CARGAR DATOS DEL APRENDIENTE EN SESIÓN
+            function obtenerUsuarioSesion() {
+                const sesionGuardada = JSON.parse(localStorage.getItem('inspirat_usuario') || 'null');
+
+                if (sesionGuardada) {
+                    // Si inició sesión con el usuario de prueba (que no tenía usuario/teléfono en el login), completamos los valores por defecto
+                    return {
+                        nombre: sesionGuardada.nombre || 'María Aprendiente',
+                        usuario: sesionGuardada.usuario || sesionGuardada.correo.split('@')[0],
+                        correo: sesionGuardada.correo || 'aprendiente@inspirat.com',
+                        telefono: sesionGuardada.telefono || '5512345678',
+                        rol: 'aprendiente',
+                        avatar: sesionGuardada.avatar || '../assiest/images/aprendiente_image.svg'
+                    };
+                }
+
+                // Respaldo si abren el perfil directo sin pasar por login
+                const usuarioPorDefecto = {
+                    nombre: 'María Aprendiente',
+                    usuario: 'maria_aprendiente',
+                    correo: 'aprendiente@inspirat.com',
+                    telefono: '5512345678',
+                    rol: 'aprendiente',
+                    avatar: '../assiest/images/aprendiente_image.svg'
+                };
+                localStorage.setItem('inspirat_usuario', JSON.stringify(usuarioPorDefecto));
+                return usuarioPorDefecto;
+            }
+
+            function pintarDatosEnPantalla() {
+                const datos = obtenerUsuarioSesion();
+                unameEl.textContent = datos.usuario || datos.nombre;
+                inputNombre.value = datos.nombre;
+                inputUsuario.value = datos.usuario;
+                inputCorreo.value = datos.correo;
+                inputTelefono.value = datos.telefono;
+                if (datos.avatar) {
+                    avatarImg.src = datos.avatar;
+                }
+            }
+
+            pintarDatosEnPantalla();
+
+            // 3. FUNCIONES DE VALIDACIÓN
+            function mostrarError(input, errorEl, mensaje) {
+                input.classList.add('input--error');
+                errorEl.textContent = mensaje;
+                errorEl.classList.add('visible');
+            }
+
+            function limpiarError(input, errorEl) {
+                input.classList.remove('input--error');
+                errorEl.textContent = '';
+                errorEl.classList.remove('visible');
+            }
+
+            function limpiarTodosLosErrores() {
+                limpiarError(inputNombre, errorNombre);
+                limpiarError(inputUsuario, errorUsuario);
+                limpiarError(inputCorreo, errorCorreo);
+                limpiarError(inputTelefono, errorTelefono);
+            }
+
+            function validarNombre() {
+                const valor = inputNombre.value.trim();
+                const regexNombre = /^[a-zA-ZÁÉÍÓÚáéíóúÑñÜü\s]+$/;
+                if (!valor) {
+                    mostrarError(inputNombre, errorNombre, 'El nombre completo es obligatorio.');
+                    return false;
+                }
+                if (valor.length < 3) {
+                    mostrarError(inputNombre, errorNombre, 'Debe contener al menos 3 caracteres.');
+                    return false;
+                }
+                if (!regexNombre.test(valor)) {
+                    mostrarError(inputNombre, errorNombre, 'Solo se permiten letras y espacios.');
+                    return false;
+                }
+                limpiarError(inputNombre, errorNombre);
+                return true;
+            }
+
+            function validarUsuario() {
+                const valor = inputUsuario.value.trim();
+                const regexUser = /^[a-zA-Z0-9._-]+$/;
+                if (!valor) {
+                    mostrarError(inputUsuario, errorUsuario, 'El nombre de usuario es obligatorio.');
+                    return false;
+                }
+                if (valor.length < 3) {
+                    mostrarError(inputUsuario, errorUsuario, 'Debe contener al menos 3 caracteres.');
+                    return false;
+                }
+                if (!regexUser.test(valor)) {
+                    mostrarError(inputUsuario, errorUsuario, 'No uses espacios ni caracteres especiales.');
+                    return false;
+                }
+                limpiarError(inputUsuario, errorUsuario);
+                return true;
+            }
+
+            function validarCorreo() {
+                const valor = inputCorreo.value.trim();
+                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!valor) {
+                    mostrarError(inputCorreo, errorCorreo, 'El correo electrónico es obligatorio.');
+                    return false;
+                }
+                if (!regexEmail.test(valor)) {
+                    mostrarError(inputCorreo, errorCorreo, 'Ingresa un formato de correo válido.');
+                    return false;
+                }
+                limpiarError(inputCorreo, errorCorreo);
+                return true;
+            }
+
+            function validarTelefono() {
+                // Limpiamos espacios o guiones para contar dígitos reales
+                const soloDigitos = inputTelefono.value.replace(/[\s()-]/g, '');
+                if (!soloDigitos) {
+                    mostrarError(inputTelefono, errorTelefono, 'El número de teléfono es obligatorio.');
+                    return false;
+                }
+                if (!/^\d{10}$/.test(soloDigitos)) {
+                    mostrarError(inputTelefono, errorTelefono, 'Ingresa un número válido de 10 dígitos.');
+                    return false;
+                }
+                limpiarError(inputTelefono, errorTelefono);
+                return true;
+            }
+
+            // Validación reactiva mientras se edita
+            inputNombre.addEventListener('input', () => {
+                if (inputNombre.classList.contains('input--error')) validarNombre();
+            });
+            inputUsuario.addEventListener('input', () => {
+                if (inputUsuario.classList.contains('input--error')) validarUsuario();
+            });
+            inputCorreo.addEventListener('input', () => {
+                if (inputCorreo.classList.contains('input--error')) validarCorreo();
+            });
+            inputTelefono.addEventListener('input', () => {
+                if (inputTelefono.classList.contains('input--error')) validarTelefono();
+            });
+
+            // 4. ACTIVAR / CANCELAR MODO EDICIÓN
+            function establecerModoEdicion(activar) {
+                modoEdicion = activar;
+                todosLosInputs.forEach(inp => inp.disabled = !activar);
+                btnSave.disabled = !activar;
+
+                if (activar) {
+                    btnEdit.textContent = 'Cancelar';
+                    btnEdit.classList.remove('teal');
+                    btnEdit.classList.add('purple');
+                    profileAlert.className = 'profile-alert';
+                    inputNombre.focus();
+                } else {
+                    btnEdit.textContent = 'Editar';
+                    btnEdit.classList.remove('purple');
+                    btnEdit.classList.add('teal');
+                    limpiarTodosLosErrores();
+                    pintarDatosEnPantalla(); // Restaura valores guardados si se canceló
+                }
+            }
+
+            btnEdit.addEventListener('click', () => {
+                establecerModoEdicion(!modoEdicion);
+            });
+
+            // 5. GUARDAR CAMBIOS CON VALIDACIÓN
+            btnSave.addEventListener('click', () => {
+                if (!modoEdicion) return;
+
+                const okNombre = validarNombre();
+                const okUsuario = validarUsuario();
+                const okCorreo = validarCorreo();
+                const okTelefono = validarTelefono();
+
+                if (!okNombre || !okUsuario || !okCorreo || !okTelefono) {
+                    profileAlert.textContent = 'Por favor, corrige los campos marcados en rojo antes de guardar.';
+                    profileAlert.className = 'profile-alert profile-alert--error visible';
+                    return;
+                }
+
+                const sesionActual = obtenerUsuarioSesion();
+                const correoAnterior = sesionActual.correo;
+
+                const datosActualizados = {
+                    ...sesionActual,
+                    nombre: inputNombre.value.trim(),
+                    usuario: inputUsuario.value.trim(),
+                    correo: inputCorreo.value.trim().toLowerCase(),
+                    telefono: inputTelefono.value.replace(/[\s()-]/g, '')
+                };
+
+                // Actualizar sesión activa
+                localStorage.setItem('inspirat_usuario', JSON.stringify(datosActualizados));
+
+                // Si el usuario estaba en la lista de registrados, también lo actualizamos ahí
+                const registrados = JSON.parse(localStorage.getItem('inspirat_usuarios_registrados') || '[]');
+                const idx = registrados.findIndex(u => u.correo.toLowerCase() === correoAnterior.toLowerCase());
+                if (idx !== -1) {
+                    registrados[idx] = { ...registrados[idx], ...datosActualizados };
+                    localStorage.setItem('inspirat_usuarios_registrados', JSON.stringify(registrados));
+                }
+
+                establecerModoEdicion(false);
+                profileAlert.textContent = '¡Tu información personal se ha actualizado correctamente!';
+                profileAlert.className = 'profile-alert profile-alert--success visible';
+
+                setTimeout(() => {
+                    profileAlert.classList.remove('visible');
+                }, 3500);
+            });
+
+            // 6. CAMBIO DE FOTO DE PERFIL
+            btnChangeAvatar.addEventListener('click', () => {
+                avatarInput.click();
+            });
+
+            avatarInput.addEventListener('change', (e) => {
+                const archivo = e.target.files[0];
+                if (!archivo) return;
+
+                if (!archivo.type.startsWith('image/')) {
+                    profileAlert.textContent = 'Por favor selecciona un archivo de imagen válido.';
+                    profileAlert.className = 'profile-alert profile-alert--error visible';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    const nuevaImagenBase64 = ev.target.result;
+                    avatarImg.src = nuevaImagenBase64;
+
+                    const sesionActual = obtenerUsuarioSesion();
+                    sesionActual.avatar = nuevaImagenBase64;
+                    localStorage.setItem('inspirat_usuario', JSON.stringify(sesionActual));
+
+                    profileAlert.textContent = 'Foto de perfil actualizada.';
+                    profileAlert.className = 'profile-alert profile-alert--success visible';
+                    setTimeout(() => profileAlert.classList.remove('visible'), 3000);
+                };
+                reader.readAsDataURL(archivo);
+            });
+
+            // 7. CERRAR SESIÓN
+            if (btnLogout) {
+                btnLogout.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('inspirat_usuario');
+                    window.location.href = 'login_page.html';
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

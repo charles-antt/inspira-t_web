@@ -82,10 +82,32 @@ body {
   color: #2e3440;
   position: relative;
   padding-bottom: 4px;
+  transition: color 0.25s ease;
 }
 
+.nav-link:hover,
 .nav-link.active {
   color: var(--secondary-blue);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  /* Empieza oculta */
+  height: 3px;
+  background-color: var(--secondary-blue);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+  /* Efecto de despliegue de izquierda a derecha */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+  /* Se despliega por completo */
 }
 
 .nav-link.active::after {
@@ -1652,4 +1674,56 @@ body {
   width: 25px;
   height: 25px;
   stroke-width: 2;
+}
+
+/* Estilos para mensajes de validación y alerta de credenciales */
+.error-msg {
+  display: none;
+  color: #dc2626;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.error-msg.visible {
+  display: block;
+}
+
+.input.input--error {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
+
+.login-alert {
+  display: none;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.login-alert.visible {
+  display: block;
+}
+
+/**Registro**/
+.reg-alert--error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.reg-alert--success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+.reg-alert.visible {
+  display: block;
 }

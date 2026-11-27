@@ -75,13 +75,13 @@ body.app {
 
 .sidebar-illustration {
     margin-top: auto;
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
 }
 
 .sidebar-illustration img {
-    width: 130px;
-    max-width: 100%;
+    width: 120px;
+    max-width: 90%;
     height: auto;
     display: inline-block;
 }
@@ -275,6 +275,13 @@ h2 {
     grid-template-columns: repeat(4, 1fr)
 }
 
+.grid.g4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    /* Evita que el contenido ensanche la columna */
+    gap: 16px;
+}
+
 .g3 {
     grid-template-columns: repeat(3, 1fr)
 }
@@ -444,12 +451,23 @@ h2 {
 }
 
 .quote {
-    background: #ecf2fc;
     border-radius: 8px;
-    padding: 20px;
-    max-width: 340px;
-    text-align: center
+    max-width: 400px;
+    text-align: center;
 }
+
+.quote img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.quote p {
+    margin: 0;
+}
+
 
 .cat {
     border-radius: 10px;
