@@ -1,202 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mis cursos | inspira-T</title>
     <link rel="icon" href="../assiest/images/isotipo_blanco.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assiest/css/styles.css">
     <link rel="stylesheet" href="../assiest/css/app.css">
 </head>
+
 <body class="app" data-page="mis_cursos.html" data-role="aprendiente">
-
     <!-- Barra lateral izquierda -->
-    <aside class="sidebar">
-        <div class="brand">
-            <img src="../assiest/images/isotipo_blanco.png" alt="Logo inspira-T">
-            <span>inspira-T</span>
-        </div>
-        <nav>
-            <a href="../html/inicio_aprendiente.html" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="home" style="width: 19px; height: 19px;"></i>
-                <span>Inicio</span>
-            </a>
-            <a href="../html/explorar.html" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="compass" style="width: 19px; height: 19px;"></i>
-                <span>Explorar</span>
-            </a>
-            <a href="../html/mi_aprendizaje.html" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="bookmark" style="width: 19px; height: 19px;"></i>
-                <span>Mi aprendizaje</span>
-            </a>
-            <a href="../html/mis_cursos.html" class="active" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="book-open" style="width: 19px; height: 19px;"></i>
-                <span>Mis cursos</span>
-            </a>
-        </nav>
+    <div id="sidebar-container"></div>
 
-        <!-- Ilustración decorativa inferior -->
-        <div class="sidebar-illustration" style="margin-top: auto; text-align: center;">
-            <img src="../assiest/images/maceta_planta.png" alt="" aria-hidden="true">
-        </div>
-    </aside>
 
     <!-- Contenido principal -->
     <main class="main">
         <!-- Barra superior -->
-        <div class="topbar">
-            <div>
-                <h1>Mis Cursos</h1>
-            </div>
-            <div class="icons" style="display: flex; align-items: center; gap: 16px;">
-                <button type="button" class="bell" title="Notificaciones" style="background: none; border: none; cursor: pointer; position: relative; padding: 4px;">
-                    <i data-lucide="bell" style="width: 24px; height: 24px; color: #1e293b;"></i>
-                    <span style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #6366f1; border-radius: 50%;"></span>
-                </button>
-                <a href="../html/perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
-            </div>
-        </div>
+        <div id="topbar-container"></div>
 
         <!-- Filtros por categoría -->
         <div class="chips" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
-            <button class="pill on" style="background: #1cd4b8; color: #fff; border: none;">Todos</button>
-            <button class="pill" style="background: #f4f7ee; border: 1px solid #d9e2ec;">Agricultura</button>
-            <button class="pill" style="background: #eef5f9; border: 1px solid #d9e2ec;">Medicina</button>
-            <button class="pill" style="background: #f0effa; border: 1px solid #d9e2ec;">Artesanías</button>
-            <button class="pill" style="background: #eceff4; border: 1px solid #d9e2ec;">Lenguas</button>
-            <button class="pill" style="background: #eff2f7; border: 1px solid #d9e2ec;">Gastronomía</button>
-            <button class="pill" style="background: #edf6f6; border: 1px solid #d9e2ec;">Deportes y juegos</button>
+            <button class="pill on"
+                style="background: #1cd4b8; color: #fff; border: none;font-size: 1rem;">Todos</button>
+            <button class="pill"
+                style="background: #f4f7ee; border: 1px solid #d9e2ec;font-size: 1rem;">Agricultura</button>
+            <button class="pill"
+                style="background: #eef5f9; border: 1px solid #d9e2ec;font-size: 1rem;">Medicina</button>
+            <button class="pill"
+                style="background: #f0effa; border: 1px solid #d9e2ec;font-size: 1rem;">Artesanías</button>
+            <button class="pill"
+                style="background: #eceff4; border: 1px solid #d9e2ec;font-size: 1rem;">Lenguas</button>
+            <button class="pill"
+                style="background: #eff2f7; border: 1px solid #d9e2ec;font-size: 1rem;">Gastronomía</button>
+            <button class="pill" style="background: #edf6f6; border: 1px solid #d9e2ec;font-size: 1rem;">Deportes y
+                juegos</button>
         </div>
 
         <!-- Encabezado sección superior -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <h2 style="margin: 0;">Lecciones</h2>
-            <a href="#" style="font-size: 0.85rem; font-weight: 700; color: #1e293b; text-decoration: none;">Ver todos</a>
+            <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700;">Lecciones</h2>
+            <a href="#" style="font-size: 1.2rem; font-weight: 600; color: #1e293b; text-decoration: none;">Ver
+                todos</a>
         </div>
 
         <!-- Carrusel de 6 tarjetas de cursos/lecciones -->
         <div style="position: relative;">
             <div class="grid" style="grid-template-columns: repeat(6, 1fr); gap: 12px;">
-                
+
                 <!-- Tarjeta 1 (Activa con borde turquesa) -->
-                <div class="card-c" data-cat="GASTRONOMÍA" style="border: 2px solid #1cd4b8; border-radius: 12px; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="card-c" data-cat="GASTRONOMÍA"
+                    style="border: 2px solid #1cd4b8; border-radius: 12px; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="thumb t1" style="position: relative; height: 115px; border-radius: 8px; margin-bottom: 6px;">
-                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
+                        <div class="thumb t1"
+                            style="position: relative; min-height: 150px; width: 170px; border-radius: 8px; margin-bottom: 6px;overflow: hidden;">
+                            <img src="../assiest/images/mole_tradicional.svg" alt="Mole tradicional de mi comunidad"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span
+                                style="position: absolute; bottom: 6px; right: 6px; z-index: 1; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.75rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
                         </div>
-                        <small style="display: block; color: #d97706; font-weight: 700; font-size: 0.68rem;">GASTRONOMÍA</small>
-                        <b style="display: block; font-size: 0.8rem; line-height: 1.25; margin: 2px 0 6px 0;">Mole tradicional de mi comunidad</b>
+                        <small
+                            style="display: block; color: #d97706; font-weight: 700; font-size: 0.9rem;">GASTRONOMÍA</small>
+                        <b style="display: block; font-size: 0.9rem; line-height: 1.25; margin: 2px 0 6px 0;">Mole
+                            tradicional de mi comunidad</b>
                     </div>
                     <div>
-                        <small style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
-                            <i data-lucide="user" style="width: 13px; height: 13px;"></i> Juana Pérez
+                        <small
+                            style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
+                            <i data-lucide="user" style="width: 13px; height: 13px; font-size: 0.9rem;"></i> Juana Pérez
                         </small>
-                        <small style="display: block; color: #64748b; font-size: 0.68rem; margin-top: 2px;">5.4k vistas · hace 1 día</small>
+                        <small style="display: block; color: #64748b; font-size: 0.8rem; margin-top: 2px;">5.4k vistas
+                            · hace 1 día</small>
                     </div>
                 </div>
 
                 <!-- Tarjeta 2 -->
-                <div class="card-c" data-cat="TRADICIONES" style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="card-c" data-cat="TRADICIONES"
+                    style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="thumb t2" style="position: relative; height: 115px; border-radius: 8px; margin-bottom: 6px;">
-                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px;">14:18</span>
+                        <div class="thumb t2"
+                            style="position: relative; min-height: 150px; width: 170px; border-radius: 8px; margin-bottom: 6px;overflow: hidden;">
+                            <img src="../assiest/images/rituales.svg" alt="Rituales de agradecimiento a la tierra"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span
+                                style="position: absolute; bottom: 6px; right: 6px; z-index: 1; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.75rem; padding: 1px 6px; border-radius: 4px;">14:18</span>
                         </div>
-                        <small style="display: block; color: #c2410c; font-weight: 700; font-size: 0.68rem;">TRADICIONES</small>
-                        <b style="display: block; font-size: 0.8rem; line-height: 1.25; margin: 2px 0 6px 0;">Rituales de agradecimiento a la tierra</b>
+                        <small
+                            style="display: block; color: #c2410c; font-weight: 700; font-size: 0.9rem;">TRADICIONES</small>
+                        <b style="display: block; font-size: 0.9rem; line-height: 1.25; margin: 2px 0 6px 0;">Rituales
+                            de agradecimiento a la tierra</b>
                     </div>
                     <div>
-                        <small style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
-                            <i data-lucide="user" style="width: 13px; height: 13px;"></i> Consejo de Ancianos
+                        <small
+                            style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
+                            <i data-lucide="user" style="width: 13px; height: 13px;font-size: 0.9rem;"></i> Consejo de
+                            Ancianos
                         </small>
-                        <small style="display: block; color: #64748b; font-size: 0.68rem; margin-top: 2px;">9.8k vistas · hace 3 días</small>
+                        <small style="display: block; color: #64748b; font-size: 0.8rem;margin-top: 2px;">9.8k vistas
+                            · hace 3 días</small>
                     </div>
                 </div>
 
                 <!-- Tarjeta 3 -->
-                <div class="card-c" data-cat="ARTESANÍAS" style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="card-c" data-cat="ARTESANÍAS"
+                    style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="thumb t3" style="position: relative; height: 115px; border-radius: 8px; margin-bottom: 6px;">
-                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
+                        <div class="thumb t3"
+                            style="position: relative; min-height: 150px; width: 170px; border-radius: 8px; margin-bottom: 6px;overflow: hidden;">
+                            <img src="../assiest/images/artesanias.svg" alt="Alfarería tradicional desde el origen"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span
+                                style="position: absolute; bottom: 6px; right: 6px; z-index: 1; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.75rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
                         </div>
-                        <small style="display: block; color: #b45309; font-weight: 700; font-size: 0.68rem;">ARTESANÍAS</small>
-                        <b style="display: block; font-size: 0.8rem; line-height: 1.25; margin: 2px 0 6px 0;">Alfarería tradicional desde el origen</b>
+                        <small
+                            style="display: block; color: #b45309; font-weight: 700; font-size: 0.9rem;">ARTESANÍAS</small>
+                        <b style="display: block; font-size: 0.9rem; line-height: 1.25; margin: 2px 0 6px 0;">Alfarería
+                            tradicional desde el origen</b>
                     </div>
                     <div>
-                        <small style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
-                            <i data-lucide="user" style="width: 13px; height: 13px;"></i> Francisco Díaz
+                        <small
+                            style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
+                            <i data-lucide="user" style="width: 13px; height: 13px;font-size: 0.9rem;"></i> Francisco
+                            Díaz
                         </small>
-                        <small style="display: block; color: #64748b; font-size: 0.68rem; margin-top: 2px;">4.3k vistas · hace 4 días</small>
+                        <small style="display: block; color: #64748b; font-size: 0.8rem;margin-top: 2px;">4.3k vistas
+                            · hace 4 días</small>
                     </div>
                 </div>
 
                 <!-- Tarjeta 4 -->
-                <div class="card-c" data-cat="ARTESANÍAS" style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="card-c" data-cat="ARTESANÍAS"
+                    style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="thumb t4" style="position: relative; height: 115px; border-radius: 8px; margin-bottom: 6px;">
-                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
+                        <div class="thumb t4"
+                            style="position: relative; min-height: 150px; width: 170px; border-radius: 8px; margin-bottom: 6px;overflow: hidden;">
+                            <img src="../assiest/images/cesteria.svg" alt="Cestería con palma paso a paso"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span
+                                style="position: absolute; bottom: 6px; right: 6px; z-index: 1; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.75rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
                         </div>
-                        <small style="display: block; color: #b45309; font-weight: 700; font-size: 0.68rem;">ARTESANÍAS</small>
-                        <b style="display: block; font-size: 0.8rem; line-height: 1.25; margin: 2px 0 6px 0;">Cestería con palma paso a paso</b>
+                        <small
+                            style="display: block; color: #b45309; font-weight: 700; font-size: 0.9rem;">ARTESANÍAS</small>
+                        <b style="display: block; font-size: 0.9rem; line-height: 1.25; margin: 2px 0 6px 0;">Cestería
+                            con palma paso a paso</b>
                     </div>
                     <div>
-                        <small style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
-                            <i data-lucide="user" style="width: 13px; height: 13px;"></i> Rosa Martínez
+                        <small
+                            style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
+                            <i data-lucide="user" style="width: 13px; height: 13px;font-size: 0.9rem;"></i> Rosa
+                            Martínez
                         </small>
-                        <small style="display: block; color: #64748b; font-size: 0.68rem; margin-top: 2px;">3.2k vistas · hace 5 días</small>
+                        <small style="display: block; color: #64748b; font-size: 0.8rem; margin-top: 2px;">3.2k vistas
+                            · hace 5 días</small>
                     </div>
                 </div>
 
                 <!-- Tarjeta 5 -->
-                <div class="card-c" data-cat="DEPORTES" style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="card-c" data-cat="DEPORTES"
+                    style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="thumb t1" style="position: relative; height: 115px; border-radius: 8px; margin-bottom: 6px;">
-                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
+                        <div class="thumb t4"
+                            style="position: relative; min-height: 150px; width: 170px; border-radius: 8px; margin-bottom: 6px;overflow: hidden;">
+                            <img src="../assiest/images/juegoDePelota.svg" alt="Juego de pelota prehispánico"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span
+                                style="position: absolute; bottom: 6px; right: 6px; z-index: 1; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.75rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
                         </div>
-                        <small style="display: block; color: #15803d; font-weight: 700; font-size: 0.68rem;">DEPORTES Y JUEGOS</small>
-                        <b style="display: block; font-size: 0.8rem; line-height: 1.25; margin: 2px 0 6px 0;">Juego de pelota prehispánico</b>
+                        <small style="display: block; color: #15803d; font-weight: 700; font-size: 0.9rem;">DEPORTES Y
+                            JUEGOS</small>
+                        <b style="display: block; font-size: 0.9rem; line-height: 1.25; margin: 2px 0 6px 0;">Juego de
+                            pelota prehispánico</b>
                     </div>
                     <div>
-                        <small style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
-                            <i data-lucide="user" style="width: 13px; height: 13px;"></i> Carlos Xolotl
+                        <small
+                            style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
+                            <i data-lucide="user" style="width: 13px; height: 13px;font-size: 0.9rem;"></i> Carlos
+                            Xolotl
                         </small>
-                        <small style="display: block; color: #64748b; font-size: 0.68rem; margin-top: 2px;">6.7k vistas · hace 1 semana</small>
+                        <small style="display: block; color: #64748b;font-size: 0.8rem; margin-top: 2px;">6.7k vistas
+                            · hace 1 semana</small>
                     </div>
                 </div>
 
                 <!-- Tarjeta 6 -->
-                <div class="card-c" data-cat="AGRICULTURA" style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="card-c" data-cat="AGRICULTURA"
+                    style="border: none; padding: 6px; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="thumb t2" style="position: relative; height: 115px; border-radius: 8px; margin-bottom: 6px;">
-                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
+                        <div class="thumb t4"
+                            style="position: relative; min-height: 150px; width: 170px; border-radius: 8px; margin-bottom: 6px;overflow: hidden;">
+                            <img src="../assiest/images/cultivoDeMaiz.svg" alt="Cultivo de maíz tradicional"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span
+                                style="position: absolute; bottom: 6px; right: 6px; z-index: 1; background: rgba(15,23,42,0.75); color: #fff; font-size: 0.75rem; padding: 1px 6px; border-radius: 4px;">9:42</span>
                         </div>
-                        <small style="display: block; color: #ca8a04; font-weight: 700; font-size: 0.68rem;">AGRICULTURA</small>
-                        <b style="display: block; font-size: 0.8rem; line-height: 1.25; margin: 2px 0 6px 0;">Cultivo de maíz tradicional</b>
+                        <small
+                            style="display: block; color: #ca8a04; font-weight: 700; font-size: 0.9rem;">AGRICULTURA</small>
+                        <b style="display: block; font-size: 0.9rem; line-height: 1.25; margin: 2px 0 6px 0;">Cultivo de
+                            maíz tradicional</b>
                     </div>
                     <div>
-                        <small style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
-                            <i data-lucide="user" style="width: 13px; height: 13px;"></i> María López
+                        <small
+                            style="display: flex; align-items: center; gap: 4px; color: #334155; font-size: 0.72rem;">
+                            <i data-lucide="user" style="width: 13px; height: 13px;font-size: 0.9rem;"></i> María López
                         </small>
-                        <small style="display: block; color: #64748b; font-size: 0.68rem; margin-top: 2px;">7.1k vistas · hace 1 semana</small>
+                        <small style="display: block; color: #64748b; font-size: 0.8rem; margin-top: 2px;">7.1k vistas
+                            · hace 1 semana</small>
                     </div>
                 </div>
             </div>
 
             <!-- Botón flecha derecha del carrusel -->
-            <button type="button" aria-label="Siguiente" style="position: absolute; right: -12px; top: 45px; width: 28px; height: 28px; border-radius: 50%; background: #ffffff; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <button type="button" aria-label="Siguiente"
+                style="position: absolute; right: -12px; top: 45px; width: 28px; height: 28px; border-radius: 50%; background: #ffffff; border: 1px solid #cbd5e1; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; cursor: pointer;">
                 <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: #334155;"></i>
             </button>
         </div>
 
         <!-- Detalle del curso seleccionado -->
-        <div class="card-c" style="display: flex; gap: 24px; margin-top: 20px; border: none; background: transparent; padding: 0; align-items: center;">
-            <div class="thumb t1" style="width: 245px; height: 155px; flex-shrink: 0; border-radius: 12px;"></div>
-            
+        <div class="card-c"
+            style="display: flex; gap: 24px; margin-top: 30px; border: none; background: transparent; padding: 0; align-items: center;">
+            <div class="thumb t1"
+                style="width: 245px; height: 155px; flex-shrink: 0; border-radius: 12px; overflow: hidden;">
+                <img src="../assiest/images/mole_tradicional.svg" alt="Mole tradicional de mi comunidad"
+                    style="width: 100%; height: 100%; object-fit:cover; display: block;">
+            </div>
+
+
             <div style="flex: 1;">
-                <small style="color: #d97706; font-weight: 700; font-size: 0.78rem;">GASTRONOMÍA</small>
-                <h2 style="margin: 2px 0 6px 0; font-size: 1.35rem;">Mole tradicional de mi comunidad</h2>
-                <p style="font-size: 0.85rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
-                    Aprende las técnicas, ingredientes y procesos que dan vida a una de las recetas más representativas de la gastronomía tradicional.
+                <small style="color: #d97706; font-weight: 700; font-size: 1rem;">GASTRONOMÍA</small>
+                <h2 style="margin: 2px 0 6px 0; font-size: 1.3rem;">Mole tradicional de mi comunidad</h2>
+                <p style="font-size: 1rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    Aprende las técnicas, ingredientes y procesos que dan vida a una de las recetas más representativas
+                    de la gastronomía tradicional.
                 </p>
                 <small style="display: block; font-weight: 600; color: #334155; margin-bottom: 6px;">Tu progreso</small>
                 <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
@@ -209,36 +248,46 @@
             </div>
 
             <!-- Caja derecha: Información del curso -->
-            <div class="panel" style="width: 215px; flex-shrink: 0; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px 16px; font-size: 0.78rem;">
-                <b style="display: block; font-size: 0.82rem; margin-bottom: 10px; color: #1e293b;">Información del curso</b>
-                <ul style="list-style: none; padding: 0; margin: 0 0 12px 0; display: flex; flex-direction: column; gap: 8px; color: #334155;">
+            <div class="panel"
+                style="width: 215px; flex-shrink: 0; border: 1px solid #cbd5e1; border-radius: 12px; padding: 14px 16px; font-size: 0.78rem;">
+                <b style="display: block; font-size: 0.82rem; margin-bottom: 10px; color: #1e293b;">Información del
+                    curso</b>
+                <ul
+                    style="list-style: none; padding: 0; margin: 0 0 12px 0; display: flex; flex-direction: column; gap: 8px; color: #334155;">
                     <li style="display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="clipboard-list" style="width: 15px; height: 15px; color: #263e75;"></i> 12 Lecciones
+                        <i data-lucide="clipboard-list" style="width: 15px; height: 15px; color: #263e75;"></i> 12
+                        Lecciones
                     </li>
                     <li style="display: flex; align-items: center; gap: 8px;">
                         <i data-lucide="book-marked" style="width: 15px; height: 15px; color: #263e75;"></i> 6 unidades
                     </li>
                     <li style="display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="clock" style="width: 15px; height: 15px; color: #263e75;"></i> 2h 35m de contenido
+                        <i data-lucide="clock" style="width: 15px; height: 15px; color: #263e75;"></i> 2h 35m de
+                        contenido
                     </li>
                     <li style="display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="star" style="width: 15px; height: 15px; color: #263e75;"></i> Nivel: Principiante
+                        <i data-lucide="star" style="width: 15px; height: 15px; color: #263e75;"></i> Nivel:
+                        Principiante
                     </li>
                 </ul>
-                <a class="btn block" href="../html/reproductor.html" style="display: block; text-align: center; background: #2678e5; color: #fff; padding: 8px 12px; border-radius: 6px; font-weight: 700; text-decoration: none;">
+                <a class="btn block" href="../html/reproductor.html"
+                    style="display: block; text-align: center; background: #2678e5; color: #fff; padding: 8px 12px; border-radius: 6px; font-weight: 700; text-decoration: none;">
                     Continuar aprendiendo
                 </a>
             </div>
         </div>
 
         <!-- Pestañas: Lecciones / Unidades -->
-        <div class="tabs" style="display: flex; gap: 28px; justify-content: flex-start; border-bottom: 1px solid #e2e8f0; margin: 20px 0 14px 0;">
-            <button type="button" class="on" data-t="l" style="background: none; border: none; padding: 8px 4px; font-weight: 700; font-size: 0.95rem; cursor: pointer;">Lecciones</button>
-            <button type="button" data-t="u" style="background: none; border: none; padding: 8px 4px; font-weight: 700; font-size: 0.95rem; cursor: pointer;">Unidades</button>
+        <div class="tabs" style="display: flex; gap: 28px; justify-content: flex-start; margin: 20px 0 14px 0;">
+            <button type="button" class="on" data-t="l"
+                style="background: none; border: none; padding: 8px 4px; font-weight: 700; font-size: 0.95rem; cursor: pointer;">Lecciones</button>
+            <button type="button" data-t="u"
+                style="background: none; border: none; padding: 8px 4px; font-weight: 700; font-size: 0.95rem; cursor: pointer;">Unidades</button>
         </div>
 
         <!-- PANEL 1: LECCIONES -->
-        <div class="box tab-panel on" data-tab="l" style="border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
+        <div class="box tab-panel on" data-tab="l"
+            style="border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
             <div style="margin-bottom: 14px;">
                 <b style="display: block; font-size: 0.95rem;">Lecciones</b>
                 <small style="color: #475569; font-size: 0.78rem;">Continúa donde lo dejaste</small>
@@ -246,90 +295,129 @@
 
             <!-- Lección 1 -->
             <div class="lesson" style="display: flex; align-items: center; gap: 16px; padding: 10px 0;">
-                <span style="width: 24px; height: 24px; border-radius: 50%; background: #4a89dc; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span
+                    style="width: 24px; height: 24px; border-radius: 50%; background: #4a89dc; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3;"></i>
                 </span>
-                <div class="thumb t1" style="width: 88px; height: 54px; border-radius: 6px; flex-shrink: 0;"></div>
+                <div class="thumb t1"
+                    style="width: 90px; min-width: 90px; max-width: 90px; min-height: 85px; flex: 0 0 84px; border-radius: 8px; overflow: hidden;">
+                    <img src="../assiest/images/leccion1_mole.svg" alt="Lección 1">
+                </div>
                 <div style="flex: 1;">
-                    <b style="display: block; font-size: 0.85rem; color: #1e293b;">1. Origen e historia del mole tradicional</b>
-                    <small style="color: #475569; font-size: 0.78rem;">Conoce el significado cultural del mole y su importancia dentro de la comunidad.</small>
+                    <b style="display: block; font-size: 1rem; color: #1e293b;">1. Origen e historia del mole
+                        tradicional</b>
+                    <small style="color: #475569;font-size: 0.9rem;">Conoce el significado cultural del mole y su
+                        importancia dentro de la comunidad.</small>
                 </div>
                 <span style="font-size: 0.78rem; color: #334155; min-width: 70px;">8-10 min</span>
-                <span class="status" data-status style="background: #2f80ed; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Completado</span>
+                <span class="status" data-status
+                    style="background: #2f80ed; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Completado</span>
             </div>
 
             <!-- Lección 2 -->
             <div class="lesson" style="display: flex; align-items: center; gap: 16px; padding: 10px 0;">
-                <span style="width: 24px; height: 24px; border-radius: 50%; background: #4a89dc; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span
+                    style="width: 24px; height: 24px; border-radius: 50%; background: #4a89dc; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3;"></i>
                 </span>
-                <div class="thumb t2" style="width: 88px; height: 54px; border-radius: 6px; flex-shrink: 0;"></div>
+                <div class="thumb t2"
+                    style="width: 90px; min-width: 90px; max-width: 90px; min-height: 85px; flex: 0 0 84px; border-radius: 8px; overflow: hidden;">
+                    <img src="../assiest/images/leccion2_mole.svg" alt="Lección 2">
+                </div>
                 <div style="flex: 1;">
-                    <b style="display: block; font-size: 0.85rem; color: #1e293b;">2. Ingredientes y su selección</b>
-                    <small style="color: #475569; font-size: 0.78rem;">Aprende a identificar y seleccionar los chiles, especias, semillas y demás ingredientes tradicionales.</small>
+                    <b style="display: block; font-size: 1rem; color: #1e293b;">2. Ingredientes y su selección</b>
+                    <small style="color: #475569; font-size: 0.9rem;">Aprende a identificar y seleccionar los chiles,
+                        especias, semillas y demás ingredientes tradicionales.</small>
                 </div>
                 <span style="font-size: 0.78rem; color: #334155; min-width: 70px;">10-12 min</span>
-                <span class="status" data-status style="background: #2f80ed; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Completado</span>
+                <span class="status" data-status
+                    style="background: #2f80ed; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Completado</span>
             </div>
 
             <!-- Lección 3 -->
             <div class="lesson" style="display: flex; align-items: center; gap: 16px; padding: 10px 0;">
-                <span style="width: 24px; height: 24px; border-radius: 50%; background: #8ab4f8; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span
+                    style="width: 24px; height: 24px; border-radius: 50%; background: #8ab4f8; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                     <i data-lucide="play" style="width: 12px; height: 12px; fill: #fff;"></i>
                 </span>
-                <div class="thumb t3" style="width: 88px; height: 54px; border-radius: 6px; flex-shrink: 0;"></div>
+                <div class="thumb t3"
+                    style="width: 90px; min-width: 90px; max-width: 90px; min-height: 85px; flex: 0 0 84px; border-radius: 8px; overflow: hidden;">
+                    <img src="../assiest/images/leccion3_mole.svg" alt="Lección 3">
+                </div>
                 <div style="flex: 1;">
-                    <b style="display: block; font-size: 0.85rem; color: #1e293b;">3. Preparación de los ingredientes</b>
-                    <small style="color: #475569; font-size: 0.78rem;">Descubre cómo limpiar, tostar, freír y moler correctamente cada ingrediente antes de la cocción.</small>
+                    <b style="display: block; font-size: 1rem; color: #1e293b;">3. Preparación de los
+                        ingredientes</b>
+                    <small style="color: #475569; font-size: 0.9rem;">Descubre cómo limpiar, tostar, freír y moler
+                        correctamente cada ingrediente antes de la cocción.</small>
                 </div>
                 <span style="font-size: 0.78rem; color: #334155; min-width: 70px;">12-15 min</span>
-                <span class="status" data-status style="background: #7baaf7; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">En progreso</span>
+                <span class="status" data-status
+                    style="background: #7baaf7; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">En
+                    progreso</span>
             </div>
 
             <!-- Lección 4 -->
             <div class="lesson" style="display: flex; align-items: center; gap: 16px; padding: 10px 0;">
-                <span style="width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid #cbd5e1; display: inline-block; flex-shrink: 0;"></span>
-                <div class="thumb t4" style="width: 88px; height: 54px; border-radius: 6px; flex-shrink: 0;"></div>
+                <span
+                    style="width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid #cbd5e1; display: inline-block; flex-shrink: 0;"></span>
+                <div class="thumb t4"
+                    style="width: 90px; min-width: 90px; max-width: 90px; min-height: 85px; flex: 0 0 84px; border-radius: 8px; overflow: hidden;">
+                    <img src="../assiest/images/leccion4_mole.svg" alt="Lección 4">
+                </div>
                 <div style="flex: 1;">
-                    <b style="display: block; font-size: 0.85rem; color: #1e293b;">4. Elaboración del mole paso a paso</b>
-                    <small style="color: #475569; font-size: 0.78rem;">Sigue el proceso completo para obtener la textura, aroma y sabor característicos del mole tradicional.</small>
+                    <b style="display: block; font-size: 1rem;color: #1e293b;">4. Elaboración del mole paso a
+                        paso</b>
+                    <small style="color: #475569; font-size: 0.9rem;">Sigue el proceso completo para obtener la
+                        textura, aroma y sabor característicos del mole tradicional.</small>
                 </div>
                 <span style="font-size: 0.78rem; color: #334155; min-width: 70px;">16-19 min</span>
-                <span class="status" data-status style="background: #ffffff; color: #475569; border: 1px solid #cbd5e1; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Pendiente</span>
+                <span class="status" data-status
+                    style="background: #ffffff; color: #475569; border: 1px solid #cbd5e1; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Pendiente</span>
             </div>
 
             <!-- Lección 5 -->
             <div class="lesson" style="display: flex; align-items: center; gap: 16px; padding: 10px 0;">
-                <span style="width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid #cbd5e1; display: inline-block; flex-shrink: 0;"></span>
-                <div class="thumb t1" style="width: 88px; height: 54px; border-radius: 6px; flex-shrink: 0;"></div>
+                <span
+                    style="width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid #cbd5e1; display: inline-block; flex-shrink: 0;"></span>
+                <div class="thumb t1"
+                    style="width: 90px; min-width: 90px; max-width: 90px; min-height: 85px; flex: 0 0 84px; border-radius: 8px; overflow: hidden;">
+                    <img src="../assiest/images/leccion5_mole.svg" alt="Lección 5">
+                </div>
                 <div style="flex: 1;">
-                    <b style="display: block; font-size: 0.85rem; color: #1e293b;">5. Presentación y conservación del mole</b>
-                    <small style="color: #475569; font-size: 0.78rem;">Aprende cómo servir el mole, los acompañamientos tradicionales y las mejores prácticas para conservarlo.</small>
+                    <b style="display: block; font-size: 1rem; color: #1e293b;">5. Presentación y conservación del
+                        mole</b>
+                    <small style="color: #475569; font-size: 0.9rem;">Aprende cómo servir el mole, los acompañamientos
+                        tradicionales y las mejores prácticas para conservarlo.</small>
                 </div>
                 <span style="font-size: 0.78rem; color: #334155; min-width: 70px;">8-12 min</span>
-                <span class="status" data-status style="background: #ffffff; color: #475569; border: 1px solid #cbd5e1; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Pendiente</span>
+                <span class="status" data-status
+                    style="background: #ffffff; color: #475569; border: 1px solid #cbd5e1; font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 6px; min-width: 95px; text-align: center;">Pendiente</span>
             </div>
         </div>
 
         <!-- PANEL 2: UNIDADES -->
-        <div class="box tab-panel" data-tab="u" style="display: none; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
+        <div class="box tab-panel" data-tab="u"
+            style="display: none; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
             <div style="margin-bottom: 18px;">
                 <b style="display: block; font-size: 0.95rem;">Unidades del curso</b>
                 <small style="color: #475569; font-size: 0.78rem;">Organiza tu aprendizaje por temas</small>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 20px; padding: 0 36px;">
-                
+
                 <!-- Unidad 1 -->
                 <div style="display: flex; align-items: center; gap: 28px;">
-                    <div style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <div
+                        style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                         <i data-lucide="book-open-text" style="width: 38px; height: 38px; stroke-width: 1.75;"></i>
                     </div>
                     <div style="flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
                             <div>
                                 <small style="display: block; font-size: 0.78rem; color: #334155;">Unidad 1</small>
-                                <span style="font-size: 0.85rem; color: #1e293b;">Conociendo nuestras raíces culinarias</span>
+                                <span style="font-size: 0.85rem; color: #1e293b;">Conociendo nuestras raíces
+                                    culinarias</span>
                             </div>
                             <small style="font-size: 0.78rem; color: #334155;">3/3 lecciones</small>
                         </div>
@@ -341,11 +429,13 @@
 
                 <!-- Unidad 2 -->
                 <div style="display: flex; align-items: center; gap: 28px;">
-                    <div style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <div
+                        style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                         <i data-lucide="shopping-basket" style="width: 38px; height: 38px; stroke-width: 1.75;"></i>
                     </div>
                     <div style="flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
                             <div>
                                 <small style="display: block; font-size: 0.78rem; color: #334155;">Unidad 2</small>
                                 <span style="font-size: 0.85rem; color: #1e293b;">Sabores que nacen de la tierra</span>
@@ -360,11 +450,13 @@
 
                 <!-- Unidad 3 -->
                 <div style="display: flex; align-items: center; gap: 28px;">
-                    <div style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <div
+                        style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                         <i data-lucide="soup" style="width: 38px; height: 38px; stroke-width: 1.75;"></i>
                     </div>
                     <div style="flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
                             <div>
                                 <small style="display: block; font-size: 0.78rem; color: #334155;">Unidad 3</small>
                                 <span style="font-size: 0.85rem; color: #1e293b;">Técnicas de la cocina ancestral</span>
@@ -379,11 +471,13 @@
 
                 <!-- Unidad 4 -->
                 <div style="display: flex; align-items: center; gap: 28px;">
-                    <div style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <div
+                        style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                         <i data-lucide="cooking-pot" style="width: 38px; height: 38px; stroke-width: 1.75;"></i>
                     </div>
                     <div style="flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
                             <div>
                                 <small style="display: block; font-size: 0.78rem; color: #334155;">Unidad 4</small>
                                 <span style="font-size: 0.85rem; color: #1e293b;">El arte de cocinar el mole</span>
@@ -398,11 +492,13 @@
 
                 <!-- Unidad 5 -->
                 <div style="display: flex; align-items: center; gap: 28px;">
-                    <div style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <div
+                        style="width: 48px; height: 48px; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                         <i data-lucide="heart-handshake" style="width: 38px; height: 38px; stroke-width: 1.75;"></i>
                     </div>
                     <div style="flex: 1;">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6px;">
                             <div>
                                 <small style="display: block; font-size: 0.78rem; color: #334155;">Unidad 5</small>
                                 <span style="font-size: 0.85rem; color: #1e293b;">Compartiendo nuestra tradición</span>
@@ -436,5 +532,9 @@
             });
         }));
     </script>
+
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/topbar.js"></script>
 </body>
+
 </html>

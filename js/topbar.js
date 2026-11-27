@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const topbarContainer = document.getElementById("topbar-container");
     if (!topbarContainer) return;
 
+    // 1. Configura los títulos y descripciones de cada vista
     const infoPaginas = {
         "explorar.html": {
             titulo: "Explorar",
@@ -18,14 +19,28 @@ document.addEventListener("DOMContentLoaded", () => {
         "perfil_aprendiente.html": {
             titulo: "Mi perfil",
             descripcion: "Consulta y actualiza tu información personal."
+        },
+        "perfil_instructor.html": {
+            titulo: "Mi perfil",
+            descripcion: "Consulta y actualiza tu información personal."
         }
     };
 
-    // 2. Detecta la página actual
+    // 2. Detecta la página actual y verifica si es vista de instructor
     const paginaActual = window.location.pathname.split("/").pop();
+    const esInstructor = paginaActual === "inicio_instructor.html" || paginaActual === "subir_contenido.html" || paginaActual === "perfil_instructor.html";
     const datos = infoPaginas[paginaActual];
 
-    // 3. Genera el bloque izquierdo solo si la página tiene título configurado
+    // 3. Define el enlace y la foto del avatar según el rol
+    const enlacePerfil = esInstructor
+        ? "../html/perfil_instructor.html"
+        : "../html/perfil_aprendiente.html";
+
+    const imagenAvatar = esInstructor
+        ? "../assiest/images/instructor_image.svg"
+        : "../assiest/images/aprendiente_image.svg";
+
+    // 4. Genera el bloque izquierdo solo si la página tiene título configurado
     const bloqueTituloHTML = datos
         ? `<div class="topbar-info">
              <h1>${datos.titulo}</h1>
@@ -33,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
            </div>`
         : `<div></div>`;
 
-    // 4. Inserta el HTML completo de la barra superior
+    // 5. Inserta el HTML completo de la barra superior
     topbarContainer.innerHTML = `
         <header class="topbar">
             ${bloqueTituloHTML}
@@ -41,13 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button type="button" class="bell" title="Notificaciones">
                     <i data-lucide="bell"></i>
                 </button>
-                <a href="../html/perfil_aprendiente.html" class="avatar" aria-label="Mi perfil">
-                    <img src="../assiest/images/aprendiente_image.svg" alt="Foto de perfil">
+                <a href="${enlacePerfil}" class="avatar" aria-label="Mi perfil">
+                    <img src="${imagenAvatar}" alt="Foto de perfil">
                 </a>
             </div>
         </header>
     `;
 
+    // 6. Renderiza los íconos de Lucide
     if (typeof lucide !== "undefined") {
         lucide.createIcons();
     }

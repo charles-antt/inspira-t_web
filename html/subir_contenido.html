@@ -1,86 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Subir nuevo contenido | inspira-T</title>
     <link rel="icon" href="../assiest/images/isotipo_blanco.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assiest/css/styles.css">
     <link rel="stylesheet" href="../assiest/css/app.css">
 </head>
+
 <body class="app" data-page="subir_contenido.html" data-role="instructor">
 
     <!-- Barra lateral izquierda -->
-    <aside class="sidebar">
-        <div class="brand">
-            <img src="../assiest/images/isotipo_blanco.png" alt="Logo inspira-T">
-            <span>inspira-T</span>
-        </div>
-        <nav>
-            <a href="../html/inicio_instructor.html" class="active" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="home" style="width: 20px; height: 20px;"></i>
-                <span>Inicio</span>
-            </a>
-        </nav>
-        <!-- Ilustración decorativa inferior -->
-        <div class="sidebar-illustration">
-            <img src="../assiest/images/maceta_planta.png" alt="" aria-hidden="true">
-        </div>
-    </aside>
+    <div id="sidebar-container"></div>
 
     <!-- Contenido principal -->
     <main class="main">
-        <!-- Encabezado superior -->
-        <div class="topbar">
-            <div>
-                <h1>Subir nuevo contenido</h1>
-                <p>Compartir tus conocimientos ancestrales con nuestra comunidad</p>
-                
-                <!-- Selector de tipo de publicación -->
-                <div class="publish-type" style="margin-top: 12px;">
-                    <span style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">Tipo de publicación</span>
-                    <div class="tabs radio-tabs" style="display: flex; gap: 24px;">
-                        <label class="radio-option" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                            <input type="radio" name="tipo_publicacion" value="grabado" data-t="g" checked>
-                            <span>Curso grabado</span>
-                        </label>
-                        <label class="radio-option" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                            <input type="radio" name="tipo_publicacion" value="vivo" data-t="v">
-                            <span>Transmisión en vivo</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="icons" style="display: flex; align-items: center; gap: 16px;">
-                <button type="button" class="bell" title="Notificaciones" style="background: none; border: none; cursor: pointer; position: relative; padding: 4px;">
-                    <i data-lucide="bell" style="width: 24px; height: 24px; color: #1e293b;"></i>
-                    <span style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #6366f1; border-radius: 50%;"></span>
-                </button>
-                <a href="../html/perfil_instructor.html" class="avatar" aria-label="Mi perfil" style="display: flex; align-items: center; justify-content: center;">
-                    <i data-lucide="circle-user" style="width: 28px; height: 28px; color: #1e293b;"></i>
-                </a>
-            </div>
-        </div>
+        <!-- Barra superior -->
+        <div id="topbar-container"></div>
 
         <!-- Contenedor de 2 columnas -->
-        <div class="content-grid" style="display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start;">
-            
+        <div class="content-grid"
+            style="display: grid; grid-template-columns: 1fr 320px; gap: 24px; align-items: start;">
+
             <!-- COLUMNA IZQUIERDA -->
             <div class="left-column">
-                
+
                 <!-- PANEL 1: CURSO GRABADO -->
                 <div data-tab="g" class="tab-panel on">
-                    
+
                     <!-- Caja 1: Dropzone de video -->
-                    <div class="box upload-dropzone" style="border: 2px dashed #cbd5e1; text-align: center; padding: 32px 20px; margin-bottom: 20px;">
-                        <div class="upload-icon" style="display: flex; justify-content: center; margin-bottom: 10px; color: #475569;">
+                    <div class="box upload-dropzone"
+                        style="border: 2px dashed #cbd5e1; text-align: center; padding: 32px 20px; margin-bottom: 20px;">
+                        <div class="upload-icon"
+                            style="display: flex; justify-content: center; margin-bottom: 10px; color: #475569;">
                             <i data-lucide="cloud-upload" style="width: 44px; height: 44px; stroke-width: 1.75;"></i>
                         </div>
                         <p style="font-weight: 700; margin: 0;">Arrastra y suelta tu vídeo aquí</p>
                         <p style="margin: 6px 0; font-size: 0.9rem; color: #64748b;">o</p>
-                        <label class="btn-primary" style="display: inline-block; background: #1d70e3; color: #fff; padding: 10px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin: 8px 0;">
+                        <label class="btn-primary"
+                            style="display: inline-block; background: #1d70e3; color: #fff; padding: 10px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin: 8px 0;">
                             Seleccionar archivo
                             <input type="file" accept="video/mp4,video/quicktime,video/x-msvideo" hidden>
                         </label>
@@ -95,8 +58,11 @@
                         <div class="row2">
                             <div class="field">
                                 <label>Título del vídeo<span style="color:#2563eb">*</span></label>
-                                <input type="text" maxlength="100" placeholder="Escribe un título atractivo y descriptivo" oninput="document.getElementById('title-count').textContent = this.value.length + '/100'">
-                                <small id="title-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/100</small>
+                                <input type="text" maxlength="100"
+                                    placeholder="Escribe un título atractivo y descriptivo"
+                                    oninput="document.getElementById('title-count').textContent = this.value.length + '/100'">
+                                <small id="title-count"
+                                    style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/100</small>
                             </div>
 
                             <div class="field">
@@ -114,14 +80,19 @@
 
                             <div class="field">
                                 <label>Descripción<span style="color:#2563eb">*</span></label>
-                                <textarea rows="4" maxlength="5000" placeholder="Cuéntanos de qué trata tu vídeo, qué aprenderá la comunidad...." oninput="document.getElementById('desc-count').textContent = this.value.length + '/5000'"></textarea>
-                                <small id="desc-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/5000</small>
+                                <textarea rows="4" maxlength="5000"
+                                    placeholder="Cuéntanos de qué trata tu vídeo, qué aprenderá la comunidad...."
+                                    oninput="document.getElementById('desc-count').textContent = this.value.length + '/5000'"></textarea>
+                                <small id="desc-count"
+                                    style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/5000</small>
                             </div>
 
                             <div class="field">
                                 <label>Etiquetas</label>
                                 <input type="text" placeholder="Añade etiquetas relevantes (Ej. medicina, herbolaria)">
-                                <small style="display: block; color: #64748b; font-size: 0.75rem; margin-top: 6px;">Separa las etiquetas con comas</small>
+                                <small
+                                    style="display: block; color: #64748b; font-size: 0.75rem; margin-top: 6px;">Separa
+                                    las etiquetas con comas</small>
                             </div>
                         </div>
                     </div>
@@ -159,8 +130,10 @@
 
                             <div class="field">
                                 <label>Permitir comentarios</label>
-                                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
-                                    <span style="font-size: 0.85rem;">Los alumnos podrán comentar y hacer preguntas</span>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
+                                    <span style="font-size: 0.85rem;">Los alumnos podrán comentar y hacer
+                                        preguntas</span>
                                     <input type="checkbox" class="toggle-switch" checked>
                                 </div>
                             </div>
@@ -176,8 +149,11 @@
                             <!-- Título de la transmisión -->
                             <div class="field">
                                 <label>Título de la transmisión<span style="color:#2563eb">*</span></label>
-                                <input type="text" maxlength="100" placeholder="Escribe un título atractivo y descriptivo" oninput="document.getElementById('live-title-count').textContent = this.value.length + '/100'">
-                                <small id="live-title-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/100</small>
+                                <input type="text" maxlength="100"
+                                    placeholder="Escribe un título atractivo y descriptivo"
+                                    oninput="document.getElementById('live-title-count').textContent = this.value.length + '/100'">
+                                <small id="live-title-count"
+                                    style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/100</small>
                             </div>
 
                             <!-- Categoría -->
@@ -197,23 +173,31 @@
                             <!-- Descripción -->
                             <div class="field">
                                 <label>Descripción<span style="color:#2563eb">*</span></label>
-                                <textarea rows="4" maxlength="5000" placeholder="Cuéntanos de qué trata tu transmisión, qué aprenderá la comunidad...." oninput="document.getElementById('live-desc-count').textContent = this.value.length + '/5000'"></textarea>
-                                <small id="live-desc-count" style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/5000</small>
+                                <textarea rows="4" maxlength="5000"
+                                    placeholder="Cuéntanos de qué trata tu transmisión, qué aprenderá la comunidad...."
+                                    oninput="document.getElementById('live-desc-count').textContent = this.value.length + '/5000'"></textarea>
+                                <small id="live-desc-count"
+                                    style="display: block; text-align: right; color: #64748b; font-size: 0.75rem; margin-top: 4px;">0/5000</small>
                             </div>
 
                             <!-- Etiquetas -->
                             <div class="field">
                                 <label>Etiquetas</label>
                                 <input type="text" placeholder="Añade etiquetas relevantes (Ej. medicina, herbolaria)">
-                                <small style="display: block; color: #4f46e5; font-size: 0.75rem; margin-top: 6px;">Separa las etiquetas con comas</small>
+                                <small
+                                    style="display: block; color: #4f46e5; font-size: 0.75rem; margin-top: 6px;">Separa
+                                    las etiquetas con comas</small>
                             </div>
 
                             <!-- Fecha (Columna izquierda completa) -->
                             <div class="field">
                                 <label>Fecha<span style="color:#2563eb">*</span></label>
                                 <div style="position: relative; display: flex; align-items: center;">
-                                    <input type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" placeholder="Selecciona fecha" style="width: 100%; padding-right: 36px;">
-                                    <i data-lucide="calendar" style="position: absolute; right: 12px; width: 16px; height: 16px; color: #64748b; pointer-events: none;"></i>
+                                    <input type="text" onfocus="(this.type='date')"
+                                        onblur="if(!this.value)this.type='text'" placeholder="Selecciona fecha"
+                                        style="width: 100%; padding-right: 36px;">
+                                    <i data-lucide="calendar"
+                                        style="position: absolute; right: 12px; width: 16px; height: 16px; color: #64748b; pointer-events: none;"></i>
                                 </div>
                             </div>
 
@@ -222,8 +206,11 @@
                                 <div class="field" style="margin: 0;">
                                     <label>Hora de inicio<span style="color:#2563eb">*</span></label>
                                     <div style="position: relative; display: flex; align-items: center;">
-                                        <input type="text" onfocus="(this.type='time')" onblur="if(!this.value)this.type='text'" placeholder="--:--" style="width: 100%; padding-right: 34px;">
-                                        <i data-lucide="clock" style="position: absolute; right: 10px; width: 16px; height: 16px; color: #64748b; pointer-events: none;"></i>
+                                        <input type="text" onfocus="(this.type='time')"
+                                            onblur="if(!this.value)this.type='text'" placeholder="--:--"
+                                            style="width: 100%; padding-right: 34px;">
+                                        <i data-lucide="clock"
+                                            style="position: absolute; right: 10px; width: 16px; height: 16px; color: #64748b; pointer-events: none;"></i>
                                     </div>
                                 </div>
 
@@ -247,25 +234,28 @@
                             <!-- Permitir comentarios -->
                             <div class="field">
                                 <label>Permitir comentarios</label>
-                                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
-                                    <span style="font-size: 0.85rem;">Los alumnos podrán comentar y hacer preguntas</span>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
+                                    <span style="font-size: 0.85rem;">Los alumnos podrán comentar y hacer
+                                        preguntas</span>
                                     <input type="checkbox" class="toggle-switch" checked>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
 
             </div>
 
             <!-- COLUMNA DERECHA -->
             <aside class="right-column" style="display: flex; flex-direction: column; gap: 20px;">
-                
+
                 <!-- Caja: Visibilidad -->
                 <div class="box">
                     <h3>Visibilidad</h3>
-                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 14px;">Elige quién puede ver tu vídeo</p>
-                    
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 14px;">Elige quién puede ver tu vídeo
+                    </p>
+
                     <div class="visibility-options" style="display: flex; flex-direction: column; gap: 14px;">
                         <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
                             <input type="radio" name="visibilidad" value="publico" checked style="margin-top: 4px;">
@@ -279,7 +269,8 @@
                             <input type="radio" name="visibilidad" value="no_listado" style="margin-top: 4px;">
                             <div>
                                 <strong style="display: block; font-size: 0.9rem;">No listado</strong>
-                                <span style="font-size: 0.78rem; color: #64748b;">Cualquiera con el enlace puede ver</span>
+                                <span style="font-size: 0.78rem; color: #64748b;">Cualquiera con el enlace puede
+                                    ver</span>
                             </div>
                         </label>
 
@@ -296,13 +287,16 @@
                 <!-- Caja: Miniatura -->
                 <div class="box" style="text-align: center;">
                     <h3 style="text-align: left;">Miniatura</h3>
-                    <p style="text-align: left; font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Selecciona o sube una imagen que represente tu vídeo.</p>
-                    
-                    <div class="thumbnail-preview" style="border: 1px dashed #cbd5e1; border-radius: 10px; height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #94a3b8;">
+                    <p style="text-align: left; font-size: 0.85rem; color: #64748b; margin-bottom: 12px;">Selecciona o
+                        sube una imagen que represente tu vídeo.</p>
+
+                    <div class="thumbnail-preview"
+                        style="border: 1px dashed #cbd5e1; border-radius: 10px; height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #94a3b8;">
                         <i data-lucide="image" style="width: 36px; height: 36px; stroke-width: 1.5;"></i>
                     </div>
 
-                    <label style="display: inline-block; background: #1d70e3; color: #fff; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">
+                    <label
+                        style="display: inline-block; background: #1d70e3; color: #fff; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">
                         Subir miniatura
                         <input type="file" accept="image/*" hidden>
                     </label>
@@ -312,9 +306,11 @@
                 <!-- Caja: Consejo y botón de publicar -->
                 <div class="box" style="background: #e2e8f0; border: none; text-align: center;">
                     <p style="text-align: left; font-size: 0.85rem; line-height: 1.4; margin-bottom: 16px;">
-                        <strong>Consejo:</strong> Asegúrate de que tu vídeo tenga buena calidad de audio e imagen para brindar mejor experiencia de aprendizaje.
+                        <strong>Consejo:</strong> Asegúrate de que tu vídeo tenga buena calidad de audio e imagen para
+                        brindar mejor experiencia de aprendizaje.
                     </p>
-                    <button type="submit" style="width: 100%; background: #10d4b4; color: #0f172a; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <button type="submit"
+                        style="width: 100%; background: #10d4b4; color: #0f172a; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 800; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
                         <span>Publicar vídeo</span>
                         <i data-lucide="upload" style="width: 18px; height: 18px; stroke-width: 2.2;"></i>
                     </button>
@@ -343,5 +339,9 @@
             });
         });
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/topbar.js"></script>
 </body>
+
 </html>

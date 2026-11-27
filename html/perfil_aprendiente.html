@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mi perfil | inspira-T</title>
-        <link rel="icon" href="../assiest/images/isotipo_blanco.png">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../assiest/css/styles.css">
-        <link rel="stylesheet" href="../assiest/css/app.css">
-    </head>
-    <body class="app" data-page="perfil_aprendiente.html" data-role="aprendiente">
-    <aside class="sidebar">
-        <div class="brand">
-            <img src="../assiest/images/isotipo_blanco.png" alt="">inspira-T
-        </div>
-        <nav><a href="../html/inicio_aprendiente.html" class="">Inicio</a><a href="../html/explorar.html" class="">Explorar</a><a href="../html/mi_aprendizaje.html" class="">Mi aprendizaje</a><a href="../html/mis_cursos.html" class="">Mis cursos</a></nav>
-        <div class="cta">Comparte tu conocimiento<a href="../html/subir_contenido.html">Quiero ser instructor</a></div>
-    </aside>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi perfil | inspira-T</title>
+    <link rel="icon" href="../assiest/images/isotipo_blanco.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assiest/css/styles.css">
+    <link rel="stylesheet" href="../assiest/css/app.css">
+</head>
+
+<body class="app" data-page="perfil_aprendiente.html" data-role="aprendiente">
+    <!-- Barra lateral izquierda -->
+    <div id="sidebar-container"></div>
     <main class="main">
-        <div class="topbar">
-            <div></div>
-            <div class="icons">
-                <span class="bell">🔔</span>
-                <a href="../html/perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
-            </div>
-        </div>
+        <!-- Barra superior -->
+        <div id="topbar-container"></div>
+
         <div class="profile-head">
-            <span class="avatar"></span>
+            <div class="avatar-wrapper">
+                <span class="avatar">
+                    <img src="../assiest/images/aprendiente_image.svg" alt="Foto de perfil">
+                </span>
+                <button type="button" class="edit-avatar-btn" title="Cambiar foto de perfil"
+                    aria-label="Cambiar foto de perfil">
+                    <i data-lucide="pencil"></i>
+                </button>
+            </div>
+
             <p>
                 <b id="uname">Nombre de usuario</b>
                 <br>
                 Aprendiente
             </p>
         </div>
+
+
         <div class="box">
             <div style="display:flex;justify-content:space-between">
                 <h3>Información personal</h3>
@@ -63,5 +69,9 @@
         </div>
     </main>
     <script src="../assiest/js/app.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/topbar.js"></script>
+</body>
 
-</body></html>
+</html>

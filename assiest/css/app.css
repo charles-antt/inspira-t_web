@@ -163,6 +163,54 @@ body.app {
     display: block;
 }
 
+.avatar-wrapper {
+    position: relative !important;
+    display: inline-block !important;
+    width: 115px !important;
+    height: 115px !important;
+    margin: 0 auto !important;
+}
+
+.avatar-wrapper .avatar {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+}
+
+.avatar-wrapper .avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+}
+
+.edit-avatar-btn {
+    position: absolute !important;
+    bottom: 2px !important;
+    right: 2px !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background-color: #ffffff !important;
+    border: 1px solid #94a3b8 !important;
+    color: #475569 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+    z-index: 2 !important;
+}
+
+.edit-avatar-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
 .topbar .bell {
     background: none;
     border: none;
@@ -240,7 +288,6 @@ h2 {
     border-radius: 10px;
     padding: 10px;
     background: #ffffff;
-    box-shadow: 0 2px 0 #dfe3eb
 }
 
 .thumb {
@@ -295,7 +342,7 @@ h2 {
     border: 0;
     border-radius: 8px;
     padding: 8px 16px;
-    font: 600 .85rem var(--fuente);
+    font: 600 1rem var(--fuente);
     cursor: pointer;
     background: var(--secondary-blue);
     color: #ffffff;
@@ -502,7 +549,7 @@ h2 {
 
 .field label {
     display: block;
-    font-size: .75rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px
 }
@@ -528,7 +575,7 @@ h2 {
 }
 
 .box h3 {
-    font-size: .9rem;
+    font-size: 1.2rem;
     margin-bottom: 10px
 }
 
@@ -555,10 +602,27 @@ h2 {
     font-size: .8rem
 }
 
-.lesson .thumb {
+/**.lesson .thumb {
     width: 70px;
     aspect-ratio: 16/10
+}**/
+.lesson .thumb {
+    width: 84px !important;
+    height: 62px !important;
+    aspect-ratio: auto !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    position: relative;
 }
+
+.lesson .thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
 
 .lesson div {
     flex: 1
@@ -618,7 +682,6 @@ td {
     width: 120px;
     height: 120px;
     background: #ffffff;
-    border: 6px solid #2e3440
 }
 
 .actions {

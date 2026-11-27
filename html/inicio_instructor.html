@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Inicio | inspira-T</title>
-        <link rel="icon" href="../assiest/images/isotipo_blanco.png">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../assiest/css/styles.css">
-        <link rel="stylesheet" href="../assiest/css/app.css">
-    </head>
-    <body class="app" data-page="inicio_instructor.html" data-role="instructor">
-    <aside class="sidebar">
-        <div class="brand">
-            <img src="../assiest/images/isotipo_blanco.png" alt="">inspira-T
-        </div>
-        <nav>
-            <a href="../html/inicio_instructor.html" class="active">Inicio</a>
-        </nav>
-    </aside>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio | inspira-T</title>
+    <link rel="icon" href="../assiest/images/isotipo_blanco.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assiest/css/styles.css">
+    <link rel="stylesheet" href="../assiest/css/app.css">
+</head>
+
+<body class="app" data-page="inicio_instructor.html" data-role="instructor">
+    <!-- Barra lateral izquierda -->
+    <div id="sidebar-container"></div>
     <main class="main">
-        <div class="topbar">
-            <div>
-                <h1>¡Bienvenido, instructor!</h1>
-                <p>Aquí se muestra la información de tus contenidos</p>
-            </div>
-            <div class="icons">
-                <span class="bell">🔔</span>
-                <a href="../html/perfil_instructor.html" class="avatar" aria-label="Mi perfil"></a>
-            </div>
-        </div>
+        <!-- Barra superior -->
+        <div id="topbar-container"></div>
         <div class="topbar-title"></div>
         <div class="grid g4">
             <div class="kpi" data-kpi>Cursos publicados<b>00</b></div>
@@ -37,7 +27,9 @@
             <div class="kpi" data-kpi>Horas de aprendizaje<b>00</b></div>
         </div>
         <div class="panel" style="display:flex;align-items:center;justify-content:space-between;margin-top:14px">
-            <div style="width:130px;height:130px;border-radius:50%;background:conic-gradient(#2f80ed 0 36%,#2dd4bf 36% 67%,#7b61ff 67% 93%,#1f3c88 93%)"></div>
+            <div
+                style="width:130px;height:130px;border-radius:50%;background:conic-gradient(#2f80ed 0 36%,#2dd4bf 36% 67%,#7b61ff 67% 93%,#1f3c88 93%)">
+            </div>
             <h2>Rendimiento por tipo de contenido</h2>
             <a class="btn" href="../html/subir_contenido.html">+ Nuevo Contenido</a>
         </div>
@@ -55,7 +47,13 @@
             <tbody id="rows">
                 <tr>
                     <td>
-                        <div class="thumb t1" style="width:90px;display:inline-block;vertical-align:middle"></div> Tejido ancestral 1
+                        <div class="thumb t1"
+                            style="width:90px; display:inline-block; vertical-align:middle; overflow:hidden; margin-right:10px;">
+                            <img src="../assiest/images/leccion1_tejido.svg" alt="Tejido ancestral 1"
+                                style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+
+                        Tejido ancestral 1
                     </td>
                     <td><span class="pill">Artesanías</span></td>
                     <td>12 Jun 2025</td>
@@ -64,7 +62,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="thumb t2" style="width:90px;display:inline-block;vertical-align:middle"></div> Bordado a mano 2
+                        <div class="thumb t1"
+                            style="width:90px; display:inline-block; vertical-align:middle; overflow:hidden; margin-right:10px;">
+                            <img src="../assiest/images/bordadoAmano2.svg" alt="Bordado a mano"
+                                style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        Bordado a mano 2
                     </td>
                     <td><span class="pill">Artesanías</span></td>
                     <td>25 May 2026</td>
@@ -73,7 +76,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="thumb t3" style="width:90px;display:inline-block;vertical-align:middle"></div> Cocina Prehispánica 1
+                        <div class="thumb t3"
+                            style="width:90px; display:inline-block; vertical-align:middle; overflow:hidden; margin-right:10px;">
+                            <img src="../assiest/images/cocina1.svg" alt="Cocina prehispánica 1"
+                                style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        Cocina Prehispánica 1
                     </td>
                     <td><span class="pill">Cocina</span></td>
                     <td>5 Jul 2025</td>
@@ -86,7 +94,9 @@
         </table>
 
     </main>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/topbar.js"></script>
+</body>
 
-   
-
-</body></html>
+</html>
