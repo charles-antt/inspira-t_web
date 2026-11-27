@@ -95,11 +95,9 @@ body.app {
 .topbar {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    /* Empuja todo el contenido hacia la derecha */
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     padding-bottom: 20px;
-    /* Ajusta el espacio arriba/abajo y a los lados */
     background-color: #ffffff;
 }
 
@@ -128,6 +126,21 @@ body.app {
     background-color: #7b61ff;
     /* Color morado del punto */
     border-radius: 50%;
+}
+
+.topbar-info h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #2e3440;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.topbar-info p {
+    font-size: 0.95rem;
+    color: #475569;
+    margin: 0;
+    font-weight: 500;
 }
 
 .avatar {
@@ -354,7 +367,7 @@ h2 {
 }
 
 .panel {
-    background: #ecf2fc;
+    background: #ffffff;
     border-radius: 10px;
     padding: 16px
 }
@@ -775,4 +788,55 @@ td {
 .seccionado {
     font-size: 1.3rem;
     font-weight: 500;
+}
+
+.instructor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el círculo y el texto horizontalmente */
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    min-width: 115px;
+    gap: 6px;
+    /* Espacio uniforme entre la imagen, el nombre y la especialidad */
+    transition: transform 0.2s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-3px);
+    /* Ligero efecto al pasar el cursor */
+}
+
+.instructor-card .inst-avatar {
+    width: 76px;
+    /* Ajusta el diámetro del círculo a tu gusto */
+    height: 76px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin: 0 auto 4px auto;
+}
+
+.instructor-card .inst-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.instructor-card b {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #2e3440;
+}
+
+.instructor-card small {
+    font-size: 0.72rem;
+    color: #475569;
+    line-height: 1.2;
 }

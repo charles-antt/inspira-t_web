@@ -2,14 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebarContainer = document.getElementById("sidebar-container");
     if (!sidebarContainer) return;
 
-    // 1. Inserta el HTML completo de tu barra lateral
+    // 1. Inserta el HTML sin ninguna clase "active" fija
     sidebarContainer.innerHTML = `
     <aside class="sidebar">
         <div class="brand">
             <img src="../assiest/images/isotipo_blanco.svg" alt="Logo inspira-T">
         </div>
         <nav>
-            <a href="../html/inicio_aprendiente.html" class="active" style="display: flex; align-items: center; gap: 10px;">
+            <a href="../html/inicio_aprendiente.html" style="display: flex; align-items: center; gap: 10px;">
                 <i data-lucide="home" class="menuIcons"></i>
                 <span class="menuOptions">Inicio</span>
             </a>
@@ -34,11 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
     </aside>
   `;
 
-    // 2. Detecta la página actual y activa su enlace automáticamente
-    const paginaActual = window.location.pathname.split("/").pop();
+    // 2. Detecta la página actual y activa solo ese enlace
+    const paginaActual = window.location.pathname.split("/").pop() || "inicio_aprendiente.html";
     const enlaces = sidebarContainer.querySelectorAll("nav a");
 
     enlaces.forEach((enlace) => {
+        enlace.classList.remove("active");
         const href = enlace.getAttribute("href").split("/").pop();
         if (href === paginaActual) {
             enlace.classList.add("active");

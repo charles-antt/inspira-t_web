@@ -1,274 +1,312 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Explorar | inspira-T</title>
     <link rel="icon" href="../assiest/images/isotipo_blanco.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assiest/css/styles.css">
     <link rel="stylesheet" href="../assiest/css/app.css">
 </head>
+
 <body class="app" data-page="explorar.html" data-role="aprendiente">
 
     <!-- Barra lateral izquierda -->
-    <aside class="sidebar">
-        <div class="brand">
-            <img src="../assiest/images/isotipo_blanco.png" alt="Logo inspira-T">
-            <span>inspira-T</span>
-        </div>
-        <nav>
-            <a href="inicio_aprendiente.html" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="home" style="width: 19px; height: 19px;"></i>
-                <span>Inicio</span>
-            </a>
-            <a href="explorar.html" class="active" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="compass" style="width: 19px; height: 19px;"></i>
-                <span>Explorar</span>
-            </a>
-            <a href="mi_aprendizaje.html" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="bookmark" style="width: 19px; height: 19px;"></i>
-                <span>Mi aprendizaje</span>
-            </a>
-            <a href="mis_cursos.html" style="display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="book-open" style="width: 19px; height: 19px;"></i>
-                <span>Mis cursos</span>
-            </a>
-        </nav>
-
-        <!-- Ilustración decorativa inferior -->
-        <div class="sidebar-illustration" style="margin-top: auto; text-align: center;">
-            <img src="../assiest/images/maceta_planta.png" alt="" aria-hidden="true">
-        </div>
-    </aside>
+    <div id="sidebar-container"></div>
 
     <!-- Contenido principal -->
     <main class="main">
         <!-- Barra superior -->
-        <div class="topbar">
-            <div>
-                <h1>Explorar</h1>
-                <p>Descubre la riqueza de nuestros saberes ancestrales.</p>
-            </div>
-            <div class="icons" style="display: flex; align-items: center; gap: 16px;">
-                <button type="button" class="bell" title="Notificaciones" style="background: none; border: none; cursor: pointer; position: relative; padding: 4px;">
-                    <i data-lucide="bell" style="width: 24px; height: 24px; color: #1e293b;"></i>
-                    <span style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #6366f1; border-radius: 50%;"></span>
-                </button>
-                <a href="perfil_aprendiente.html" class="avatar" aria-label="Mi perfil"></a>
-            </div>
-        </div>
+        <div id="topbar-container"></div>
 
         <!-- Cuadrícula de Categorías (3 columnas x 2 filas) -->
         <div class="grid g3">
-            
+
             <!-- 1. Agricultura Ancestral -->
-            <div class="cat cat-agri" style="background: #f4f7ee; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
+            <div class="cat cat-agri"
+                style="background: #f4f7ee; border-radius: 14px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
                 <div style="max-width: 60%; z-index: 1;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #e4ebd5; color: #4d6b26; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                    <div
+                        style="width: 44px; height: 44px; border-radius: 50%; background: #e4ebd5; color: #4d6b26; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
                         <i data-lucide="wheat" style="width: 24px; height: 24px;"></i>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; line-height: 1.2;">Agricultura Ancestral</h3>
-                    <p style="font-size: 0.78rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; line-height: 1.2;">Agricultura Ancestral</h3>
+                    <p style="font-size: 0.9rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
                         Técnicas tradicionales de cultivo, conservación de semillas y cuidado de la tierra.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
-                        <span class="pill" style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
+                        <span class="pill"
+                            style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
                             <i data-lucide="book-open" style="width: 13px; height: 13px;"></i> 48 cursos
                         </span>
-                        <a class="pill" href="mis_cursos.html" style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
+                        <a class="pill" href="mis_cursos.html"
+                            style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
                             <i data-lucide="check-circle-2" style="width: 13px; height: 13px;"></i> Inscribirme
                         </a>
                     </div>
                 </div>
-                <img src="../assiest/images/cat_agricultura.png" alt="Agricultura Ancestral" style="height: 165px; object-fit: contain;">
+                <img src="../assiest/images/cat_agricultura.svg" alt="Agricultura Ancestral"
+                    style="height: 200px; object-fit: contain; margin-right: -28px;">
             </div>
 
             <!-- 2. Medicina Tradicional -->
-            <div class="cat cat-med" style="background: #eef5f9; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
+            <div class="cat cat-med"
+                style="background: #eef5f9; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
                 <div style="max-width: 60%; z-index: 1;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #dce9f2; color: #4d6b26; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                    <div
+                        style="width: 44px; height: 44px; border-radius: 50%; background: #dce9f2; color: #4d6b26; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
                         <i data-lucide="sprout" style="width: 24px; height: 24px;"></i>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; line-height: 1.2;">Medicina Tradicional</h3>
-                    <p style="font-size: 0.78rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; line-height: 1.2;">Medicina Tradicional</h3>
+                    <p style="font-size: 0.9rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
                         Saberes herbales, remedios naturales y prácticas para el bienestar integral.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
-                        <span class="pill" style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
+                        <span class="pill"
+                            style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
                             <i data-lucide="book-open" style="width: 13px; height: 13px;"></i> 36 cursos
                         </span>
-                        <a class="pill" href="mis_cursos.html" style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
+                        <a class="pill" href="mis_cursos.html"
+                            style="background: #4d6b26; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
                             <i data-lucide="check-circle-2" style="width: 13px; height: 13px;"></i> Inscribirme
                         </a>
                     </div>
                 </div>
-                <img src="../assiest/images/cat_medicina.png" alt="Medicina Tradicional" style="height: 165px; object-fit: contain;">
+                <img src="../assiest/images/cat_medicina.svg" alt="Medicina Tradicional"
+                    style="height: 200px; object-fit: contain;  margin-right: -17px;">
             </div>
 
             <!-- 3. Artesanías -->
-            <div class="cat cat-art" style="background: #f0effa; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
+            <div class="cat cat-art"
+                style="background: #f0effa; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
                 <div style="max-width: 60%; z-index: 1;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #e1dff5; color: #4338ca; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                    <div
+                        style="width: 44px; height: 44px; border-radius: 50%; background: #e1dff5; color: #4338ca; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
                         <i data-lucide="amphora" style="width: 24px; height: 24px;"></i>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; line-height: 1.2;">Artesanías</h3>
-                    <p style="font-size: 0.78rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; line-height: 1.2;">Artesanías</h3>
+                    <p style="font-size: 0.9rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
                         Técnicas y procesos artesanales transmitidos de generación en generación.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
-                        <span class="pill" style="background: #4338ca; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
+                        <span class="pill"
+                            style="background: #4338ca; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
                             <i data-lucide="book-open" style="width: 13px; height: 13px;"></i> 52 cursos
                         </span>
-                        <a class="pill" href="mis_cursos.html" style="background: #4338ca; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
+                        <a class="pill" href="mis_cursos.html"
+                            style="background: #4338ca; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
                             <i data-lucide="check-circle-2" style="width: 13px; height: 13px;"></i> Inscribirme
                         </a>
                     </div>
                 </div>
-                <img src="../assiest/images/cat_artesanias.png" alt="Artesanías" style="height: 165px; object-fit: contain;">
+                <img src="../assiest/images/cat_artesanias.svg" alt="Artesanías"
+                    style="height: 200px; object-fit: contain; margin-right: -35px;">
             </div>
 
             <!-- 4. Lenguas Originarias -->
-            <div class="cat cat-len" style="background: #eceff4; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
+            <div class="cat cat-len"
+                style="background: #eceff4; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
                 <div style="max-width: 60%; z-index: 1;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #dce2ec; color: #3b5998; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                    <div
+                        style="width: 44px; height: 44px; border-radius: 50%; background: #dce2ec; color: #3b5998; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
                         <i data-lucide="music" style="width: 24px; height: 24px;"></i>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; line-height: 1.2;">Lenguas Originarias</h3>
-                    <p style="font-size: 0.78rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; line-height: 1.2;">Lenguas Originarias</h3>
+                    <p style="font-size: 0.9rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
                         Aprende, escucha y preserva nuestras lenguas y formas de expresión.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
-                        <span class="pill" style="background: #3b5998; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
+                        <span class="pill"
+                            style="background: #3b5998; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
                             <i data-lucide="book-open" style="width: 13px; height: 13px;"></i> 28 cursos
                         </span>
-                        <a class="pill" href="mis_cursos.html" style="background: #3b5998; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
+                        <a class="pill" href="mis_cursos.html"
+                            style="background: #3b5998; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
                             <i data-lucide="check-circle-2" style="width: 13px; height: 13px;"></i> Inscribirme
                         </a>
                     </div>
                 </div>
-                <img src="../assiest/images/cat_lenguas.png" alt="Lenguas Originarias" style="height: 165px; object-fit: contain;">
+                <img src="../assiest/images/cat_lenguas.svg" alt="Lenguas Originarias"
+                    style="height: 200px; object-fit: contain; margin-right: -18px;">
             </div>
 
             <!-- 5. Gastronomía Tradicional -->
-            <div class="cat cat-gas" style="background: #eff2f7; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
+            <div class="cat cat-gas"
+                style="background: #eff2f7; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
                 <div style="max-width: 60%; z-index: 1;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #dce5f2; color: #2b6cb0; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                    <div
+                        style="width: 44px; height: 44px; border-radius: 50%; background: #dce5f2; color: #2b6cb0; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
                         <i data-lucide="soup" style="width: 24px; height: 24px;"></i>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; line-height: 1.2;">Gastronomía Tradicional</h3>
-                    <p style="font-size: 0.78rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; line-height: 1.2;">Gastronomía Tradicional</h3>
+                    <p style="font-size: 0.9rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
                         Recetas, ingredientes y sabores que cuentan nuestra historia.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
-                        <span class="pill" style="background: #2b6cb0; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
+                        <span class="pill"
+                            style="background: #2b6cb0; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
                             <i data-lucide="book-open" style="width: 13px; height: 13px;"></i> 31 cursos
                         </span>
-                        <a class="pill" href="mis_cursos.html" style="background: #2b6cb0; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
+                        <a class="pill" href="mis_cursos.html"
+                            style="background: #2b6cb0; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
                             <i data-lucide="check-circle-2" style="width: 13px; height: 13px;"></i> Inscribirme
                         </a>
                     </div>
                 </div>
-                <img src="../assiest/images/cat_gastronomia.png" alt="Gastronomía Tradicional" style="height: 165px; object-fit: contain;">
+                <img src="../assiest/images/cat_gastronomia.svg" alt="Gastronomía Tradicional"
+                    style="height: 200px; object-fit: contain; margin-right: -25px;">
             </div>
 
             <!-- 6. Deportes y Juegos Tradicionales -->
-            <div class="cat cat-dep" style="background: #edf6f6; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
+            <div class="cat cat-dep"
+                style="background: #edf6f6; border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; overflow: hidden;">
                 <div style="max-width: 60%; z-index: 1;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #d6ebeb; color: #1e40af; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+                    <div
+                        style="width: 44px; height: 44px; border-radius: 50%; background: #d6ebeb; color: #1e40af; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
                         <i data-lucide="volleyball" style="width: 24px; height: 24px;"></i>
                     </div>
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.15rem; line-height: 1.2;">Deportes y Juegos Tradicionales</h3>
-                    <p style="font-size: 0.78rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
+                    <h3 style="margin: 0 0 6px 0; font-size: 1.2rem; line-height: 1.2;">Deportes y Juegos Tradicionales
+                    </h3>
+                    <p style="font-size: 0.9rem; color: #334155; margin: 0 0 12px 0; line-height: 1.35;">
                         Actividades físicas, juegos y prácticas que fortalecen el cuerpo y el espíritu.
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 6px; align-items: flex-start;">
-                        <span class="pill" style="background: #1e40af; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
+                        <span class="pill"
+                            style="background: #1e40af; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px;">
                             <i data-lucide="book-open" style="width: 13px; height: 13px;"></i> 22 cursos
                         </span>
-                        <a class="pill" href="mis_cursos.html" style="background: #1e40af; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
+                        <a class="pill" href="mis_cursos.html"
+                            style="background: #1e40af; color: #fff; display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; padding: 4px 12px; border-radius: 99px; text-decoration: none;">
                             <i data-lucide="check-circle-2" style="width: 13px; height: 13px;"></i> Inscribirme
                         </a>
                     </div>
                 </div>
-                <img src="../assiest/images/cat_deportes.png" alt="Deportes y Juegos Tradicionales" style="height: 165px; object-fit: contain;">
+                <img src="../assiest/images/cat_deportes.svg" alt="Deportes y Juegos Tradicionales"
+                    style="height: 200px; object-fit: contain; margin-right: -35px;">
             </div>
 
         </div>
 
         <!-- Panel: Instructores -->
         <div class="panel" style="margin-top: 18px; border: 1px solid #cbd5e1; border-radius: 14px; padding: 16px;">
-            <h2 style="text-align: center; font-size: 0.95rem; color: #64748b; margin: 0 0 14px 0;">Instructores</h2>
-            <div class="circle-row" style="display: flex; justify-content: space-between; gap: 12px; overflow-x: auto; text-align: center;">
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i1"></i>
-                    <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Don Mateo<br>Hernandez</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Lenguas Originarias</small>
+            <h2 style="text-align: center; font-size: 1.2rem; color: #64748b; margin: 0 0 14px 0;">Instructores</h2>
+            <div class="circle-row"
+                style="display: flex; justify-content: space-between; gap: 12px; overflow-x: auto; text-align: center;">
+
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/mateo.svg" alt="Don Mateo Hernandez">
+                    </div>
+                    <b>Don Mateo<br>Hernandez</b>
+                    <small>Lenguas Originarias</small>
                 </a>
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i2"></i>
-                    <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Norma<br>Lechuga López</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Gastronomía Tradicional</small>
+
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/norma.svg" alt="Norma Lechuga López">
+                    </div>
+                    <b>Norma<br>Lechuga López</b>
+                    <small>Gastronomía Tradicional</small>
                 </a>
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i3"></i>
-                    <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Elena<br>Ríos Flores</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Medicina Tradicional</small>
+
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/elena.svg" alt="Elena Ríos Flores">
+                    </div>
+                    <b>Elena<br>Ríos Flores</b>
+                    <small>Medicina Tradicional</small>
                 </a>
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i4"></i>
+
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/julieta.svg" alt="Julieta Alvarado">
+                    </div>
                     <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Julieta Alvarado</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Artesanías</small>
+                    <small>Artesanías</small>
                 </a>
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i5"></i>
+
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/marco.svg" alt="Marco Antonio Herrera">
+                    </div>
                     <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Marco Antonio<br>Herrera</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Agricultura Ancestral</small>
+                    <small>Agricultura Ancestral</small>
                 </a>
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i6"></i>
+
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/leticia.svg" alt="Leticia Garrido">
+                    </div>
                     <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Leticia<br>Garrido</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Juegos Tradicionales</small>
+                    <small>Juegos Tradicionales</small>
                 </a>
-                <a href="perfil_instructor_aprendiente.html" style="color: inherit; text-decoration: none; min-width: 110px;">
-                    <i class="inst-avatar i7"></i>
+                <a href="perfil_instructor_aprendiente.html" class="instructor-card">
+                    <div class="inst-avatar">
+                        <img src="../assiest/images/leticia.svg" alt="Ofelia Flores Ramírez">
+                    </div>
                     <b style="display: block; font-size: 0.78rem; line-height: 1.2;">Ofelia Flores<br>Ramírez</b>
-                    <small style="font-size: 0.68rem; color: #475569;">Artesanías</small>
+                    <small>Artesanías</small>
                 </a>
             </div>
         </div>
 
         <!-- Panel: Transmisiones en Vivo -->
         <div class="panel" style="margin-top: 16px; border: 1px solid #cbd5e1; border-radius: 14px; padding: 16px;">
-            <h2 style="text-align: center; font-size: 0.95rem; color: #64748b; margin: 0 0 14px 0;">Transmisiones en Vivo</h2>
+            <h2 style="text-align: center; font-size: 1.1rem; color: #64748b; margin: 0 0 14px 0;">Transmisiones en
+                Vivo</h2>
             <div class="grid g3">
                 <!-- Live 1 -->
                 <div class="card-c" style="border: none; padding: 0; background: transparent;">
-                    <div class="thumb t1" style="position: relative; height: 120px; border-radius: 10px; margin-bottom: 8px;">
-                        <span style="position: absolute; top: 8px; left: 8px; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px;">En vivo</span>
+                    <div class="thumb t1"
+                        style="position: relative; height: 120px; border-radius: 10px; margin-bottom: 8px; overflow: hidden;">
+
+                        <img src="../assiest/images/mole_tradicional.svg" alt="Mole tradicional de mi comunidad"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+
+                        <span
+                            style="position: absolute; top: 8px; left: 8px; z-index: 1; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px;">En
+                            vivo</span>
                     </div>
-                    <b style="display: block; font-size: 0.95rem; line-height: 1.25;">Mole tradicional de mi comunidad</b>
-                    <span style="display: block; font-size: 0.85rem; color: #1e293b;">con Juana Pérez</span>
+                    <b style="display: block; font-size: 1rem; line-height: 1.25;">Mole tradicional de mi
+                        comunidad</b>
+                    <span style="display: block; font-size: 1rem; color: #1e293b;">con Juana Pérez</span>
                     <small style="color: #475569;">Hoy, 5:00 pm</small>
                 </div>
 
+
                 <!-- Live 2 -->
                 <div class="card-c" style="border: none; padding: 0; background: transparent;">
-                    <div class="thumb t2" style="position: relative; height: 120px; border-radius: 10px; margin-bottom: 8px;">
-                        <span style="position: absolute; top: 8px; left: 8px; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px;">En vivo</span>
+                    <div class="thumb t2"
+                        style="position: relative; height: 120px; border-radius: 10px; margin-bottom: 8px;overflow: hidden;">
+                        <img src="../assiest/images/rituales.svg" alt="Rituales de agradecimiento a la
+                        tierra" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <span
+                            style="position: absolute; top: 8px; left: 8px; z-index: 1;background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px;">En
+                            vivo</span>
                     </div>
-                    <b style="display: block; font-size: 0.95rem; line-height: 1.25;">Rituales de agradecimiento a la tierra</b>
-                    <span style="display: block; font-size: 0.85rem; color: #1e293b;">Consejo de Ancianos</span>
+                    <b style="display: block; font-size: 1rem; line-height: 1.25;">Rituales de agradecimiento a la
+                        tierra</b>
+                    <span style="display: block; font-size: 1rem; color: #1e293b;">Consejo de Ancianos</span>
                     <small style="color: #475569;">Hoy, 6:30 pm</small>
                 </div>
 
                 <!-- Live 3 -->
-                <div class="card-c" style="border: none; padding: 0; background: transparent;">
-                    <div class="thumb t3" style="position: relative; height: 120px; border-radius: 10px; margin-bottom: 8px;">
-                        <span style="position: absolute; top: 8px; left: 8px; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px;">En vivo</span>
+                <div class="card-c" style="border: none; padding: 0;">
+                    <div class="thumb t3"
+                        style="position: relative; height: 120px; border-radius: 10px; margin-bottom: 8px;overflow: hidden;">
+                        <img src="../assiest/images/alfareria.svg" alt="Alfarería tradicional desde el origen"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <span
+                            style="position: absolute; top: 8px; left: 8px;z-index: 1; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px;">En
+                            vivo</span>
                     </div>
-                    <b style="display: block; font-size: 0.95rem; line-height: 1.25;">Alfarería tradicional desde el origen</b>
-                    <span style="display: block; font-size: 0.85rem; color: #1e293b;">con Francisco Díaz</span>
+                    <b style="display: block; font-size: 1rem; line-height: 1.25;">Alfarería tradicional desde el
+                        origen</b>
+                    <span style="display: block; font-size: 1rem; color: #1e293b;">con Francisco Díaz</span>
                     <small style="color: #475569;">Hoy, 7:00 pm</small>
                 </div>
             </div>
@@ -281,5 +319,8 @@
     <script>
         lucide.createIcons();
     </script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/topbar.js"></script>
 </body>
+
 </html>
